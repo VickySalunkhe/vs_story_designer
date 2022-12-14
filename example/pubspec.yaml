@@ -20,7 +20,7 @@ dependencies:
   dotted_border: ^2.0.0+3
   gap: ^2.0.1
 
-  stories_designer:
+  story_designer:
     path: ../
 
 dev_dependencies:

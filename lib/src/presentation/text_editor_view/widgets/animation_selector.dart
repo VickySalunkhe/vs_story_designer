@@ -2,11 +2,11 @@
 // import 'package:flutter/material.dart';
 // import 'package:flutter/services.dart';
 // import 'package:provider/provider.dart';
-// import 'package:stories_designer/src/domain/providers/notifiers/control_provider.dart';
-// import 'package:stories_designer/src/domain/providers/notifiers/text_editing_notifier.dart';
-// import 'package:stories_designer/src/presentation/utils/constants/app_enums.dart';
-// import 'package:stories_designer/src/presentation/utils/constants/font_family.dart';
-// import 'package:stories_designer/src/presentation/widgets/animated_onTap_button.dart';
+// import 'package:story_designer/src/domain/providers/notifiers/control_provider.dart';
+// import 'package:story_designer/src/domain/providers/notifiers/text_editing_notifier.dart';
+// import 'package:story_designer/src/presentation/utils/constants/app_enums.dart';
+// import 'package:story_designer/src/presentation/utils/constants/font_family.dart';
+// import 'package:story_designer/src/presentation/widgets/animated_onTap_button.dart';
 
 // class AnimationSelector extends StatelessWidget {
 //   const AnimationSelector({Key? key}) : super(key: key);
@@ -56,7 +56,7 @@
 //                             //     .fontList![editorNotifier.fontFamilyIndex],
 //                             // package: controlNotifier.isCustomFontList
 //                             //     ? null
-//                             //     : 'stories_designer'
+//                             //     : 'story_designer'
 //                             ))
 //                         .copyWith(
 //                             color: index == editorNotifier.fontAnimationIndex

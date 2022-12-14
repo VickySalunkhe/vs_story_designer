@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
-import 'package:stories_designer/src/domain/providers/notifiers/control_provider.dart';
-import 'package:stories_designer/src/domain/providers/notifiers/draggable_widget_notifier.dart';
-import 'package:stories_designer/src/domain/providers/notifiers/painting_notifier.dart';
-import 'package:stories_designer/src/domain/sevices/save_as_image.dart';
-import 'package:stories_designer/src/presentation/utils/modal_sheets.dart';
-import 'package:stories_designer/src/presentation/widgets/animated_onTap_button.dart';
-import 'package:stories_designer/src/presentation/widgets/tool_button.dart';
+import 'package:story_designer/src/domain/providers/notifiers/control_provider.dart';
+import 'package:story_designer/src/domain/providers/notifiers/draggable_widget_notifier.dart';
+import 'package:story_designer/src/domain/providers/notifiers/painting_notifier.dart';
+import 'package:story_designer/src/domain/sevices/save_as_image.dart';
+import 'package:story_designer/src/presentation/utils/modal_sheets.dart';
+import 'package:story_designer/src/presentation/widgets/animated_onTap_button.dart';
+import 'package:story_designer/src/presentation/widgets/tool_button.dart';
 
 class TopTools extends StatefulWidget {
   final GlobalKey contentKey;
@@ -69,7 +69,7 @@ class _TopToolsState extends State<TopTools> {
                     ToolButton(
                       child: const ImageIcon(
                         AssetImage('assets/icons/text.png',
-                            package: 'stories_designer'),
+                            package: 'story_designer'),
                         color: Colors.white,
                         size: 20,
                       ),
@@ -80,7 +80,7 @@ class _TopToolsState extends State<TopTools> {
                     // ToolButton(
                     //     child: const ImageIcon(
                     //       AssetImage('assets/icons/stickers.png',
-                    //           package: 'stories_designer'),
+                    //           package: 'story_designer'),
                     //       color: Colors.white,
                     //       size: 20,
                     //     ),
@@ -91,7 +91,7 @@ class _TopToolsState extends State<TopTools> {
                     ToolButton(
                         child: const ImageIcon(
                           AssetImage('assets/icons/draw.png',
-                              package: 'stories_designer'),
+                              package: 'story_designer'),
                           color: Colors.white,
                           size: 20,
                         ),
@@ -106,7 +106,7 @@ class _TopToolsState extends State<TopTools> {
                 // ToolButton(
                 //   child: ImageIcon(
                 //     const AssetImage('assets/icons/photo_filter.png',
-                //         package: 'stories_designer'),
+                //         package: 'story_designer'),
                 //     color: controlNotifier.isPhotoFilter ? Colors.black : Colors.white,
                 //     size: 20,
                 //   ),
@@ -118,7 +118,7 @@ class _TopToolsState extends State<TopTools> {
                 ToolButton(
                     child: const ImageIcon(
                       AssetImage('assets/icons/download.png',
-                          package: 'stories_designer'),
+                          package: 'story_designer'),
                       color: Colors.white,
                       size: 25,
                     ),

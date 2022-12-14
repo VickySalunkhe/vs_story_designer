@@ -1,21 +1,21 @@
 // ignore_for_file: must_be_immutable
-library stories_designer;
+library story_designer;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:stories_designer/src/domain/providers/notifiers/control_provider.dart';
-import 'package:stories_designer/src/domain/providers/notifiers/draggable_widget_notifier.dart';
-import 'package:stories_designer/src/domain/providers/notifiers/gradient_notifier.dart';
-import 'package:stories_designer/src/domain/providers/notifiers/painting_notifier.dart';
-import 'package:stories_designer/src/domain/providers/notifiers/scroll_notifier.dart';
-import 'package:stories_designer/src/domain/providers/notifiers/text_editing_notifier.dart';
-import 'package:stories_designer/src/presentation/main_view/main_view.dart';
+import 'package:story_designer/src/domain/providers/notifiers/control_provider.dart';
+import 'package:story_designer/src/domain/providers/notifiers/draggable_widget_notifier.dart';
+import 'package:story_designer/src/domain/providers/notifiers/gradient_notifier.dart';
+import 'package:story_designer/src/domain/providers/notifiers/painting_notifier.dart';
+import 'package:story_designer/src/domain/providers/notifiers/scroll_notifier.dart';
+import 'package:story_designer/src/domain/providers/notifiers/text_editing_notifier.dart';
+import 'package:story_designer/src/presentation/main_view/main_view.dart';
 
-export 'package:stories_designer/stories_designer.dart';
+export 'package:story_designer/story_designer.dart';
 
-class StoriesDesigner extends StatefulWidget {
+class StoryDesigner extends StatefulWidget {
   /// editor custom font families
   final List<String>? fontFamilyList;
 
@@ -49,7 +49,7 @@ class StoriesDesigner extends StatefulWidget {
   /// gallery thumbnail quality
   final int? galleryThumbnailQuality;
 
-  const StoriesDesigner(
+  const StoryDesigner(
       {Key? key,
       this.giphyKey,
       required this.onDone,
@@ -65,10 +65,10 @@ class StoriesDesigner extends StatefulWidget {
       : super(key: key);
 
   @override
-  _StoriesDesignerState createState() => _StoriesDesignerState();
+  _StoryDesignerState createState() => _StoryDesignerState();
 }
 
-class _StoriesDesignerState extends State<StoriesDesigner> {
+class _StoryDesignerState extends State<StoryDesigner> {
   @override
   void initState() {
     Paint.enableDithering = true;
