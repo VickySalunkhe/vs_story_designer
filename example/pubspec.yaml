@@ -34,12 +34,3 @@ flutter:
 
 
   uses-material-design: true
-
-  fonts:
-    - family:  Shizuru
-      fonts:
-        - asset: assets/fonts/Shizuru-Regular.ttf
-
-    - family: Aladin
-      fonts:
-        - asset: assets/fonts/Aladin-Regular.ttf
