@@ -227,19 +227,23 @@ class DraggableWidget extends StatelessWidget {
     return AppFonts.getTextTheme(
             controlNotifier.fontList![draggableWidget.fontFamily])
         .bodyText1!
-        .merge(TextStyle(
-          // fontFamily: controlNotifier.fontList![draggableWidget.fontFamily],
-          // package: controlNotifier.isCustomFontList ? null : 'vs_story_designer',
-          fontWeight: FontWeight.w500,
-          // shadows: <Shadow>[
-          //   Shadow(
-          //       offset: const Offset(0, 0),
-          //       //blurRadius: 3.0,
-          //       color: draggableWidget.textColor == Colors.black
-          //           ? Colors.white54
-          //           : Colors.black)
-          // ]
-        ))
+        .merge(
+          TextStyle(
+            // fontFamily: controlNotifier.fontList![draggableWidget.fontFamily],
+            // package: controlNotifier.isCustomFontList ? null : 'vs_story_designer',
+            fontWeight: FontWeight.w500,
+            shadows: !controlNotifier.enableTextShadow
+                ? []
+                : <Shadow>[
+                    Shadow(
+                        offset: const Offset(0, 0),
+                        blurRadius: 3.0,
+                        color: draggableWidget.textColor == Colors.black
+                            ? Colors.white54
+                            : Colors.black)
+                  ],
+          ),
+        )
         .copyWith(
             color: background ? Colors.black : draggableWidget.textColor,
             fontSize:

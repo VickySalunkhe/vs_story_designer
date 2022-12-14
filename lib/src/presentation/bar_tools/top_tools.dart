@@ -68,15 +68,22 @@ class _TopToolsState extends State<TopTools> {
                           }),
                     ToolButton(
                       child: const ImageIcon(
-                        AssetImage('assets/icons/text.png',
-                            package: 'vs_story_designer'),
-                        color: Colors.white,
-                        size: 20,
-                      ),
+                          AssetImage('assets/icons/text.png',
+                              package: 'vs_story_designer'),
+                          color: Colors.white,
+                          size: 20),
                       backGroundColor: Colors.black12,
                       onTap: () => controlNotifier.isTextEditing =
                           !controlNotifier.isTextEditing,
                     ),
+                    ToolButton(
+                        child: Icon(Icons.text_fields_sharp,
+                            color: Colors.white, size: 30),
+                        backGroundColor: Colors.black12,
+                        onTap: () {
+                          controlNotifier.enableTextShadow =
+                              !controlNotifier.enableTextShadow;
+                        }),
                     // ToolButton(
                     //     child: const ImageIcon(
                     //       AssetImage('assets/icons/stickers.png',
@@ -88,6 +95,7 @@ class _TopToolsState extends State<TopTools> {
                     //     onTap: () => createGiphyItem(
                     //         context: context,
                     //         giphyKey: controlNotifier.giphyKey)),
+
                     ToolButton(
                         child: const ImageIcon(
                           AssetImage('assets/icons/draw.png',

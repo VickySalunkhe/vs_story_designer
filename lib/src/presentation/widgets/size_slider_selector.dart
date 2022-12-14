@@ -23,12 +23,13 @@ class _SizeSliderWidgetState extends State<SizeSliderWidget> {
     return Consumer3<TextEditingNotifier, ControlNotifier, PaintingNotifier>(
       builder: (context, editorNotifier, controlNotifier, paintingNotifier, _) {
         return Stack(
-          alignment: Alignment.center,
+          alignment: Alignment.topLeft,
           children: [
             /// custom paint
             AnimatedContainer(
                 duration: const Duration(milliseconds: 300),
                 padding: EdgeInsets.only(right: _isChange ? 0 : 15),
+                margin: const EdgeInsets.only(bottom: 150),
                 width: _isChange ? 39 : 10,
                 height: 300,
                 child: CustomPaint(
@@ -39,7 +40,8 @@ class _SizeSliderWidgetState extends State<SizeSliderWidget> {
 
             /// slider decoration with animations
             AnimatedContainer(
-              padding: EdgeInsets.only(left: _isChange ? 1 : 1, right: 2.1),
+              margin: const EdgeInsets.only(bottom: 150),
+              padding: EdgeInsets.only(left: _isChange ? 1 : 10, right: 2.1),
               duration: const Duration(milliseconds: 300),
               width: _isChange ? 39 : 15,
               height: 300,

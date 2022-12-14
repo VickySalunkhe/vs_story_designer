@@ -16,7 +16,7 @@ class FontSelector extends StatelessWidget {
     return Consumer2<TextEditingNotifier, ControlNotifier>(
       builder: (context, editorNotifier, controlNotifier, child) {
         return Container(
-          height: screenUtil.screenWidth * 0.22,
+          height: screenUtil.screenHeight * 0.12,
           width: screenUtil.screenWidth,
           alignment: Alignment.center,
           child: PageView.builder(

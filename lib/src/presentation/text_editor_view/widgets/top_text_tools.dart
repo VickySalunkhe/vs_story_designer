@@ -21,6 +21,7 @@ class TopTextTools extends StatelessWidget {
                 children: [
                   /// font family / font color
                   ToolButton(
+                    borderHide: !editorNotifier.isFontFamily ? false : true,
                     onTap: () {
                       editorNotifier.isFontFamily =
                           !editorNotifier.isFontFamily;
@@ -67,15 +68,23 @@ class TopTextTools extends StatelessWidget {
                   /// background color
                   ToolButton(
                     onTap: editorNotifier.onBackGroundChange,
+                    backGroundColor:
+                        editorNotifier.backGroundColor != Colors.transparent
+                            ? Colors.white.withOpacity(0.9)
+                            : Colors.black12,
                     child: Transform.scale(
                         scale: 0.7,
-                        child: const Center(
+                        child: Center(
                           child: Padding(
-                            padding: EdgeInsets.only(left: 5, bottom: 3),
+                            padding: const EdgeInsets.only(left: 5, bottom: 3),
                             child: ImageIcon(
-                              AssetImage('assets/icons/font_backGround.png',
+                              const AssetImage(
+                                  'assets/icons/font_backGround.png',
                                   package: 'vs_story_designer'),
-                              color: Colors.white,
+                              color: editorNotifier.backGroundColor !=
+                                      Colors.transparent
+                                  ? Colors.black
+                                  : Colors.white,
                             ),
                           ),
                         )),

@@ -8,11 +8,13 @@ class ToolButton extends StatelessWidget {
   final EdgeInsets? padding;
   final Function()? onLongPress;
   final Color colorBorder;
+  final bool? borderHide;
   const ToolButton(
       {Key? key,
       required this.onTap,
       required this.child,
       this.backGroundColor,
+      this.borderHide = false,
       this.padding,
       this.onLongPress,
       this.colorBorder = Colors.white})
@@ -35,11 +37,13 @@ class ToolButton extends StatelessWidget {
             child: Container(
               height: 36,
               width: 36,
-              decoration: BoxDecoration(
-                  color: backGroundColor ?? Colors.transparent,
-                  // shape: BoxShape.circle,
-                  borderRadius: BorderRadius.circular(5),
-                  border: Border.all(color: Colors.white, width: 0.5)),
+              decoration: borderHide!
+                  ? null
+                  : BoxDecoration(
+                      color: backGroundColor ?? Colors.transparent,
+                      // shape: BoxShape.circle,
+                      borderRadius: BorderRadius.circular(5),
+                      border: Border.all(color: Colors.white, width: 0.5)),
               child: Transform.scale(
                 scale: 0.8,
                 child: child,

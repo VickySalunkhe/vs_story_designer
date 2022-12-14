@@ -28,7 +28,7 @@ class TextFieldWidget extends StatelessWidget {
               alignment: Alignment.center,
               children: [
                 // Padding(
-                //   padding: const EdgeInsets.only(right: 2),
+                //   padding: const EdgeInsets.only(right: 0),
                 //   child: _text(
                 //     editorNotifier: editorNotifier,
                 //     textNode: _textNode,
@@ -40,7 +40,7 @@ class TextFieldWidget extends StatelessWidget {
                   editorNotifier: editorNotifier,
                   textNode: _textNode,
                   controlNotifier: controlNotifier,
-                  paintingStyle: PaintingStyle.stroke,
+                  paintingStyle: PaintingStyle.fill,
                 )
               ],
             )),
@@ -50,43 +50,45 @@ class TextFieldWidget extends StatelessWidget {
     );
   }
 
-  Widget _text({
-    required TextEditingNotifier editorNotifier,
-    required FocusNode textNode,
-    required ControlNotifier controlNotifier,
-    required PaintingStyle paintingStyle,
-  }) {
-    return Text(
-      editorNotifier.textController.text,
-      textAlign: editorNotifier.textAlign,
-      style: AppFonts.getTextTheme(
-              controlNotifier.fontList![editorNotifier.fontAnimationIndex])
-          .bodyText1!
-          .merge(TextStyle(
-            // fontFamily: controlNotifier.fontList![editorNotifier.fontFamilyIndex],
-            // package: controlNotifier.isCustomFontList ? null : 'vs_story_designer',
-            shadows: <Shadow>[
-              Shadow(
-                  offset: const Offset(1.0, 1.0),
-                  blurRadius: 3.0,
-                  color: editorNotifier.textColor == Colors.black
-                      ? Colors.white54
-                      : Colors.black)
-            ],
-          ))
-          .copyWith(
-              color: controlNotifier.colorList![editorNotifier.textColor],
-              fontSize: editorNotifier.textSize,
-              background: Paint()
-                ..strokeWidth = 20.0
-                ..color = editorNotifier.backGroundColor
-                ..style = paintingStyle
-                ..strokeJoin = StrokeJoin.round
-                ..filterQuality = FilterQuality.high
-                ..strokeCap = StrokeCap.round
-                ..maskFilter = const MaskFilter.blur(BlurStyle.solid, 1)),
-    );
-  }
+  // Widget _text({
+  //   required TextEditingNotifier editorNotifier,
+  //   required FocusNode textNode,
+  //   required ControlNotifier controlNotifier,
+  //   required PaintingStyle paintingStyle,
+  // }) {
+  //   return Text(
+  //     editorNotifier.textController.text,
+  //     textAlign: editorNotifier.textAlign,
+  //     style: AppFonts.getTextTheme(
+  //             controlNotifier.fontList![editorNotifier.fontAnimationIndex])
+  //         .bodyText1!
+  //         .merge(TextStyle(
+  //           // fontFamily: controlNotifier.fontList![editorNotifier.fontFamilyIndex],
+  //           // package: controlNotifier.isCustomFontList ? null : 'vs_story_designer',
+  //           shadows: !controlNotifier.enableTextShadow
+  //               ? []
+  //               : <Shadow>[
+  //                   Shadow(
+  //                       offset: const Offset(1.0, 1.0),
+  //                       blurRadius: 3.0,
+  //                       color: editorNotifier.textColor == Colors.black
+  //                           ? Colors.white54
+  //                           : Colors.black)
+  //                 ],
+  //         ))
+  //         .copyWith(
+  //             color: controlNotifier.colorList![editorNotifier.textColor],
+  //             fontSize: editorNotifier.textSize,
+  //             background: Paint()
+  //               ..strokeWidth = 20.0
+  //               ..color = editorNotifier.backGroundColor
+  //               ..style = paintingStyle
+  //               ..strokeJoin = StrokeJoin.round
+  //               ..filterQuality = FilterQuality.high
+  //               ..strokeCap = StrokeCap.round
+  //               ..maskFilter = const MaskFilter.blur(BlurStyle.solid, 1)),
+  //   );
+  // }
 
   Widget _textField({
     required TextEditingNotifier editorNotifier,
@@ -103,19 +105,25 @@ class TextFieldWidget extends StatelessWidget {
       style: AppFonts.getTextTheme(
               controlNotifier.fontList![editorNotifier.fontFamilyIndex])
           .bodyText1!
-          .merge(TextStyle(
+          .merge(
+            TextStyle(
               // fontFamily:
               //     controlNotifier.fontList![editorNotifier.fontFamilyIndex],
               // package:
               //     controlNotifier.isCustomFontList ? null : 'vs_story_designer',
-              shadows: <Shadow>[
-                Shadow(
-                    offset: const Offset(1.0, 1.0),
-                    blurRadius: 3.0,
-                    color: editorNotifier.textColor == Colors.black
-                        ? Colors.white54
-                        : Colors.black)
-              ], backgroundColor: Colors.redAccent))
+              shadows: !controlNotifier.enableTextShadow
+                  ? []
+                  : <Shadow>[
+                      Shadow(
+                          offset: const Offset(1.0, 1.0),
+                          blurRadius: 3.0,
+                          color: editorNotifier.textColor == Colors.black
+                              ? Colors.white54
+                              : Colors.black)
+                    ],
+              backgroundColor: Colors.redAccent,
+            ),
+          )
           .copyWith(
         color: controlNotifier.colorList![editorNotifier.textColor],
         fontSize: editorNotifier.textSize,

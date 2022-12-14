@@ -113,4 +113,13 @@ class ControlNotifier extends ChangeNotifier {
     _isPhotoFilter = filter;
     notifyListeners();
   }
+
+  // Enable / Disable Text Shadow
+  // ignore: prefer_final_fields
+  bool _enableTextShadow = true;
+  bool get enableTextShadow => _enableTextShadow;
+  set enableTextShadow(bool filter) {
+    _enableTextShadow = filter;
+    notifyListeners();
+  }
 }

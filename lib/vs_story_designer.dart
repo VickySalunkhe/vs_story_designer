@@ -49,6 +49,9 @@ class VSStoryDesigner extends StatefulWidget {
   /// gallery thumbnail quality
   final int? galleryThumbnailQuality;
 
+  // Text appearing on center of design screen
+  final String? centerText;
+
   const VSStoryDesigner(
       {Key? key,
       this.giphyKey,
@@ -60,6 +63,7 @@ class VSStoryDesigner extends StatefulWidget {
       this.isCustomFontList,
       this.onBackPress,
       this.onDoneButtonStyle,
+      required this.centerText,
       this.editorBackgroundColor,
       this.galleryThumbnailQuality})
       : super(key: key);
@@ -109,6 +113,7 @@ class _VSStoryDesignerState extends State<VSStoryDesigner> {
           child: MainView(
             giphyKey: widget.giphyKey,
             onDone: widget.onDone,
+            centerText: widget.centerText,
             fontFamilyList: widget.fontFamilyList,
             isCustomFontList: widget.isCustomFontList,
             middleBottomWidget: widget.middleBottomWidget,

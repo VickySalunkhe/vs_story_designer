@@ -61,6 +61,10 @@ class MainView extends StatefulWidget {
 
   /// editor custom color palette list
   List<Color>? colorList;
+
+  // Text appearing on center of design screen
+  final String? centerText;
+
   MainView(
       {Key? key,
       this.giphyKey,
@@ -70,6 +74,7 @@ class MainView extends StatefulWidget {
       this.isCustomFontList,
       this.fontFamilyList,
       this.gradientColors,
+      this.centerText,
       this.onBackPress,
       this.onDoneButtonStyle,
       this.editorBackgroundColor,
@@ -294,23 +299,30 @@ class _MainViewState extends State<MainView> {
                               ignoring: true,
                               child: Align(
                                 alignment: const Alignment(0, -0.1),
-                                child: Text('Tap to Create Your Nimble!',
-                                    style: AppFonts.getTextTheme('Garamond')
-                                        .bodyText1!
-                                        .merge(TextStyle(
-                                            package: 'vs_story_designer',
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 25,
-                                            color:
-                                                Colors.white.withOpacity(0.5),
-                                            shadows: <Shadow>[
-                                              Shadow(
-                                                  offset:
-                                                      const Offset(1.0, 1.0),
-                                                  blurRadius: 3.0,
-                                                  color: Colors.black45
-                                                      .withOpacity(0.3))
-                                            ]))),
+                                child: Text(
+                                  widget.centerText!,
+                                  style: AppFonts.getTextTheme('Garamond')
+                                      .bodyText1!
+                                      .merge(
+                                        TextStyle(
+                                          package: 'vs_story_designer',
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 25,
+                                          color: Colors.white.withOpacity(0.5),
+                                          shadows:
+                                              !controlNotifier.enableTextShadow
+                                                  ? []
+                                                  : <Shadow>[
+                                                      Shadow(
+                                                          offset: const Offset(
+                                                              1.0, 1.0),
+                                                          blurRadius: 3.0,
+                                                          color: Colors.black45
+                                                              .withOpacity(0.3))
+                                                    ],
+                                        ),
+                                      ),
+                                ),
                               ),
                             ),
 
