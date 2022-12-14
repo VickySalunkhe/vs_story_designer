@@ -1,3 +1,2 @@
-## 0.2.2
-- update dependencies
-- fixed ui and some logic
+## 1.0.0
+- Launch
