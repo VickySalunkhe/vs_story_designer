@@ -1,7 +1,7 @@
 name: story_designer
 description: This is a package created in the style of the instagram story creator, with which you can create images with images, texts, finger drawing.
 version: 1.0.0
-# Homepage: https://github.com/VickySalunkhe/story_designer
+# homepage https://github.com/VickySalunkhe/story_designer
 
 environment:
   sdk: '>=2.18.2 <3.0.0'
@@ -16,7 +16,7 @@ dependencies:
   image: ^3.2.2
   path_provider: ^2.0.11
   photo_view: ^0.14.0
-  google_fonts: 2.3.1
+  google_fonts: ^2.3.1
   image_gallery_saver: ^1.7.1
   #own packages
   gallery_media_picker: ^0.0.82
