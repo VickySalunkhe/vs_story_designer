@@ -22,11 +22,11 @@ This is a package created in the style of the instagram story creator, with whic
 [✔️] Get draft local path uri
 
 ## Demo
-If you don't see the images go to the [github repository](https://github.com/camilo1498/story_designer) and by the way give me a star :D
+If you don't see the images go to the [github repository](https://github.com/VickySalunkhe/story_designer) and by the way give me a star :D
 
 <p float="left"> 
-   <img src="https://github.com/camilo1498/story_designer/blob/main/stories%20editor%20screenshots/demo.gif" alt="showcase gif" title="custom view" width="200"/>
-   <img src="https://github.com/camilo1498/story_designer/blob/main/stories%20editor%20screenshots/text_animations.gif" alt="showcase gif" title="custom view" width="200"/> 
+   <img src="https://github.com/VickySalunkhe/story_designer/blob/main/stories%20editor%20screenshots/demo.gif" alt="showcase gif" title="custom view" width="200"/>
+   <img src="https://github.com/VickySalunkhe/story_designer/blob/main/stories%20editor%20screenshots/text_animations.gif" alt="showcase gif" title="custom view" width="200"/> 
 </p>
 
 ## Installation
@@ -42,7 +42,7 @@ import 'package:story_designer/story_designer.dart';
 ## How to use
 1)
    ### Android
-   add uses-permission `AndroidMAnifest.xml` file
+   add uses-permission `AndroidManifest.xml` file
       ```xml
        <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
@@ -62,10 +62,10 @@ import 'package:story_designer/story_designer.dart';
       <key>NSPhotoLibraryAddUsageDescription</key>
       <string>NSPhotoLibraryAddUsageDescription</string>
       ```
-2) Create a `StoriesDesigner()` widget with the follow params:
+2) Create a `StoryDesigner()` widget with the follow params:
 
 ```dart
-StoriesDesigner(
+StoryDesigner(
     giphyKey: '[YOUR GIPHY API KEY]', /// (String)
     onDone: (String uri){
       /// uri is the local path of final render Uint8List
@@ -100,7 +100,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter stories Designer Demo',
+      title: 'Flutter Story Designer Demo',
       theme: ThemeData(
 
         primarySwatch: Colors.blue,
@@ -137,7 +137,7 @@ class _ExampleState extends State<Example> {
               ))
               );
             },
-            child: const Text('Open Stories Designer'),
+            child: const Text('Open Story Designer'),
           ),
         )
     );
@@ -151,62 +151,62 @@ class _ExampleState extends State<Example> {
 
 initial view
 <p float="left"> 
-<img src="https://github.com/camilo1498/story_designer/blob/main/stories%20editor%20screenshots/1.jpg" width="130" height="250">
-<img src="https://github.com/camilo1498/story_designer/blob/main/stories%20editor%20screenshots/2.jpg" width="130" height="250">
+<img src="https://github.com/VickySalunkhe/story_designer/blob/main/stories%20editor%20screenshots/1.jpg" width="130" height="250">
+<img src="https://github.com/VickySalunkhe/story_designer/blob/main/stories%20editor%20screenshots/2.jpg" width="130" height="250">
 </p>  
 
 
 Custom image picker made with [Photo_manager](https://pub.dev/packages/photo_manager) package
 <p float="left"> 
-<img src="https://github.com/camilo1498/story_designer/blob/main/stories%20editor%20screenshots/3.jpg" width="130" height="250">
-<img src="https://github.com/camilo1498/story_designer/blob/main/stories%20editor%20screenshots/4.jpg" width="130" height="250">
+<img src="https://github.com/VickySalunkhe/story_designer/blob/main/stories%20editor%20screenshots/3.jpg" width="130" height="250">
+<img src="https://github.com/VickySalunkhe/story_designer/blob/main/stories%20editor%20screenshots/4.jpg" width="130" height="250">
 </p>  
 
 
 Gradient background taking image color pixel
 <p float="left"> 
-<img src="https://github.com/camilo1498/story_designer/blob/main/stories%20editor%20screenshots/20.jpg" width="130" height="250">
-<img src="https://github.com/camilo1498/story_designer/blob/main/stories%20editor%20screenshots/21.jpg" width="130" height="250">
-<img src="https://github.com/camilo1498/story_designer/blob/main/stories%20editor%20screenshots/22.jpg" width="130" height="250">
-<img src="https://github.com/camilo1498/story_designer/blob/main/stories%20editor%20screenshots/23.jpg" width="130" height="250">
+<img src="https://github.com/VickySalunkhe/story_designer/blob/main/stories%20editor%20screenshots/20.jpg" width="130" height="250">
+<img src="https://github.com/VickySalunkhe/story_designer/blob/main/stories%20editor%20screenshots/21.jpg" width="130" height="250">
+<img src="https://github.com/VickySalunkhe/story_designer/blob/main/stories%20editor%20screenshots/22.jpg" width="130" height="250">
+<img src="https://github.com/VickySalunkhe/story_designer/blob/main/stories%20editor%20screenshots/23.jpg" width="130" height="250">
 </p>  
 
 
 Exit Dialog
 <p float="left"> 
-<img src="https://github.com/camilo1498/story_designer/blob/main/stories%20editor%20screenshots/5.jpg" width="130" height="250">
+<img src="https://github.com/VickySalunkhe/story_designer/blob/main/stories%20editor%20screenshots/5.jpg" width="130" height="250">
 </p>  
 
 Custom finger Drawing made with [perfect_freehand](https://pub.dev/packages/perfect_freehand) package
 <p float="left"> 
-<img src="https://github.com/camilo1498/story_designer/blob/main/stories%20editor%20screenshots/14.jpg" width="130" height="250">
-<img src="https://github.com/camilo1498/story_designer/blob/main/stories%20editor%20screenshots/24.jpg" width="130" height="250">
+<img src="https://github.com/VickySalunkhe/story_designer/blob/main/stories%20editor%20screenshots/14.jpg" width="130" height="250">
+<img src="https://github.com/VickySalunkhe/story_designer/blob/main/stories%20editor%20screenshots/24.jpg" width="130" height="250">
 </p>  
 
 
 Text Editor
 <p float="left"> 
-<img src="https://github.com/camilo1498/story_designer/blob/main/stories%20editor%20screenshots/10.jpg" width="130" height="250">
-<img src="https://github.com/camilo1498/story_designer/blob/main/stories%20editor%20screenshots/11.jpg" width="130" height="250">
-<img src="https://github.com/camilo1498/story_designer/blob/main/stories%20editor%20screenshots/12.jpg" width="130" height="250">
+<img src="https://github.com/VickySalunkhe/story_designer/blob/main/stories%20editor%20screenshots/10.jpg" width="130" height="250">
+<img src="https://github.com/VickySalunkhe/story_designer/blob/main/stories%20editor%20screenshots/11.jpg" width="130" height="250">
+<img src="https://github.com/VickySalunkhe/story_designer/blob/main/stories%20editor%20screenshots/12.jpg" width="130" height="250">
 </p>  
 
 
 All features together
 <p float="left"> 
-<img src="https://github.com/camilo1498/story_designer/blob/main/stories%20editor%20screenshots/17.jpg" width="130" height="250">
+<img src="https://github.com/VickySalunkhe/story_designer/blob/main/stories%20editor%20screenshots/17.jpg" width="130" height="250">
 </p>  
 
 
 Share to social networks made with [share_plus](https://pub.dev/packages/share_plus) package
 <p float="left"> 
-<img src="https://github.com/camilo1498/story_designer/blob/main/stories%20editor%20screenshots/19.jpg" width="130" height="250">
+<img src="https://github.com/VickySalunkhe/story_designer/blob/main/stories%20editor%20screenshots/19.jpg" width="130" height="250">
 </p>  
 
 
 Saved image
 <p float="left"> 
-<img src="https://github.com/camilo1498/story_designer/blob/main/stories%20editor%20screenshots/18.jpg" width="130" height="250">
+<img src="https://github.com/VickySalunkhe/story_designer/blob/main/stories%20editor%20screenshots/18.jpg" width="130" height="250">
 </p>  
 
 
