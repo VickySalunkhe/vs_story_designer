@@ -43,7 +43,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "dev.camilo.flutter.story_designer.example.example"
+        applicationId "dev.camilo.flutter.vs_story_designer.example.example"
         minSdkVersion 25
         targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()

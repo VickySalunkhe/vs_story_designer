@@ -3,9 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:story_designer/src/domain/providers/notifiers/control_provider.dart';
-import 'package:story_designer/src/domain/providers/notifiers/text_editing_notifier.dart';
-import 'package:story_designer/src/presentation/utils/constants/font_family.dart';
+import 'package:vs_story_designer/src/domain/providers/notifiers/control_provider.dart';
+import 'package:vs_story_designer/src/domain/providers/notifiers/text_editing_notifier.dart';
+import 'package:vs_story_designer/src/presentation/utils/constants/font_family.dart';
 
 class TextFieldWidget extends StatelessWidget {
   const TextFieldWidget({Key? key}) : super(key: key);
@@ -64,7 +64,7 @@ class TextFieldWidget extends StatelessWidget {
           .bodyText1!
           .merge(TextStyle(
             // fontFamily: controlNotifier.fontList![editorNotifier.fontFamilyIndex],
-            // package: controlNotifier.isCustomFontList ? null : 'story_designer',
+            // package: controlNotifier.isCustomFontList ? null : 'vs_story_designer',
             shadows: <Shadow>[
               Shadow(
                   offset: const Offset(1.0, 1.0),
@@ -107,7 +107,7 @@ class TextFieldWidget extends StatelessWidget {
               // fontFamily:
               //     controlNotifier.fontList![editorNotifier.fontFamilyIndex],
               // package:
-              //     controlNotifier.isCustomFontList ? null : 'story_designer',
+              //     controlNotifier.isCustomFontList ? null : 'vs_story_designer',
               shadows: <Shadow>[
                 Shadow(
                     offset: const Offset(1.0, 1.0),

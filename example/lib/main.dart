@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:story_designer/story_designer.dart';
+import 'package:vs_story_designer/vs_story_designer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -69,7 +69,7 @@ class _ExampleState extends State<Example> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => StoryDesigner(
+                          builder: (context) => VSStoryDesigner(
                                 // fontFamilyList: const [
                                 //   "Oswald",
                                 //   "Poppins",

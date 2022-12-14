@@ -5,13 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:provider/provider.dart';
-import 'package:story_designer/src/domain/models/painting_model.dart';
-import 'package:story_designer/src/domain/providers/notifiers/control_provider.dart';
-import 'package:story_designer/src/domain/providers/notifiers/painting_notifier.dart';
-import 'package:story_designer/src/presentation/painting_view/widgets/sketcher.dart';
-import 'package:story_designer/src/presentation/painting_view/widgets/top_painting_tools.dart';
-import 'package:story_designer/src/presentation/widgets/color_selector.dart';
-import 'package:story_designer/src/presentation/widgets/size_slider_selector.dart';
+import 'package:vs_story_designer/src/domain/models/painting_model.dart';
+import 'package:vs_story_designer/src/domain/providers/notifiers/control_provider.dart';
+import 'package:vs_story_designer/src/domain/providers/notifiers/painting_notifier.dart';
+import 'package:vs_story_designer/src/presentation/painting_view/widgets/sketcher.dart';
+import 'package:vs_story_designer/src/presentation/painting_view/widgets/top_painting_tools.dart';
+import 'package:vs_story_designer/src/presentation/widgets/color_selector.dart';
+import 'package:vs_story_designer/src/presentation/widgets/size_slider_selector.dart';
 
 class Painting extends StatefulWidget {
   const Painting({Key? key}) : super(key: key);

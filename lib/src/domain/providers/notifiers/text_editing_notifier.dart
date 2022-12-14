@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:story_designer/src/presentation/utils/constants/app_enums.dart';
+import 'package:vs_story_designer/src/presentation/utils/constants/app_enums.dart';
 
 class TextEditingNotifier extends ChangeNotifier {
   String _text = '';

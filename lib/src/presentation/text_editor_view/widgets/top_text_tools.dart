@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:story_designer/src/domain/providers/notifiers/text_editing_notifier.dart';
-import 'package:story_designer/src/presentation/widgets/tool_button.dart';
+import 'package:vs_story_designer/src/domain/providers/notifiers/text_editing_notifier.dart';
+import 'package:vs_story_designer/src/presentation/widgets/tool_button.dart';
 
 class TopTextTools extends StatelessWidget {
   final void Function() onDone;
@@ -39,13 +39,13 @@ class TopTextTools extends StatelessWidget {
                         child: !editorNotifier.isFontFamily
                             ? const ImageIcon(
                                 AssetImage('assets/icons/text.png',
-                                    package: 'story_designer'),
+                                    package: 'vs_story_designer'),
                                 size: 20,
                                 color: Colors.white,
                               )
                             : Image.asset(
                                 'assets/icons/circular_gradient.png',
-                                package: 'story_designer',
+                                package: 'vs_story_designer',
                               )),
                   ),
 
@@ -74,7 +74,7 @@ class TopTextTools extends StatelessWidget {
                             padding: EdgeInsets.only(left: 5, bottom: 3),
                             child: ImageIcon(
                               AssetImage('assets/icons/font_backGround.png',
-                                  package: 'story_designer'),
+                                  package: 'vs_story_designer'),
                               color: Colors.white,
                             ),
                           ),
@@ -115,7 +115,7 @@ class TopTextTools extends StatelessWidget {
                   //           padding: EdgeInsets.all(0),
                   //           child: ImageIcon(
                   //             AssetImage('assets/icons/video_trim.png',
-                  //                 package: 'story_designer'),
+                  //                 package: 'vs_story_designer'),
                   //             color: Colors.white,
                   //           ),
                   //         ),

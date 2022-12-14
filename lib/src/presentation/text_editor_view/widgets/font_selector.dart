@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:story_designer/src/domain/providers/notifiers/control_provider.dart';
-import 'package:story_designer/src/domain/providers/notifiers/text_editing_notifier.dart';
-import 'package:story_designer/src/presentation/utils/constants/font_family.dart';
-import 'package:story_designer/src/presentation/widgets/animated_onTap_button.dart';
+import 'package:vs_story_designer/src/domain/providers/notifiers/control_provider.dart';
+import 'package:vs_story_designer/src/domain/providers/notifiers/text_editing_notifier.dart';
+import 'package:vs_story_designer/src/presentation/utils/constants/font_family.dart';
+import 'package:vs_story_designer/src/presentation/widgets/animated_onTap_button.dart';
 
 class FontSelector extends StatelessWidget {
   const FontSelector({Key? key}) : super(key: key);
@@ -56,7 +56,7 @@ class FontSelector extends StatelessWidget {
                               // fontFamily: controlNotifier.fontList![index],
                               // package: controlNotifier.isCustomFontList
                               //     ? null
-                              //     : 'story_designer'
+                              //     : 'vs_story_designer'
                               ))
                           .copyWith(
                               color: index == editorNotifier.fontFamilyIndex

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'dart:async';
 
-import 'package:story_designer/src/presentation/utils/color_detection.dart';
+import 'package:vs_story_designer/src/presentation/utils/color_detection.dart';
 
 class FileImageBG extends StatefulWidget {
   final File? filePath;

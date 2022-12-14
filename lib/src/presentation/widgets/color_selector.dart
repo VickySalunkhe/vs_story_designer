@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:story_designer/src/domain/providers/notifiers/control_provider.dart';
-import 'package:story_designer/src/domain/providers/notifiers/painting_notifier.dart';
-import 'package:story_designer/src/domain/providers/notifiers/text_editing_notifier.dart';
-import 'package:story_designer/src/presentation/widgets/animated_onTap_button.dart';
+import 'package:vs_story_designer/src/domain/providers/notifiers/control_provider.dart';
+import 'package:vs_story_designer/src/domain/providers/notifiers/painting_notifier.dart';
+import 'package:vs_story_designer/src/domain/providers/notifiers/text_editing_notifier.dart';
+import 'package:vs_story_designer/src/presentation/widgets/animated_onTap_button.dart';
 
 class ColorSelector extends StatelessWidget {
   const ColorSelector({Key? key}) : super(key: key);
@@ -35,7 +35,7 @@ class ColorSelector extends StatelessWidget {
                     border: Border.all(color: Colors.white, width: 1.5)),
                 child: ImageIcon(
                   const AssetImage('assets/icons/pickColor.png',
-                      package: 'story_designer'),
+                      package: 'vs_story_designer'),
                   color: controlProvider.isPainting
                       ? (paintingProvider.lineColor == 0
                           ? Colors.black

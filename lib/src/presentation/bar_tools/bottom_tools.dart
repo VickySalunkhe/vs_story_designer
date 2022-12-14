@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gallery_media_picker/gallery_media_picker.dart';
 import 'package:provider/provider.dart';
-import 'package:story_designer/src/domain/providers/notifiers/control_provider.dart';
-import 'package:story_designer/src/domain/providers/notifiers/draggable_widget_notifier.dart';
-import 'package:story_designer/src/domain/providers/notifiers/scroll_notifier.dart';
-import 'package:story_designer/src/domain/sevices/save_as_image.dart';
-import 'package:story_designer/src/presentation/widgets/animated_onTap_button.dart';
+import 'package:vs_story_designer/src/domain/providers/notifiers/control_provider.dart';
+import 'package:vs_story_designer/src/domain/providers/notifiers/draggable_widget_notifier.dart';
+import 'package:vs_story_designer/src/domain/providers/notifiers/scroll_notifier.dart';
+import 'package:vs_story_designer/src/domain/sevices/save_as_image.dart';
+import 'package:vs_story_designer/src/presentation/widgets/animated_onTap_button.dart';
 
 class BottomTools extends StatelessWidget {
   final GlobalKey contentKey;
@@ -103,7 +103,7 @@ class BottomTools extends StatelessWidget {
                 //         children: [
                 //           Image.asset(
                 //             'assets/images/instagram_logo.png',
-                //             package: 'story_designer',
+                //             package: 'vs_story_designer',
                 //             color: Colors.white,
                 //             height: 42,
                 //           ),

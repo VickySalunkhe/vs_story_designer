@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:story_designer/src/domain/models/editable_items.dart';
-import 'package:story_designer/src/presentation/utils/constants/app_enums.dart';
+import 'package:vs_story_designer/src/domain/models/editable_items.dart';
+import 'package:vs_story_designer/src/presentation/utils/constants/app_enums.dart';
 
 class DeleteItem extends StatelessWidget {
   const DeleteItem(
@@ -66,7 +66,7 @@ class DeleteItem extends StatelessWidget {
                     ),
                     child: const ImageIcon(
                       AssetImage('assets/icons/trash.png',
-                          package: 'story_designer'),
+                          package: 'vs_story_designer'),
                       color: Colors.white,
                       size: 23,
                     ),

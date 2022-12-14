@@ -1,21 +1,21 @@
 // ignore_for_file: must_be_immutable
-library story_designer;
+library vs_story_designer;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:story_designer/src/domain/providers/notifiers/control_provider.dart';
-import 'package:story_designer/src/domain/providers/notifiers/draggable_widget_notifier.dart';
-import 'package:story_designer/src/domain/providers/notifiers/gradient_notifier.dart';
-import 'package:story_designer/src/domain/providers/notifiers/painting_notifier.dart';
-import 'package:story_designer/src/domain/providers/notifiers/scroll_notifier.dart';
-import 'package:story_designer/src/domain/providers/notifiers/text_editing_notifier.dart';
-import 'package:story_designer/src/presentation/main_view/main_view.dart';
+import 'package:vs_story_designer/src/domain/providers/notifiers/control_provider.dart';
+import 'package:vs_story_designer/src/domain/providers/notifiers/draggable_widget_notifier.dart';
+import 'package:vs_story_designer/src/domain/providers/notifiers/gradient_notifier.dart';
+import 'package:vs_story_designer/src/domain/providers/notifiers/painting_notifier.dart';
+import 'package:vs_story_designer/src/domain/providers/notifiers/scroll_notifier.dart';
+import 'package:vs_story_designer/src/domain/providers/notifiers/text_editing_notifier.dart';
+import 'package:vs_story_designer/src/presentation/main_view/main_view.dart';
 
-export 'package:story_designer/story_designer.dart';
+export 'package:vs_story_designer/vs_story_designer.dart';
 
-class StoryDesigner extends StatefulWidget {
+class VSStoryDesigner extends StatefulWidget {
   /// editor custom font families
   final List<String>? fontFamilyList;
 
@@ -49,7 +49,7 @@ class StoryDesigner extends StatefulWidget {
   /// gallery thumbnail quality
   final int? galleryThumbnailQuality;
 
-  const StoryDesigner(
+  const VSStoryDesigner(
       {Key? key,
       this.giphyKey,
       required this.onDone,
@@ -65,10 +65,10 @@ class StoryDesigner extends StatefulWidget {
       : super(key: key);
 
   @override
-  _StoryDesignerState createState() => _StoryDesignerState();
+  _VSStoryDesignerState createState() => _VSStoryDesignerState();
 }
 
-class _StoryDesignerState extends State<StoryDesigner> {
+class _VSStoryDesignerState extends State<VSStoryDesigner> {
   @override
   void initState() {
     Paint.enableDithering = true;

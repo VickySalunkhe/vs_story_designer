@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:story_designer/src/presentation/utils/constants/app_colors.dart';
-import 'package:story_designer/src/presentation/utils/constants/font_family.dart';
+import 'package:vs_story_designer/src/presentation/utils/constants/app_colors.dart';
+import 'package:vs_story_designer/src/presentation/utils/constants/font_family.dart';
 
 class ControlNotifier extends ChangeNotifier {
   String _giphyKey = '';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:story_designer/src/presentation/widgets/animated_onTap_button.dart';
+import 'package:vs_story_designer/src/presentation/widgets/animated_onTap_button.dart';
 
 class ToolButton extends StatelessWidget {
   final Function() onTap;

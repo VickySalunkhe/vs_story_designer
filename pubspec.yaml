@@ -1,7 +1,7 @@
-name: story_designer
+name: vs_story_designer
 description: This is a package created in the style of the instagram story creator, with which you can create images with images, texts, finger drawing.
 version: 1.0.0
-homepage:  https://github.com/VickySalunkhe/story_designer
+homepage:  https://github.com/VickySalunkhe/vs_story_designer
 
 environment:
   sdk: '>=2.18.2 <3.0.0'
@@ -44,104 +44,104 @@ dev_dependencies:
 flutter:
 
   assets:
-    - packages/story_designer/assets/icons/align_center.png
-    - packages/story_designer/assets/icons/align_left.png
-    - packages/story_designer/assets/icons/align_rigth.png
-    - packages/story_designer/assets/icons/arrow.png
-    - packages/story_designer/assets/icons/brush.png
-    - packages/story_designer/assets/icons/check.png
-    - packages/story_designer/assets/icons/circular_gradient.png
-    - packages/story_designer/assets/icons/colorpalette.png
-    - packages/story_designer/assets/icons/download.png
-    - packages/story_designer/assets/icons/draft.png
-    - packages/story_designer/assets/icons/draw.png
-    - packages/story_designer/assets/icons/font_backGround.png
-    - packages/story_designer/assets/icons/marker.png
-    - packages/story_designer/assets/icons/neon.png
-    - packages/story_designer/assets/icons/pen.png
-    - packages/story_designer/assets/icons/pickColor.png
-    - packages/story_designer/assets/icons/return.png
-    - packages/story_designer/assets/icons/stickers.png
-    - packages/story_designer/assets/icons/text.png
-    - packages/story_designer/assets/icons/trash.png
-    - packages/story_designer/assets/icons/photo_filter.png
-    - packages/story_designer/assets/icons/video_trim.png
-    - packages/story_designer/assets/images/instagram_logo.png
+    - packages/vs_story_designer/assets/icons/align_center.png
+    - packages/vs_story_designer/assets/icons/align_left.png
+    - packages/vs_story_designer/assets/icons/align_rigth.png
+    - packages/vs_story_designer/assets/icons/arrow.png
+    - packages/vs_story_designer/assets/icons/brush.png
+    - packages/vs_story_designer/assets/icons/check.png
+    - packages/vs_story_designer/assets/icons/circular_gradient.png
+    - packages/vs_story_designer/assets/icons/colorpalette.png
+    - packages/vs_story_designer/assets/icons/download.png
+    - packages/vs_story_designer/assets/icons/draft.png
+    - packages/vs_story_designer/assets/icons/draw.png
+    - packages/vs_story_designer/assets/icons/font_backGround.png
+    - packages/vs_story_designer/assets/icons/marker.png
+    - packages/vs_story_designer/assets/icons/neon.png
+    - packages/vs_story_designer/assets/icons/pen.png
+    - packages/vs_story_designer/assets/icons/pickColor.png
+    - packages/vs_story_designer/assets/icons/return.png
+    - packages/vs_story_designer/assets/icons/stickers.png
+    - packages/vs_story_designer/assets/icons/text.png
+    - packages/vs_story_designer/assets/icons/trash.png
+    - packages/vs_story_designer/assets/icons/photo_filter.png
+    - packages/vs_story_designer/assets/icons/video_trim.png
+    - packages/vs_story_designer/assets/images/instagram_logo.png
 
   # fonts:
 
     # - family: Alegreya
     #   fonts:
-    #     - asset: packages/story_designer/assets/fonts/Alegreya-VariableFont_wght.ttf
+    #     - asset: packages/vs_story_designer/assets/fonts/Alegreya-VariableFont_wght.ttf
 
     # - family: B612
     #   fonts:
-    #     - asset: packages/story_designer/assets/fonts/B612-Regular.ttf
+    #     - asset: packages/vs_story_designer/assets/fonts/B612-Regular.ttf
 
     # - family: TitilliumWeb
     #   fonts:
-    #     - asset: packages/story_designer/assets/fonts/TitilliumWeb-Regular.ttf
+    #     - asset: packages/vs_story_designer/assets/fonts/TitilliumWeb-Regular.ttf
 
     # - family: Varela
     #   fonts:
-    #     - asset: packages/story_designer/assets/fonts/Varela-Regular.ttf
+    #     - asset: packages/vs_story_designer/assets/fonts/Varela-Regular.ttf
 
     # - family: Vollkorn
     #   fonts:
-    #     - asset: packages/story_designer/assets/fonts/Vollkorn-Regular.ttf
+    #     - asset: packages/vs_story_designer/assets/fonts/Vollkorn-Regular.ttf
 
     # - family: Rakkas
     #   fonts:
-    #     - asset: packages/story_designer/assets/fonts/Rakkas-Regular.ttf
+    #     - asset: packages/vs_story_designer/assets/fonts/Rakkas-Regular.ttf
 
     # - family: ConcertOne
     #   fonts:
-    #     - asset: packages/story_designer/assets/fonts/ConcertOne-Regular.ttf
+    #     - asset: packages/vs_story_designer/assets/fonts/ConcertOne-Regular.ttf
 
     # - family: YatraOne
     #   fonts:
-    #     - asset: packages/story_designer/assets/fonts/YatraOne-Regular.ttf
+    #     - asset: packages/vs_story_designer/assets/fonts/YatraOne-Regular.ttf
 
     # - family: OldStandardTT
     #   fonts:
-    #     - asset: packages/story_designer/assets/fonts/OldStandardTT-Italic.ttf
+    #     - asset: packages/vs_story_designer/assets/fonts/OldStandardTT-Italic.ttf
 
     # - family: Neonderthaw
     #   fonts:
-    #     - asset: packages/story_designer/assets/fonts/Neonderthaw-Regular.ttf
+    #     - asset: packages/vs_story_designer/assets/fonts/Neonderthaw-Regular.ttf
 
     # - family: DancingScript
     #   fonts:
-    #     - asset: packages/story_designer/assets/fonts/DancingScript-VariableFont_wght.ttf
+    #     - asset: packages/vs_story_designer/assets/fonts/DancingScript-VariableFont_wght.ttf
 
     # - family: SedgwickAve
     #   fonts:
-    #     - asset: packages/story_designer/assets/fonts/SedgwickAve-Regular.ttf
+    #     - asset: packages/vs_story_designer/assets/fonts/SedgwickAve-Regular.ttf
 
     # - family: IndieFlower
     #   fonts:
-    #     - asset: packages/story_designer/assets/fonts/IndieFlower-Regular.ttf
+    #     - asset: packages/vs_story_designer/assets/fonts/IndieFlower-Regular.ttf
 
     # - family: Sacramento
     #   fonts:
-    #     - asset: packages/story_designer/assets/fonts/Sacramento-Regular.ttf
+    #     - asset: packages/vs_story_designer/assets/fonts/Sacramento-Regular.ttf
 
     # - family: PressStart2P
     #   fonts:
-    #     - asset: packages/story_designer/assets/fonts/PressStart2P-Regular.ttf
+    #     - asset: packages/vs_story_designer/assets/fonts/PressStart2P-Regular.ttf
 
     # - family: FrederickatheGreat
     #   fonts:
-    #     - asset: packages/story_designer/assets/fonts/FrederickatheGreat-Regular.ttf
+    #     - asset: packages/vs_story_designer/assets/fonts/FrederickatheGreat-Regular.ttf
 
     # - family: ReenieBeanie
     #   fonts:
-    #     - asset: packages/story_designer/assets/fonts/ReenieBeanie-Regular.ttf
+    #     - asset: packages/vs_story_designer/assets/fonts/ReenieBeanie-Regular.ttf
 
     # - family: BungeeShade
     #   fonts:
-    #     - asset: packages/story_designer/assets/fonts/BungeeShade-Regular.ttf
+    #     - asset: packages/vs_story_designer/assets/fonts/BungeeShade-Regular.ttf
 
     # - family: UnifrakturMaguntia
     #   fonts:
-    #     - asset: packages/story_designer/assets/fonts/UnifrakturMaguntia-Regular.ttf
+    #     - asset: packages/vs_story_designer/assets/fonts/UnifrakturMaguntia-Regular.ttf
