@@ -1,5 +1,5 @@
 
-## vs_story_designer 1.0.1
+## vs_story_designer 1.1.0
 
 # flutter story designer
 This is a package created in the style of the instagram story creator, with which you can create images with images, texts, finger drawing. They can be exported as an image to the gallery or shared directly to social networks.
@@ -71,10 +71,11 @@ VSStoryDesigner(
       /// uri is the local path of final render Uint8List
       /// here your code
     },
+    centerText : "Start Designing" //mandatory param, this text will appear in center of story designer
     colorList: [] /// (List<Color>[]) optional param 
     gradientColors: [] /// (List<List<Color>>[]) optional param 
     middleBottomWidget: Container() /// (Widget) optional param, you can add your own logo or text in the bottom tool
-    fontFamilyList: [] /// (List<String>) optional param
+    fontFamilyList: [] /// (List<FontType>) optional param
     isCustomFontList: '' /// (bool) if you use a own font list set value to "true"
     onDoneButtonStyle: Container() /// (Widget) optional param, you can create your own button style
     onBackPress: /// (Future<bool>) optional param, here you can add yor own style dialog
@@ -102,7 +103,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Story Designer Demo',
       theme: ThemeData(
-
         primarySwatch: Colors.blue,
       ),
       home: const Example(),
@@ -129,7 +129,13 @@ class _ExampleState extends State<Example> {
         body: Center(
           child: ElevatedButton(
             onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => StoriesEditor(
+              Navigator.push(context, MaterialPageRoute(builder: (context) => VSStoryDesigner(
+                centerText: "Start Your Design",
+                // fontFamilyList: const [
+                //   FontType.abrilFatface,
+                //   FontType.alegreya,
+                //   FontType.typewriter
+                // ],
                 onDone: (uri){
                   debugPrint(uri);
                   Share.shareFiles([uri]);

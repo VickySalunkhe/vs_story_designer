@@ -1,3 +1,7 @@
+## 1.1.0
+- Added ENUM for Font Type, now select fonts easily as per your requirement.
+- Fixed Minor Bugs
+
 ## 1.0.1
 - Added shadow text option
 - Fixed Font Color & Text Size

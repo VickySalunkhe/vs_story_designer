@@ -22,84 +22,87 @@ class _SizeSliderWidgetState extends State<SizeSliderWidget> {
     /// change consumer to class parameter and use this widget for text_size and fingerPaint_size
     return Consumer3<TextEditingNotifier, ControlNotifier, PaintingNotifier>(
       builder: (context, editorNotifier, controlNotifier, paintingNotifier, _) {
-        return Stack(
-          alignment: Alignment.topLeft,
-          children: [
-            /// custom paint
-            AnimatedContainer(
-                duration: const Duration(milliseconds: 300),
-                padding: EdgeInsets.only(right: _isChange ? 0 : 15),
-                margin: const EdgeInsets.only(bottom: 150),
-                width: _isChange ? 39 : 10,
-                height: 300,
-                child: CustomPaint(
-                  painter: RPSCustomPainter(),
-                  size: Size(screenUtil.screenHeight,
-                      (screenUtil.screenWidth).toDouble()),
-                )),
+        return Container(
+          margin: const EdgeInsets.only(left: 5),
+          child: Stack(
+            alignment: Alignment.topLeft,
+            children: [
+              /// custom paint
+              AnimatedContainer(
+                  duration: const Duration(milliseconds: 300),
+                  padding: EdgeInsets.only(right: _isChange ? 0 : 15),
+                  margin: const EdgeInsets.only(bottom: 150),
+                  width: _isChange ? 39 : 10,
+                  height: 300,
+                  child: CustomPaint(
+                    painter: RPSCustomPainter(),
+                    size: Size(screenUtil.screenHeight,
+                        (screenUtil.screenWidth).toDouble()),
+                  )),
 
-            /// slider decoration with animations
-            AnimatedContainer(
-              margin: const EdgeInsets.only(bottom: 150),
-              padding: EdgeInsets.only(left: _isChange ? 1 : 10, right: 2.1),
-              duration: const Duration(milliseconds: 300),
-              width: _isChange ? 39 : 15,
-              height: 300,
-              decoration: const BoxDecoration(),
-              child: RotatedBox(
-                quarterTurns: 3,
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    AnimatedContainer(
-                      duration: const Duration(milliseconds: 300),
-                      width: 250,
-                      height: !_showIndicator ? 2 : 0,
-                      decoration: BoxDecoration(
-                          color: !_showIndicator
-                              ? Colors.white.withOpacity(0.2)
-                              : Colors.transparent,
-                          borderRadius: BorderRadius.circular(30)),
-                    ),
-                    Padding(
-                      padding: _isChange
-                          ? const EdgeInsets.only(top: 2)
-                          : const EdgeInsets.all(0),
-                      child: Slider(
-                        value: controlNotifier.isPainting
-                            ? paintingNotifier.lineWidth
-                            : editorNotifier.textSize,
-                        min: controlNotifier.isPainting ? 5 : 14,
-                        max: controlNotifier.isPainting ? 20 : 50,
-                        activeColor: Colors.transparent,
-                        thumbColor: Colors.white,
-                        inactiveColor: Colors.transparent,
-                        onChanged: (value) {
-                          if (controlNotifier.isPainting) {
-                            paintingNotifier.lineWidth = value;
-                          } else {
-                            editorNotifier.textSize = value;
-                          }
-                        },
-                        onChangeStart: (start) {
-                          setState(() {
-                            _isChange = true;
-                            _showIndicator = true;
-                          });
-                        },
-                        onChangeEnd: (end) {
-                          setState(() {
-                            _isChange = false;
-                            _showIndicator = false;
-                          });
-                        },
+              /// slider decoration with animations
+              AnimatedContainer(
+                margin: const EdgeInsets.only(bottom: 150),
+                padding: EdgeInsets.only(left: _isChange ? 1 : 10, right: 2.1),
+                duration: const Duration(milliseconds: 300),
+                width: _isChange ? 39 : 15,
+                height: 300,
+                decoration: const BoxDecoration(),
+                child: RotatedBox(
+                  quarterTurns: 3,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      AnimatedContainer(
+                        duration: const Duration(milliseconds: 300),
+                        width: 250,
+                        height: !_showIndicator ? 2 : 0,
+                        decoration: BoxDecoration(
+                            color: !_showIndicator
+                                ? Colors.white.withOpacity(0.2)
+                                : Colors.transparent,
+                            borderRadius: BorderRadius.circular(30)),
                       ),
-                    ),
-                  ],
+                      Padding(
+                        padding: _isChange
+                            ? const EdgeInsets.only(top: 2)
+                            : const EdgeInsets.all(0),
+                        child: Slider(
+                          value: controlNotifier.isPainting
+                              ? paintingNotifier.lineWidth
+                              : editorNotifier.textSize,
+                          min: controlNotifier.isPainting ? 5 : 14,
+                          max: controlNotifier.isPainting ? 20 : 50,
+                          activeColor: Colors.transparent,
+                          thumbColor: Colors.white,
+                          inactiveColor: Colors.transparent,
+                          onChanged: (value) {
+                            if (controlNotifier.isPainting) {
+                              paintingNotifier.lineWidth = value;
+                            } else {
+                              editorNotifier.textSize = value;
+                            }
+                          },
+                          onChangeStart: (start) {
+                            setState(() {
+                              _isChange = true;
+                              _showIndicator = true;
+                            });
+                          },
+                          onChangeEnd: (end) {
+                            setState(() {
+                              _isChange = false;
+                              _showIndicator = false;
+                            });
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         );
       },
     );
