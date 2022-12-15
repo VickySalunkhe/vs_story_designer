@@ -302,7 +302,8 @@ class _MainViewState extends State<MainView> {
                                 alignment: const Alignment(0, -0.1),
                                 child: Text(
                                   widget.centerText!,
-                                  style: AppFonts.getTextTheme('Garamond')
+                                  style: AppFonts.getTextThemeENUM(
+                                          FontType.garamond)
                                       .bodyText1!
                                       .merge(
                                         TextStyle(
