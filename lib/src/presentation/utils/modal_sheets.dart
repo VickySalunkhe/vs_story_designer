@@ -53,9 +53,9 @@ Future<bool> exitDialog({required context, required contentKey}) async {
             padding: const EdgeInsets.symmetric(horizontal: 30),
             child: Container(
               padding: const EdgeInsets.only(
-                  top: 25, bottom: 5, right: 20, left: 20),
+                  top: 25, bottom: 25, right: 20, left: 20),
               alignment: Alignment.center,
-              height: 280,
+              height: 240,
               decoration: BoxDecoration(
                   shape: BoxShape.rectangle,
                   color: HexColor.fromHex('#262626'),
@@ -90,7 +90,13 @@ Future<bool> exitDialog({required context, required contentKey}) async {
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(
-                    height: 40,
+                    height: 18,
+                  ),
+                  const SizedBox(
+                    height: 22,
+                    child: Divider(
+                      color: Colors.white10,
+                    ),
                   ),
 
                   /// discard

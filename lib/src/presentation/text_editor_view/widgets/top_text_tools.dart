@@ -157,7 +157,7 @@ class TopTextTools extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(
                           vertical: 6, horizontal: 12),
                       decoration: BoxDecoration(
-                          color: Colors.transparent,
+                          color: Colors.black12,
                           border: Border.all(color: Colors.white, width: 1.5),
                           borderRadius: BorderRadius.circular(15)),
                       child: const Text(

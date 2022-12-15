@@ -73,7 +73,7 @@ class DraggableWidget extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(right: 2.5, top: 2),
+                      padding: const EdgeInsets.only(right: 0, top: 0),
                       child: Stack(
                         children: [
                           Center(
