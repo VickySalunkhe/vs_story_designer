@@ -5,7 +5,6 @@ import 'package:vs_story_designer/src/domain/models/editable_items.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/control_provider.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/draggable_widget_notifier.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/text_editing_notifier.dart';
-import 'package:vs_story_designer/src/presentation/text_editor_view/widgets/animation_selector.dart';
 import 'package:vs_story_designer/src/presentation/text_editor_view/widgets/font_selector.dart';
 import 'package:vs_story_designer/src/presentation/text_editor_view/widgets/text_field_widget.dart';
 import 'package:vs_story_designer/src/presentation/text_editor_view/widgets/top_text_tools.dart';
@@ -28,10 +27,10 @@ class _TextEditorState extends State<TextEditor> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      final _editorNotifier =
+      final editorNotifier =
           Provider.of<TextEditingNotifier>(widget.context, listen: false);
-      _editorNotifier
-        ..textController.text = _editorNotifier.text
+      editorNotifier
+        ..textController.text = editorNotifier.text
         ..fontFamilyController = PageController(viewportFraction: .125);
     });
     super.initState();
@@ -132,7 +131,7 @@ class _TextEditorState extends State<TextEditor> {
 
   void _onTap(context, ControlNotifier controlNotifier,
       TextEditingNotifier editorNotifier) {
-    final _editableItemNotifier =
+    final editableItemNotifier =
         Provider.of<DraggableWidgetNotifier>(context, listen: false);
 
     /// create text list
@@ -144,13 +143,13 @@ class _TextEditorState extends State<TextEditor> {
           sequenceList = splitList[0];
         } else {
           lastSequenceList = sequenceList;
-          editorNotifier.textList.add(sequenceList + ' ' + splitList[i]);
-          sequenceList = lastSequenceList + ' ' + splitList[i];
+          editorNotifier.textList.add('$sequenceList ${splitList[i]}');
+          sequenceList = '$lastSequenceList ${splitList[i]}';
         }
       }
 
       /// create Text Item
-      _editableItemNotifier.draggableWidget.add(EditableItem()
+      editableItemNotifier.draggableWidget.add(EditableItem()
         ..type = ItemType.text
         ..text = editorNotifier.text.trim()
         ..backGroundColor = editorNotifier.backGroundColor

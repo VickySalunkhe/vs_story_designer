@@ -183,19 +183,19 @@ Future<bool> exitDialog({required context, required contentKey}) async {
 }
 
 _resetDefaults({required BuildContext context}) {
-  final _paintingProvider =
+  final paintingProvider =
       Provider.of<PaintingNotifier>(context, listen: false);
-  final _widgetProvider =
+  final widgetProvider =
       Provider.of<DraggableWidgetNotifier>(context, listen: false);
-  final _controlProvider = Provider.of<ControlNotifier>(context, listen: false);
-  final _editingProvider =
+  final controlProvider = Provider.of<ControlNotifier>(context, listen: false);
+  final editingProvider =
       Provider.of<TextEditingNotifier>(context, listen: false);
-  _paintingProvider.lines.clear();
-  _widgetProvider.draggableWidget.clear();
-  _widgetProvider.setDefaults();
-  _paintingProvider.resetDefaults();
-  _editingProvider.setDefaults();
-  _controlProvider.mediaPath = '';
+  paintingProvider.lines.clear();
+  widgetProvider.draggableWidget.clear();
+  widgetProvider.setDefaults();
+  paintingProvider.resetDefaults();
+  editingProvider.setDefaults();
+  controlProvider.mediaPath = '';
 }
 
 _dispose({required context, required message}) {

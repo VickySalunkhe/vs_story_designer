@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vs_story_designer/src/presentation/utils/constants/app_colors.dart';
 import 'package:vs_story_designer/src/presentation/utils/constants/font_family.dart';
+import 'package:vs_story_designer/vs_story_designer.dart';
 
 class ControlNotifier extends ChangeNotifier {
   String _giphyKey = '';
@@ -45,11 +46,11 @@ class ControlNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
-  List<String>? _fontList = AppFonts.fontFamilyList;
+  List<FontType>? _fontList = AppFonts.fontFamilyListENUM;
 
   /// here you can define your own font family list
-  List<String>? get fontList => _fontList;
-  set fontList(List<String>? fonts) {
+  List<FontType>? get fontList => _fontList;
+  set fontList(List<FontType>? fonts) {
     _fontList = fonts;
     notifyListeners();
   }

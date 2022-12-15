@@ -90,6 +90,19 @@ class TopTextTools extends StatelessWidget {
                         )),
                   ),
                   // ToolButton(
+                  //       backGroundColor: editorNotifier.enableTextShadow
+                  //           ? Colors.white
+                  //           : Colors.black12,
+                  //       onTap: () {
+                  //         editorNotifier.enableTextShadow =
+                  //             !editorNotifier.enableTextShadow;
+                  //       },
+                  //       child: Icon(Icons.text_fields_sharp,
+                  //           color: editorNotifier.enableTextShadow
+                  //               ? Colors.black
+                  //               : Colors.white,
+                  //           size: 30)),
+                  // ToolButton(
                   //   onTap: () {
                   //     editorNotifier.isTextAnimation =
                   //         !editorNotifier.isTextAnimation;

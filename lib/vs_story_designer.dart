@@ -12,12 +12,61 @@ import 'package:vs_story_designer/src/domain/providers/notifiers/painting_notifi
 import 'package:vs_story_designer/src/domain/providers/notifiers/scroll_notifier.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/text_editing_notifier.dart';
 import 'package:vs_story_designer/src/presentation/main_view/main_view.dart';
+// import 'package:vs_story_designer/src/presentation/utils/constants/app_enums.dart';
 
 export 'package:vs_story_designer/vs_story_designer.dart';
 
+enum FontType {
+  openSans,
+  baskerville,
+  cormorant,
+  sourceSerifPro,
+  kurale,
+  dancingScript,
+  amatic,
+  architect,
+  sahitya,
+  garamond,
+  chewy,
+  comfortaa,
+  reenie,
+  satisfy,
+  alfaSlab,
+  josefinSans,
+  kaushanScript,
+  marckScript,
+  volkhov,
+  permanent,
+  playfair,
+  specialElite,
+  courierPrime,
+  roboto,
+  karma,
+  rougeScript,
+  rubik,
+  siliguri,
+  meeraInimai,
+  slabo27px,
+  poiret,
+  reemKufi,
+  barlow,
+  comicNeue,
+  typewriter,
+  abrilFatface,
+  bebasneue,
+  inknutAntiqua,
+  lobster,
+  khand,
+  alegreya,
+  montserrat,
+  oswald,
+  poppins,
+  lato
+}
+
 class VSStoryDesigner extends StatefulWidget {
   /// editor custom font families
-  final List<String>? fontFamilyList;
+  final List<FontType>? fontFamilyList;
 
   /// editor custom font families package
   final bool? isCustomFontList;

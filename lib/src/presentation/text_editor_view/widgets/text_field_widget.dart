@@ -102,7 +102,7 @@ class TextFieldWidget extends StatelessWidget {
       textInputAction: TextInputAction.newline,
       controller: editorNotifier.textController,
       textAlign: editorNotifier.textAlign,
-      style: AppFonts.getTextTheme(
+      style: AppFonts.getTextThemeENUM(
               controlNotifier.fontList![editorNotifier.fontFamilyIndex])
           .bodyText1!
           .merge(

@@ -27,7 +27,10 @@ class AppColors {
   ];
 
   static List<List<Color>> gradientBackgroundColors = [
-    [Color.fromARGB(255, 203, 31, 237), Color.fromARGB(255, 98, 17, 197)],
+    [
+      const Color.fromARGB(255, 203, 31, 237),
+      const Color.fromARGB(255, 98, 17, 197)
+    ],
     [
       const Color.fromRGBO(31, 179, 237, 1),
       const Color.fromRGBO(17, 106, 197, 1)

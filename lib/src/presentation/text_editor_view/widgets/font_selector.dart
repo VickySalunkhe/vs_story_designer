@@ -49,10 +49,10 @@ class FontSelector extends StatelessWidget {
                   child: Center(
                     child: Text(
                       'Aa',
-                      style: AppFonts.getTextTheme(
+                      style: AppFonts.getTextThemeENUM(
                               controlNotifier.fontList![index])
                           .bodyText1!
-                          .merge(TextStyle(
+                          .merge(const TextStyle(
                               // fontFamily: controlNotifier.fontList![index],
                               // package: controlNotifier.isCustomFontList
                               //     ? null

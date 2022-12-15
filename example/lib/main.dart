@@ -58,9 +58,9 @@ class _ExampleState extends State<Example> {
                         builder: (context) => VSStoryDesigner(
                               centerText: "Start Creating Your Story",
                               // fontFamilyList: const [
-                              //   "Oswald",
-                              //   "Poppins",
-                              //   "Lato"
+                              //   FontType.abrilFatface,
+                              //   FontType.alegreya,
+                              //   FontType.typewriter
                               // ],
                               galleryThumbnailQuality: 100,
                               onDone: (uri) {

@@ -36,19 +36,19 @@ class _TopToolsState extends State<TopTools> {
               children: [
                 /// close button
                 ToolButton(
+                    backGroundColor: Colors.black12,
+                    onTap: () {
+                      exitDialog(
+                              context: widget.context,
+                              contentKey: widget.contentKey)
+                          .then((res) {
+                        if (res) Navigator.pop(context);
+                      });
+                    },
                     child: const Icon(
                       Icons.close,
                       color: Colors.white,
-                    ),
-                    backGroundColor: Colors.black12,
-                    onTap: () async {
-                      var res = await exitDialog(
-                          context: widget.context,
-                          contentKey: widget.contentKey);
-                      if (res) {
-                        Navigator.pop(context);
-                      }
-                    }),
+                    )),
                 Row(
                   children: [
                     if (controlNotifier.mediaPath.isEmpty)
@@ -67,23 +67,28 @@ class _TopToolsState extends State<TopTools> {
                             }
                           }),
                     ToolButton(
+                      backGroundColor: Colors.black12,
+                      onTap: () => controlNotifier.isTextEditing =
+                          !controlNotifier.isTextEditing,
                       child: const ImageIcon(
                           AssetImage('assets/icons/text.png',
                               package: 'vs_story_designer'),
                           color: Colors.white,
                           size: 20),
-                      backGroundColor: Colors.black12,
-                      onTap: () => controlNotifier.isTextEditing =
-                          !controlNotifier.isTextEditing,
                     ),
                     ToolButton(
-                        child: Icon(Icons.text_fields_sharp,
-                            color: Colors.white, size: 30),
-                        backGroundColor: Colors.black12,
+                        backGroundColor: controlNotifier.enableTextShadow
+                            ? Colors.white
+                            : Colors.black12,
                         onTap: () {
                           controlNotifier.enableTextShadow =
                               !controlNotifier.enableTextShadow;
-                        }),
+                        },
+                        child: Icon(Icons.text_fields_sharp,
+                            color: controlNotifier.enableTextShadow
+                                ? Colors.black
+                                : Colors.white,
+                            size: 30)),
                     // ToolButton(
                     //     child: const ImageIcon(
                     //       AssetImage('assets/icons/stickers.png',
@@ -97,17 +102,17 @@ class _TopToolsState extends State<TopTools> {
                     //         giphyKey: controlNotifier.giphyKey)),
 
                     ToolButton(
+                        backGroundColor: Colors.black12,
+                        onTap: () {
+                          controlNotifier.isPainting = true;
+                          //createLinePainting(context: context);
+                        },
                         child: const ImageIcon(
                           AssetImage('assets/icons/draw.png',
                               package: 'vs_story_designer'),
                           color: Colors.white,
                           size: 20,
-                        ),
-                        backGroundColor: Colors.black12,
-                        onTap: () {
-                          controlNotifier.isPainting = true;
-                          //createLinePainting(context: context);
-                        }),
+                        )),
                   ],
                 ),
 
@@ -124,12 +129,6 @@ class _TopToolsState extends State<TopTools> {
                 // ),
 
                 ToolButton(
-                    child: const ImageIcon(
-                      AssetImage('assets/icons/download.png',
-                          package: 'vs_story_designer'),
-                      color: Colors.white,
-                      size: 25,
-                    ),
                     backGroundColor: Colors.black12,
                     onTap: () async {
                       if (paintingNotifier.lines.isNotEmpty ||
@@ -144,7 +143,13 @@ class _TopToolsState extends State<TopTools> {
                           Fluttertoast.showToast(msg: 'Error');
                         }
                       }
-                    }),
+                    },
+                    child: const ImageIcon(
+                      AssetImage('assets/icons/download.png',
+                          package: 'vs_story_designer'),
+                      color: Colors.white,
+                      size: 25,
+                    )),
               ],
             ),
           ),
