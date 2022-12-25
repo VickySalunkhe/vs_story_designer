@@ -75,33 +75,19 @@ class TopTextTools extends StatelessWidget {
                     child: Transform.scale(
                         scale: 0.7,
                         child: Center(
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 5, bottom: 3),
-                            child: ImageIcon(
-                              const AssetImage(
-                                  'assets/icons/font_backGround.png',
-                                  package: 'vs_story_designer'),
-                              color: editorNotifier.backGroundColor !=
-                                      Colors.transparent
-                                  ? Colors.black
-                                  : Colors.white,
-                            ),
+                            child: Padding(
+                          padding: const EdgeInsets.only(left: 5, bottom: 3),
+                          child: ImageIcon(
+                            const AssetImage('assets/icons/font_backGround.png',
+                                package: 'vs_story_designer'),
+                            color: editorNotifier.backGroundColor !=
+                                    Colors.transparent
+                                ? Colors.black
+                                : Colors.white,
                           ),
-                        )),
+                        ))),
+                    //////////////////////////
                   ),
-                  // ToolButton(
-                  //       backGroundColor: editorNotifier.enableTextShadow
-                  //           ? Colors.white
-                  //           : Colors.black12,
-                  //       onTap: () {
-                  //         editorNotifier.enableTextShadow =
-                  //             !editorNotifier.enableTextShadow;
-                  //       },
-                  //       child: Icon(Icons.text_fields_sharp,
-                  //           color: editorNotifier.enableTextShadow
-                  //               ? Colors.black
-                  //               : Colors.white,
-                  //           size: 30)),
                   // ToolButton(
                   //   onTap: () {
                   //     editorNotifier.isTextAnimation =
@@ -109,7 +95,7 @@ class TopTextTools extends StatelessWidget {
 
                   //     /// animate to selected animation page
                   //     if (editorNotifier.isTextAnimation) {
-                  //       WidgetsBinding.instance.addPostFrameCallback((_) {
+                  //       WidgetsBinding.instance!.addPostFrameCallback((_) {
                   //         if (editorNotifier
                   //             .textAnimationController.hasClients) {
                   //           editorNotifier.textAnimationController
@@ -120,7 +106,7 @@ class TopTextTools extends StatelessWidget {
                   //         }
                   //       });
                   //     } else {
-                  //       WidgetsBinding.instance.addPostFrameCallback((_) {
+                  //       WidgetsBinding.instance!.addPostFrameCallback((_) {
                   //         if (editorNotifier.fontFamilyController.hasClients) {
                   //           editorNotifier.fontFamilyController.animateToPage(
                   //               editorNotifier.fontFamilyIndex,

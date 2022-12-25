@@ -1,7 +1,6 @@
-// ignore_for_file: unrelated_type_equality_checks
+// ignore_for_file: unrelated_type_equality_checks, no_leading_underscores_for_local_identifiers
 
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/control_provider.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/text_editing_notifier.dart';
@@ -12,14 +11,14 @@ class TextFieldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ScreenUtil screenUtil = ScreenUtil();
+    var _size = MediaQuery.of(context).size;
     FocusNode _textNode = FocusNode();
     return Consumer2<TextEditingNotifier, ControlNotifier>(
       builder: (context, editorNotifier, controlNotifier, child) {
         return Center(
           child: ConstrainedBox(
             constraints: BoxConstraints(
-              maxWidth: screenUtil.screenWidth - 100,
+              maxWidth: _size.width - 100,
             ),
             child: IntrinsicWidth(
 
@@ -28,7 +27,7 @@ class TextFieldWidget extends StatelessWidget {
               alignment: Alignment.center,
               children: [
                 // Padding(
-                //   padding: const EdgeInsets.only(right: 0),
+                //   padding: const EdgeInsets.only(right: 2),
                 //   child: _text(
                 //     editorNotifier: editorNotifier,
                 //     textNode: _textNode,
@@ -59,34 +58,28 @@ class TextFieldWidget extends StatelessWidget {
   //   return Text(
   //     editorNotifier.textController.text,
   //     textAlign: editorNotifier.textAlign,
-  //     style: AppFonts.getTextTheme(
-  //             controlNotifier.fontList![editorNotifier.fontAnimationIndex])
-  //         .bodyText1!
-  //         .merge(TextStyle(
-  //           // fontFamily: controlNotifier.fontList![editorNotifier.fontFamilyIndex],
-  //           // package: controlNotifier.isCustomFontList ? null : 'vs_story_designer',
-  //           shadows: !controlNotifier.enableTextShadow
-  //               ? []
-  //               : <Shadow>[
-  //                   Shadow(
-  //                       offset: const Offset(1.0, 1.0),
-  //                       blurRadius: 3.0,
-  //                       color: editorNotifier.textColor == Colors.black
-  //                           ? Colors.white54
-  //                           : Colors.black)
-  //                 ],
-  //         ))
-  //         .copyWith(
-  //             color: controlNotifier.colorList![editorNotifier.textColor],
-  //             fontSize: editorNotifier.textSize,
-  //             background: Paint()
-  //               ..strokeWidth = 20.0
-  //               ..color = editorNotifier.backGroundColor
-  //               ..style = paintingStyle
-  //               ..strokeJoin = StrokeJoin.round
-  //               ..filterQuality = FilterQuality.high
-  //               ..strokeCap = StrokeCap.round
-  //               ..maskFilter = const MaskFilter.blur(BlurStyle.solid, 1)),
+  //     style: TextStyle(
+  //       fontFamily: controlNotifier.fontList![editorNotifier.fontFamilyIndex],
+  //       package: controlNotifier.isCustomFontList ? null : 'vs_story_designer',
+  //       shadows: <Shadow>[
+  //         Shadow(
+  //             offset: const Offset(1.0, 1.0),
+  //             blurRadius: 3.0,
+  //             color: editorNotifier.textColor == Colors.black
+  //                 ? Colors.white54
+  //                 : Colors.black)
+  //       ],
+  //     ).copyWith(
+  //         color: controlNotifier.colorList![editorNotifier.textColor],
+  //         fontSize: editorNotifier.textSize,
+  //         background: Paint()
+  //           ..strokeWidth = 20.0
+  //           ..color = editorNotifier.backGroundColor
+  //           ..style = paintingStyle
+  //           ..strokeJoin = StrokeJoin.round
+  //           ..filterQuality = FilterQuality.high
+  //           ..strokeCap = StrokeCap.round
+  //           ..maskFilter = const MaskFilter.blur(BlurStyle.solid, 1)),
   //   );
   // }
 

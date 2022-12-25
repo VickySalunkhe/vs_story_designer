@@ -1,6 +1,7 @@
+// ignore_for_file: library_private_types_in_public_api, no_leading_underscores_for_local_identifiers
+
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'dart:async';
 
 import 'package:vs_story_designer/src/presentation/utils/color_detection.dart';
@@ -56,10 +57,10 @@ class _FileImageBGState extends State<FileImageBG> {
 
   @override
   Widget build(BuildContext context) {
-    final ScreenUtil screenUtil = ScreenUtil();
+    var _size = MediaQuery.of(context).size;
     return SizedBox(
-        height: screenUtil.screenHeight,
-        width: screenUtil.screenWidth,
+        height: _size.height,
+        width: _size.width,
         child: RepaintBoundary(
             key: paintKey,
             child: Center(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
-import 'package:vs_story_designer/src/presentation/utils/constants/app_enums.dart';
+import 'package:vs_story_designer/src/presentation/utils/constants/painting_type.dart';
 
 class PaintingModel {
   /// lines coordinates

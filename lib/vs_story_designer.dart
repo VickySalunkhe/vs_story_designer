@@ -1,18 +1,17 @@
-// ignore_for_file: must_be_immutable
+// ignore_for_file: must_be_immutable, library_private_types_in_public_api
 library vs_story_designer;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/control_provider.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/draggable_widget_notifier.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/gradient_notifier.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/painting_notifier.dart';
+// import 'package:vs_story_designer/src/domain/providers/notifiers/rendering_notifier.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/scroll_notifier.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/text_editing_notifier.dart';
 import 'package:vs_story_designer/src/presentation/main_view/main_view.dart';
-// import 'package:vs_story_designer/src/presentation/utils/constants/app_enums.dart';
 
 export 'package:vs_story_designer/vs_story_designer.dart';
 
@@ -83,7 +82,31 @@ enum FontType {
   montserrat,
   oswald,
   poppins,
-  lato
+  lato,
+  b612,
+  hindSiliguri,
+  titilliumWeb,
+  varela,
+  vollkorn,
+  rakkas,
+  hindGuntur,
+  concertOne,
+  yatraOne,
+  notoSansGujarati,
+  oldStandardTT,
+  neonderthaw,
+  bungeeShade,
+  passionsConflict,
+  sedgwickAve,
+  notoNastaliqUrdu,
+  sacramento,
+  pressStart2P,
+  cabinSketch,
+  frederickatheGreat,
+  tiroDevanagariHindi,
+  rubikVinyl,
+  ewert,
+  unifrakturMaguntia,
 }
 
 class VSStoryDesigner extends StatefulWidget {
@@ -119,9 +142,7 @@ class VSStoryDesigner extends StatefulWidget {
 
   /// gallery thumbnail quality
   final int? galleryThumbnailQuality;
-
-  // Text appearing on center of design screen
-  final String? centerText;
+  final String centerText;
 
   const VSStoryDesigner(
       {Key? key,
@@ -134,9 +155,9 @@ class VSStoryDesigner extends StatefulWidget {
       this.isCustomFontList,
       this.onBackPress,
       this.onDoneButtonStyle,
-      required this.centerText,
       this.editorBackgroundColor,
-      this.galleryThumbnailQuality})
+      this.galleryThumbnailQuality,
+      required this.centerText})
       : super(key: key);
 
   @override
@@ -151,7 +172,7 @@ class _VSStoryDesignerState extends State<VSStoryDesigner> {
     SystemChrome.setPreferredOrientations(
         [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      statusBarColor: Colors.black,
+      statusBarColor: Colors.transparent,
     ));
     super.initState();
   }
@@ -165,37 +186,29 @@ class _VSStoryDesignerState extends State<VSStoryDesigner> {
 
   @override
   Widget build(BuildContext context) {
-    return NotificationListener<OverscrollIndicatorNotification>(
-      onNotification: (overscroll) {
-        overscroll.disallowIndicator();
-        return false;
-      },
-      child: ScreenUtilInit(
-        designSize: const Size(1080, 1920),
-        builder: (_, __) => MultiProvider(
-          providers: [
-            ChangeNotifierProvider(create: (_) => ControlNotifier()),
-            ChangeNotifierProvider(create: (_) => ScrollNotifier()),
-            ChangeNotifierProvider(create: (_) => DraggableWidgetNotifier()),
-            ChangeNotifierProvider(create: (_) => GradientNotifier()),
-            ChangeNotifierProvider(create: (_) => PaintingNotifier()),
-            ChangeNotifierProvider(create: (_) => TextEditingNotifier()),
-          ],
-          child: MainView(
-            giphyKey: widget.giphyKey,
-            onDone: widget.onDone,
-            centerText: widget.centerText,
-            fontFamilyList: widget.fontFamilyList,
-            isCustomFontList: widget.isCustomFontList,
-            middleBottomWidget: widget.middleBottomWidget,
-            gradientColors: widget.gradientColors,
-            colorList: widget.colorList,
-            onDoneButtonStyle: widget.onDoneButtonStyle,
-            onBackPress: widget.onBackPress,
-            editorBackgroundColor: widget.editorBackgroundColor,
-            galleryThumbnailQuality: widget.galleryThumbnailQuality,
-          ),
-        ),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => ControlNotifier()),
+        ChangeNotifierProvider(create: (_) => ScrollNotifier()),
+        ChangeNotifierProvider(create: (_) => DraggableWidgetNotifier()),
+        ChangeNotifierProvider(create: (_) => GradientNotifier()),
+        ChangeNotifierProvider(create: (_) => PaintingNotifier()),
+        ChangeNotifierProvider(create: (_) => TextEditingNotifier()),
+        // ChangeNotifierProvider(create: (_) => RenderingNotifier()),
+      ],
+      child: MainView(
+        giphyKey: widget.giphyKey ?? 'C4dMA7Q19nqEGdpfj82T8ssbOeZIylD4',
+        onDone: widget.onDone,
+        fontFamilyList: widget.fontFamilyList,
+        isCustomFontList: widget.isCustomFontList,
+        middleBottomWidget: widget.middleBottomWidget,
+        gradientColors: widget.gradientColors,
+        colorList: widget.colorList,
+        onDoneButtonStyle: widget.onDoneButtonStyle,
+        onBackPress: widget.onBackPress,
+        editorBackgroundColor: widget.editorBackgroundColor,
+        galleryThumbnailQuality: widget.galleryThumbnailQuality,
+        centerText: widget.centerText,
       ),
     );
   }

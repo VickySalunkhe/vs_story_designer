@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:vs_story_designer/src/presentation/utils/constants/app_colors.dart';
+import 'package:vs_story_designer/src/presentation/utils/constants/colors.dart';
 import 'package:vs_story_designer/src/presentation/utils/constants/font_family.dart';
+import 'package:vs_story_designer/src/presentation/utils/constants/gradients.dart';
 import 'package:vs_story_designer/vs_story_designer.dart';
 
 class ControlNotifier extends ChangeNotifier {
@@ -46,6 +47,14 @@ class ControlNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
+  // List<String>? _fontList = fontFamilyList;
+
+  // /// here you can define your own font family list
+  // List<String>? get fontList => _fontList;
+  // set fontList(List<String>? fonts) {
+  //   _fontList = fonts;
+  //   notifyListeners();
+  // }
   List<FontType>? _fontList = AppFonts.fontFamilyListENUM;
 
   /// here you can define your own font family list
@@ -64,7 +73,7 @@ class ControlNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
-  List<List<Color>>? _gradientColors = AppColors.gradientBackgroundColors;
+  List<List<Color>>? _gradientColors = gradientBackgroundColors;
 
   /// here you can define your own background gradients
   List<List<Color>>? get gradientColors => _gradientColors;
@@ -91,7 +100,7 @@ class ControlNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
-  List<Color>? _colorList = AppColors.defaultColors;
+  List<Color>? _colorList = defaultColors;
 
   /// you can add your own color palette list
   List<Color>? get colorList => _colorList;
@@ -115,12 +124,20 @@ class ControlNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
-  // Enable / Disable Text Shadow
-  // ignore: prefer_final_fields
+  bool _isRenderingWidget = false;
+  bool get isRenderingWidget => _isRenderingWidget;
+  set isRenderingWidget(bool rendering) {
+    _isRenderingWidget = rendering;
+    notifyListeners();
+  }
+
+  ///////
   bool _enableTextShadow = true;
   bool get enableTextShadow => _enableTextShadow;
   set enableTextShadow(bool filter) {
     _enableTextShadow = filter;
     notifyListeners();
   }
+
+  ////
 }

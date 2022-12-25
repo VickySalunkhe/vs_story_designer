@@ -1,17 +1,18 @@
+// ignore_for_file: no_leading_underscores_for_local_identifiers, unused_element
+
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 // import 'package:modal_gif_picker/modal_gif_picker.dart';
 import 'package:provider/provider.dart';
 // import 'package:vs_story_designer/src/domain/models/editable_items.dart';
+import 'package:vs_story_designer/src/domain/providers/notifiers/control_provider.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/draggable_widget_notifier.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/painting_notifier.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/text_editing_notifier.dart';
 // import 'package:vs_story_designer/src/domain/sevices/save_as_image.dart';
 import 'package:vs_story_designer/src/presentation/utils/Extensions/hexColor.dart';
-// import 'package:vs_story_designer/src/presentation/utils/constants/app_enums.dart';
+// import 'package:vs_story_designer/src/presentation/utils/constants/item_type.dart';
 import 'package:vs_story_designer/src/presentation/widgets/animated_onTap_button.dart';
-
-import '../../domain/providers/notifiers/control_provider.dart';
 
 /// create item of type GIF
 // Future createGiphyItem(
@@ -33,7 +34,7 @@ import '../../domain/providers/notifiers/control_provider.dart';
 //   if (_editableItem.giphy != null) {
 //     _editableItem.draggableWidget.add(EditableItem()
 //       ..type = ItemType.gif
-//       ..gif = _editableItem.giphy!
+//       //..gif = _editableItem.giphy!
 //       ..position = const Offset(0.0, 0.0));
 //   }
 // }
@@ -52,8 +53,8 @@ Future<bool> exitDialog({required context, required contentKey}) async {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30),
             child: Container(
-              padding: const EdgeInsets.only(
-                  top: 25, bottom: 25, right: 20, left: 20),
+              padding:
+                  const EdgeInsets.only(top: 5, bottom: 5, right: 20, left: 20),
               alignment: Alignment.center,
               height: 250,
               decoration: BoxDecoration(
@@ -89,15 +90,9 @@ Future<bool> exitDialog({required context, required contentKey}) async {
                         letterSpacing: 0.1),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(
-                    height: 18,
-                  ),
-                  const SizedBox(
-                    height: 22,
-                    child: Divider(
-                      color: Colors.white10,
-                    ),
-                  ),
+                  const SizedBox(height: 20),
+                  const Divider(color: Colors.white10),
+                  const SizedBox(height: 10),
 
                   /// discard
                   AnimatedOnTapButton(
@@ -115,12 +110,12 @@ Future<bool> exitDialog({required context, required contentKey}) async {
                       textAlign: TextAlign.center,
                     ),
                   ),
-                  const SizedBox(
-                    height: 22,
-                    child: Divider(
-                      color: Colors.white10,
-                    ),
-                  ),
+                  // const SizedBox(
+                  //   height: 18,
+                  //   child: Divider(
+                  //     color: Colors.white10,
+                  //   ),
+                  // ),
 
                   /// save and exit
                   // AnimatedOnTapButton(
@@ -157,12 +152,9 @@ Future<bool> exitDialog({required context, required contentKey}) async {
                   //     textAlign: TextAlign.center,
                   //   ),
                   // ),
-                  // const SizedBox(
-                  //   height: 22,
-                  //   child: Divider(
-                  //     color: Colors.white10,
-                  //   ),
-                  // ),
+                  const SizedBox(height: 10),
+                  const Divider(color: Colors.white10),
+                  const SizedBox(height: 10),
 
                   ///cancel
                   AnimatedOnTapButton(
@@ -189,19 +181,19 @@ Future<bool> exitDialog({required context, required contentKey}) async {
 }
 
 _resetDefaults({required BuildContext context}) {
-  final paintingProvider =
+  final _paintingProvider =
       Provider.of<PaintingNotifier>(context, listen: false);
-  final widgetProvider =
+  final _widgetProvider =
       Provider.of<DraggableWidgetNotifier>(context, listen: false);
-  final controlProvider = Provider.of<ControlNotifier>(context, listen: false);
-  final editingProvider =
+  final _controlProvider = Provider.of<ControlNotifier>(context, listen: false);
+  final _editingProvider =
       Provider.of<TextEditingNotifier>(context, listen: false);
-  paintingProvider.lines.clear();
-  widgetProvider.draggableWidget.clear();
-  widgetProvider.setDefaults();
-  paintingProvider.resetDefaults();
-  editingProvider.setDefaults();
-  controlProvider.mediaPath = '';
+  _paintingProvider.lines.clear();
+  _widgetProvider.draggableWidget.clear();
+  _widgetProvider.setDefaults();
+  _paintingProvider.resetDefaults();
+  _editingProvider.setDefaults();
+  _controlProvider.mediaPath = '';
 }
 
 _dispose({required context, required message}) {

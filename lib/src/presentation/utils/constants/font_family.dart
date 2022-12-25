@@ -1,6 +1,27 @@
+// const fontFamilyList = [
+//   'Alegreya',
+//   'B612',
+//   'TitilliumWeb',
+//   'Varela',
+//   'Vollkorn',
+//   'Rakkas',
+//   'ConcertOne',
+//   'YatraOne',
+//   'OldStandardTT',
+//   'Neonderthaw',
+//   'DancingScript',
+//   'SedgwickAve',
+//   'IndieFlower',
+//   'Sacramento',
+//   'PressStart2P',
+//   'FrederickatheGreat',
+//   'ReenieBeanie',
+//   'BungeeShade',
+//   'UnifrakturMaguntia'
+// ];
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-// import 'package:vs_story_designer/src/presentation/utils/constants/app_enums.dart';
 import 'package:vs_story_designer/vs_story_designer.dart';
 
 class AppFonts {
@@ -93,7 +114,33 @@ class AppFonts {
     FontType.montserrat,
     FontType.oswald,
     FontType.poppins,
-    FontType.lato
+    FontType.lato,
+    /////////////////////////////////////
+    FontType.b612,
+    FontType.hindSiliguri,
+    FontType.titilliumWeb,
+    FontType.varela,
+    FontType.vollkorn,
+    FontType.rakkas,
+    FontType.hindGuntur,
+    FontType.concertOne,
+    //
+    FontType.yatraOne,
+    FontType.notoSansGujarati,
+    FontType.oldStandardTT,
+    FontType.neonderthaw,
+    FontType.bungeeShade,
+    FontType.passionsConflict,
+    FontType.sedgwickAve,
+    FontType.notoNastaliqUrdu,
+    FontType.sacramento,
+    FontType.pressStart2P,
+    FontType.cabinSketch,
+    FontType.frederickatheGreat,
+    //FontType.TiroDevanagariHindi,
+    FontType.rubikVinyl,
+    FontType.ewert,
+    FontType.unifrakturMaguntia,
   ];
 
   static TextTheme getTextThemeENUM(FontType val) {
@@ -273,9 +320,93 @@ class AppFonts {
 
       case FontType.lobster:
         return GoogleFonts.lobsterTextTheme();
+      ///////////////////////////////////////////////////
+      case FontType.b612:
+        return GoogleFonts.b612TextTheme();
+      case FontType.hindSiliguri:
+        return GoogleFonts.hindSiliguriTextTheme();
+      case FontType.titilliumWeb:
+        return GoogleFonts.titilliumWebTextTheme();
+      case FontType.varela:
+        return GoogleFonts.varelaTextTheme();
+      case FontType.vollkorn:
+        return GoogleFonts.vollkornTextTheme();
+      case FontType.rakkas:
+        return GoogleFonts.rakkasTextTheme();
+      case FontType.hindGuntur:
+        return GoogleFonts.hindGunturTextTheme();
+      case FontType.concertOne:
+        return GoogleFonts.concertOneTextTheme();
+      case FontType.yatraOne:
+        return GoogleFonts.yatraOneTextTheme();
+      case FontType.notoSansGujarati:
+        return GoogleFonts.notoSansGujaratiTextTheme();
+      case FontType.oldStandardTT:
+        return GoogleFonts.oldStandardTtTextTheme();
+      case FontType.neonderthaw:
+        return GoogleFonts.neonderthawTextTheme();
+      case FontType.bungeeShade:
+        return GoogleFonts.bungeeShadeTextTheme();
+      case FontType.passionsConflict:
+        return GoogleFonts.passionsConflictTextTheme();
+      case FontType.sedgwickAve:
+        return GoogleFonts.sedgwickAveTextTheme();
+      case FontType.notoNastaliqUrdu:
+        return GoogleFonts.notoNastaliqUrduTextTheme();
+      case FontType.sacramento:
+        return GoogleFonts.sacramentoTextTheme();
+      case FontType.pressStart2P:
+        return GoogleFonts.pressStart2pTextTheme();
+      case FontType.cabinSketch:
+        return GoogleFonts.cabinSketchTextTheme();
+      case FontType.frederickatheGreat:
+        return GoogleFonts.frederickaTheGreatTextTheme();
+      // case  FontType.TiroDevanagariHindi:return GoogleFonts.
+      case FontType.rubikVinyl:
+        return GoogleFonts.rubikTextTheme();
+      case FontType.ewert:
+        return GoogleFonts.ewertTextTheme();
+      case FontType.unifrakturMaguntia:
+        return GoogleFonts.unifrakturMaguntiaTextTheme();
 
+////////////////////////////////////////////////
       default:
         return GoogleFonts.openSansTextTheme();
     }
   }
 }
+
+
+
+// const fontFamilyList = [
+////////////////////////   ‘Roboto’,
+//   'Alegreya',
+//   'B612’,
+//   'Hind Siliguri',
+//   'TitilliumWeb',
+//   'Varela',
+//   'Vollkorn',
+//   'Rakkas’,
+//   'Hind Guntur',
+//   'ConcertOne',
+//   'YatraOne’,
+//   'Noto SansGujarati',
+//   'OldStandardTT',
+//    'Neonderthaw',
+//    'DancingScript’,
+//    'BungeeShade’,
+//    'PassionsConflict',
+//    'SedgwickAve’,
+//    'Noto NastaliqUrdu',
+//    'IndieFlower',
+//    'Sacramento',
+//    'PressStart2P’,
+//    'CabinSketch',
+//    'FrederickatheGreat’,
+//    'SpecialElite',
+//    'TiroDevanagariHindi',
+//    'RubikVinyl',
+//    'Ewert',
+//    'ReenieBeanie',
+//   'UnifrakturMaguntia'
+// ];

@@ -1,8 +1,10 @@
+// ignore_for_file: no_leading_underscores_for_local_identifiers
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:vs_story_designer/src/domain/models/painting_model.dart';
-import 'package:vs_story_designer/src/presentation/utils/constants/app_enums.dart';
+import 'package:vs_story_designer/src/presentation/utils/constants/painting_type.dart';
 
 class PaintingNotifier extends ChangeNotifier {
   /// here all line Paths will be save
@@ -62,13 +64,13 @@ class PaintingNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
-  set linesStreamController(StreamController<List<PaintingModel>> stream) {
-    _linesStreamController = stream;
+  set linesStreamController(StreamController<List<PaintingModel>> _stream) {
+    _linesStreamController = _stream;
     notifyListeners();
   }
 
-  set currentLineStreamController(StreamController<PaintingModel> stream) {
-    _currentLineStreamController = stream;
+  set currentLineStreamController(StreamController<PaintingModel> _stream) {
+    _currentLineStreamController = _stream;
     notifyListeners();
   }
 

@@ -4,8 +4,7 @@
 // import 'package:provider/provider.dart';
 // import 'package:vs_story_designer/src/domain/providers/notifiers/control_provider.dart';
 // import 'package:vs_story_designer/src/domain/providers/notifiers/text_editing_notifier.dart';
-// import 'package:vs_story_designer/src/presentation/utils/constants/app_enums.dart';
-// import 'package:vs_story_designer/src/presentation/utils/constants/font_family.dart';
+// import 'package:vs_story_designer/src/presentation/utils/constants/text_animation_type.dart';
 // import 'package:vs_story_designer/src/presentation/widgets/animated_onTap_button.dart';
 
 // class AnimationSelector extends StatelessWidget {
@@ -48,16 +47,12 @@
 //                       shape: BoxShape.circle,
 //                       border: Border.all(color: Colors.white)),
 //                   child: DefaultTextStyle(
-//                     style: AppFonts.getTextTheme(controlNotifier
-//                             .fontList![editorNotifier.fontAnimationIndex])
-//                         .bodyText1!
-//                         .merge(TextStyle(
-//                             // fontFamily: controlNotifier
-//                             //     .fontList![editorNotifier.fontFamilyIndex],
-//                             // package: controlNotifier.isCustomFontList
-//                             //     ? null
-//                             //     : 'vs_story_designer'
-//                             ))
+//                     style: TextStyle(
+//                             fontFamily: controlNotifier
+//                                 .fontList![editorNotifier.fontFamilyIndex],
+//                             package: controlNotifier.isCustomFontList
+//                                 ? null
+//                                 : 'vs_story_designer')
 //                         .copyWith(
 //                             color: index == editorNotifier.fontAnimationIndex
 //                                 ? Colors.red

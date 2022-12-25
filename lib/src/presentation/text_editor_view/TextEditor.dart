@@ -1,14 +1,16 @@
+// ignore_for_file: file_names, no_leading_underscores_for_local_identifiers
+
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:vs_story_designer/src/domain/models/editable_items.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/control_provider.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/draggable_widget_notifier.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/text_editing_notifier.dart';
+// import 'package:vs_story_designer/src/presentation/text_editor_view/widgets/animation_selector.dart';
 import 'package:vs_story_designer/src/presentation/text_editor_view/widgets/font_selector.dart';
 import 'package:vs_story_designer/src/presentation/text_editor_view/widgets/text_field_widget.dart';
 import 'package:vs_story_designer/src/presentation/text_editor_view/widgets/top_text_tools.dart';
-import 'package:vs_story_designer/src/presentation/utils/constants/app_enums.dart';
+import 'package:vs_story_designer/src/presentation/utils/constants/item_type.dart';
 import 'package:vs_story_designer/src/presentation/widgets/color_selector.dart';
 import 'package:vs_story_designer/src/presentation/widgets/size_slider_selector.dart';
 
@@ -27,10 +29,10 @@ class _TextEditorState extends State<TextEditor> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      final editorNotifier =
+      final _editorNotifier =
           Provider.of<TextEditingNotifier>(widget.context, listen: false);
-      editorNotifier
-        ..textController.text = editorNotifier.text
+      _editorNotifier
+        ..textController.text = _editorNotifier.text
         ..fontFamilyController = PageController(viewportFraction: .125);
     });
     super.initState();
@@ -38,7 +40,7 @@ class _TextEditorState extends State<TextEditor> {
 
   @override
   Widget build(BuildContext context) {
-    final ScreenUtil screenUtil = ScreenUtil();
+    var _size = MediaQuery.of(context).size;
     return Material(
         color: Colors.transparent,
         child: Consumer2<ControlNotifier, TextEditingNotifier>(
@@ -51,8 +53,8 @@ class _TextEditorState extends State<TextEditor> {
                 child: Container(
                     decoration:
                         BoxDecoration(color: Colors.black.withOpacity(0.5)),
-                    height: screenUtil.screenHeight,
-                    width: screenUtil.screenWidth,
+                    height: _size.height,
+                    width: _size.width,
                     child: Stack(
                       children: [
                         /// text field
@@ -78,49 +80,40 @@ class _TextEditorState extends State<TextEditor> {
                         ),
 
                         /// font family selector (bottom)
-                        Positioned(
-                          bottom: screenUtil.screenHeight * 0.21,
-                          child: Visibility(
-                            visible: editorNotifier.isFontFamily &&
-                                !editorNotifier.isTextAnimation,
-                            child: const Align(
-                              alignment: Alignment.bottomCenter,
-                              child: Padding(
-                                padding: EdgeInsets.only(bottom: 20),
-                                child: FontSelector(),
-                              ),
+                        Visibility(
+                          visible: editorNotifier.isFontFamily &&
+                              !editorNotifier.isTextAnimation,
+                          child: const Align(
+                            alignment: Alignment.bottomCenter,
+                            child: Padding(
+                              padding: EdgeInsets.only(bottom: 20),
+                              child: FontSelector(),
                             ),
                           ),
                         ),
 
                         /// font color selector (bottom)
-                        Positioned(
-                          bottom: screenUtil.screenHeight * 0.21,
-                          child: Visibility(
-                              visible: !editorNotifier.isFontFamily &&
-                                  !editorNotifier.isTextAnimation,
-                              child: const Align(
-                                alignment: Alignment.bottomCenter,
-                                child: Padding(
-                                  padding: EdgeInsets.only(bottom: 20),
-                                  child: ColorSelector(),
-                                ),
-                              )),
-                        ),
+                        Visibility(
+                            visible: !editorNotifier.isFontFamily &&
+                                !editorNotifier.isTextAnimation,
+                            child: const Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Padding(
+                                padding: EdgeInsets.only(bottom: 20),
+                                child: ColorSelector(),
+                              ),
+                            )),
 
-                        /// font animation selector (bottom
-                        // Positioned(
-                        //   bottom: screenUtil.screenHeight * 0.21,
-                        //   child: Visibility(
-                        //       visible: editorNotifier.isTextAnimation,
-                        //       child: const Align(
-                        //         alignment: Alignment.bottomCenter,
-                        //         child: Padding(
-                        //           padding: EdgeInsets.only(bottom: 20),
-                        //           child: AnimationSelector(),
-                        //         ),
-                        //       )),
-                        // ),
+                        // font animation selector (bottom
+                        // Visibility(
+                        //     visible: editorNotifier.isTextAnimation,
+                        //     child: const Align(
+                        //       alignment: Alignment.bottomCenter,
+                        //       child: Padding(
+                        //         padding: EdgeInsets.only(bottom: 20),
+                        //         child: AnimationSelector(),
+                        //       ),
+                        //     )),
                       ],
                     )),
               ),
@@ -131,7 +124,7 @@ class _TextEditorState extends State<TextEditor> {
 
   void _onTap(context, ControlNotifier controlNotifier,
       TextEditingNotifier editorNotifier) {
-    final editableItemNotifier =
+    final _editableItemNotifier =
         Provider.of<DraggableWidgetNotifier>(context, listen: false);
 
     /// create text list
@@ -143,13 +136,15 @@ class _TextEditorState extends State<TextEditor> {
           sequenceList = splitList[0];
         } else {
           lastSequenceList = sequenceList;
+          // editorNotifier.textList.add(sequenceList + ' ' + splitList[i]);
+          // sequenceList = lastSequenceList + ' ' + splitList[i];
           editorNotifier.textList.add('$sequenceList ${splitList[i]}');
           sequenceList = '$lastSequenceList ${splitList[i]}';
         }
       }
 
       /// create Text Item
-      editableItemNotifier.draggableWidget.add(EditableItem()
+      _editableItemNotifier.draggableWidget.add(EditableItem()
         ..type = ItemType.text
         ..text = editorNotifier.text.trim()
         ..backGroundColor = editorNotifier.backGroundColor

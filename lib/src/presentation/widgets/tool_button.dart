@@ -14,10 +14,10 @@ class ToolButton extends StatelessWidget {
       required this.onTap,
       required this.child,
       this.backGroundColor,
-      this.borderHide = false,
       this.padding,
       this.onLongPress,
-      this.colorBorder = Colors.white})
+      this.colorBorder = Colors.white,
+      this.borderHide = false})
       : super(key: key);
 
   @override

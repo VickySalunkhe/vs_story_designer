@@ -1,3 +1,8 @@
+## 1.2.0
+- Added support for 90+ google fonts.
+- Smooth transistion and better overall performance.
+- Fixed Minor Bugs.
+
 ## 1.1.2
 - Added ENUM for Font Type, now select fonts easily as per your requirement.
 - Added 70+ google fonts.
