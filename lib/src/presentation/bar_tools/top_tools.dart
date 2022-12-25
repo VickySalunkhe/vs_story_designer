@@ -59,9 +59,9 @@ class _TopToolsState extends State<TopTools> {
                       color: Colors.white,
                     )),
 
-                if (controlNotifier.mediaPath.isEmpty)
-                  Row(
-                    children: [
+                Row(
+                  children: [
+                    if (controlNotifier.mediaPath.isEmpty)
                       Padding(
                         padding: const EdgeInsets.only(left: 0),
                         child: _selectColor(
@@ -79,55 +79,55 @@ class _TopToolsState extends State<TopTools> {
                               }
                             }),
                       ),
-                      ToolButton(
+                    ToolButton(
+                      backGroundColor: Colors.black12,
+                      onTap: () => controlNotifier.isTextEditing =
+                          !controlNotifier.isTextEditing,
+                      child: const ImageIcon(
+                        AssetImage('assets/icons/text.png',
+                            package: 'vs_story_designer'),
+                        color: Colors.white,
+                        size: 20,
+                      ),
+                    ),
+                    ToolButton(
+                        backGroundColor: controlNotifier.enableTextShadow
+                            ? Colors.white
+                            : Colors.black12,
+                        onTap: () {
+                          controlNotifier.enableTextShadow =
+                              !controlNotifier.enableTextShadow;
+                        },
+                        child: Icon(Icons.text_fields_sharp,
+                            color: controlNotifier.enableTextShadow
+                                ? Colors.black
+                                : Colors.white,
+                            size: 30)),
+                    // ToolButton(
+                    //     child: const ImageIcon(
+                    //       AssetImage('assets/icons/stickers.png',
+                    //           package: 'vs_story_designer'),
+                    //       color: Colors.white,
+                    //       size: 20,
+                    //     ),
+                    //     backGroundColor: Colors.black12,
+                    //     onTap: () => createGiphyItem(
+                    //         context: context,
+                    //         giphyKey: controlNotifier.giphyKey)),
+                    ToolButton(
                         backGroundColor: Colors.black12,
-                        onTap: () => controlNotifier.isTextEditing =
-                            !controlNotifier.isTextEditing,
+                        onTap: () {
+                          controlNotifier.isPainting = true;
+                          //createLinePainting(context: context);
+                        },
                         child: const ImageIcon(
-                          AssetImage('assets/icons/text.png',
+                          AssetImage('assets/icons/draw.png',
                               package: 'vs_story_designer'),
                           color: Colors.white,
                           size: 20,
-                        ),
-                      ),
-                      ToolButton(
-                          backGroundColor: controlNotifier.enableTextShadow
-                              ? Colors.white
-                              : Colors.black12,
-                          onTap: () {
-                            controlNotifier.enableTextShadow =
-                                !controlNotifier.enableTextShadow;
-                          },
-                          child: Icon(Icons.text_fields_sharp,
-                              color: controlNotifier.enableTextShadow
-                                  ? Colors.black
-                                  : Colors.white,
-                              size: 30)),
-                      // ToolButton(
-                      //     child: const ImageIcon(
-                      //       AssetImage('assets/icons/stickers.png',
-                      //           package: 'vs_story_designer'),
-                      //       color: Colors.white,
-                      //       size: 20,
-                      //     ),
-                      //     backGroundColor: Colors.black12,
-                      //     onTap: () => createGiphyItem(
-                      //         context: context,
-                      //         giphyKey: controlNotifier.giphyKey)),
-                      ToolButton(
-                          backGroundColor: Colors.black12,
-                          onTap: () {
-                            controlNotifier.isPainting = true;
-                            //createLinePainting(context: context);
-                          },
-                          child: const ImageIcon(
-                            AssetImage('assets/icons/draw.png',
-                                package: 'vs_story_designer'),
-                            color: Colors.white,
-                            size: 20,
-                          )),
-                    ],
-                  ),
+                        )),
+                  ],
+                ),
 
                 // ToolButton(
                 //   child: ImageIcon(
@@ -162,11 +162,15 @@ class _TopToolsState extends State<TopTools> {
                           var response = await takePicture(
                               contentKey: widget.contentKey,
                               context: context,
-                              saveToGallery: true);
+                              saveToGallery: true,
+                              fileName: controlNotifier.folderName);
                           if (response) {
                             Fluttertoast.showToast(msg: 'Successfully saved');
                           } else {}
                         }
+                      } else {
+                        Fluttertoast.showToast(
+                            msg: 'Design something to save image');
                       }
                       setState(() {
                         _createVideo = false;

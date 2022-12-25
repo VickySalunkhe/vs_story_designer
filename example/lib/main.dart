@@ -62,7 +62,8 @@ class _ExampleState extends State<Example> {
                               //   FontType.alegreya,
                               //   FontType.typewriter
                               // ],
-                              galleryThumbnailQuality: 100,
+                              // middleBottomWidget: const SizedBox(),
+                              galleryThumbnailQuality: 250,
                               onDone: (uri) {
                                 debugPrint(uri);
                                 Share.shareFiles([uri]);

@@ -44,6 +44,9 @@ class MainView extends StatefulWidget {
   /// editor custom font families package
   final bool? isCustomFontList;
 
+  /// you can pass a folderName where media files will be saved to instead of default folder
+  final String? fileName;
+
   /// giphy api key
   final String giphyKey;
 
@@ -79,6 +82,7 @@ class MainView extends StatefulWidget {
     required this.onDone,
     this.middleBottomWidget,
     this.colorList,
+    this.fileName,
     this.isCustomFontList,
     this.fontFamilyList,
     this.gradientColors,
@@ -124,6 +128,7 @@ class _MainViewState extends State<MainView> {
 
       /// initialize control variable provider
       _control.giphyKey = widget.giphyKey;
+      _control.folderName = widget.fileName ?? "VS_Story_Designer";
       _control.middleBottomWidget = widget.middleBottomWidget;
       _control.isCustomFontList = widget.isCustomFontList ?? false;
       if (widget.gradientColors != null) {

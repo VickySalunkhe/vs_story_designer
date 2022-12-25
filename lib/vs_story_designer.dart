@@ -116,6 +116,9 @@ class VSStoryDesigner extends StatefulWidget {
   /// editor custom font families package
   final bool? isCustomFontList;
 
+  /// you can pass a fileName with which image name will be created
+  final String? fileName;
+
   /// giphy api key
   final String? giphyKey;
 
@@ -151,6 +154,7 @@ class VSStoryDesigner extends StatefulWidget {
       this.middleBottomWidget,
       this.colorList,
       this.gradientColors,
+      this.fileName,
       this.fontFamilyList,
       this.isCustomFontList,
       this.onBackPress,
@@ -203,6 +207,7 @@ class _VSStoryDesignerState extends State<VSStoryDesigner> {
         isCustomFontList: widget.isCustomFontList,
         middleBottomWidget: widget.middleBottomWidget,
         gradientColors: widget.gradientColors,
+        fileName: widget.fileName,
         colorList: widget.colorList,
         onDoneButtonStyle: widget.onDoneButtonStyle,
         onBackPress: widget.onBackPress,

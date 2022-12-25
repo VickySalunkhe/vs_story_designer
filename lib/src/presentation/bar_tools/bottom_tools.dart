@@ -1,6 +1,7 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gallery_media_picker/gallery_media_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/control_provider.dart';
@@ -112,121 +113,111 @@ class BottomTools extends StatelessWidget {
               //       }),
 
               /// center logo
-              // controlNotifier.middleBottomWidget != null
-              //     ? Center(
-              //         child: Container(
-              //             width: _size.width / 3,
-              //             height: 80,
-              //             alignment: Alignment.bottomCenter,
-              //             child: controlNotifier.middleBottomWidget),
-              //       )
-              //     : Center(
-              //         child: Column(
-              //           mainAxisSize: MainAxisSize.min,
-              //           children: [
-              //             // Image.asset(
-              //             //   'assets/images/instagram_logo.png',
-              //             //   package: 'vs_story_designer',
-              //             //   color: Colors.white,
-              //             //   height: 42,
-              //             // ),
-              //             const Text(
-              //               'Stories Creator',
-              //               style: TextStyle(
-              //                   color: Colors.white38,
-              //                   letterSpacing: 1.5,
-              //                   fontSize: 9.2,
-              //                   fontWeight: FontWeight.bold),
-              //             ),
-              //           ],
-              //         ),
-              //       ),
+              controlNotifier.middleBottomWidget != null
+                  ? Center(
+                      child: Container(
+                          width: _size.width / 3,
+                          height: 80,
+                          alignment: Alignment.bottomCenter,
+                          child: controlNotifier.middleBottomWidget),
+                    )
+                  : Center(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Image.asset(
+                            'assets/images/instagram_logo.png',
+                            package: 'vs_story_designer',
+                            color: Colors.white,
+                            height: 42,
+                          ),
+                          const Text(
+                            'Story Designer',
+                            style: TextStyle(
+                                color: Colors.white38,
+                                letterSpacing: 1.5,
+                                fontSize: 9.2,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
 
               /// save final image to gallery
 
-              Padding(
-                padding: const EdgeInsets.only(right: 10),
-                child: Container(
-                  width: _size.width / 3,
-                  alignment: Alignment.centerRight,
-                  padding: const EdgeInsets.only(right: 0),
-                  child: Transform.scale(
-                    scale: 0.9,
-                    child: StatefulBuilder(
-                      builder: (_, setState) {
-                        return AnimatedOnTapButton(
-                            onTap: () async {
-                              String pngUri;
-                              if (paintingNotifier.lines.isNotEmpty ||
-                                  itemNotifier.draggableWidget.isNotEmpty) {
-                                for (var element
-                                    in itemNotifier.draggableWidget) {
-                                  if (element.type == ItemType.gif ||
-                                      element.animationType !=
-                                          TextAnimationType.none) {
-                                    setState(() {
-                                      _createVideo = true;
-                                    });
-                                  }
-                                }
-                                if (_createVideo) {
-                                  debugPrint('creating video');
-                                  await renderWidget!();
-                                } else {
-                                  debugPrint('creating image');
-                                  await takePicture(
-                                          contentKey: contentKey,
-                                          context: context,
-                                          saveToGallery: false)
-                                      .then((bytes) {
-                                    if (bytes != null) {
-                                      pngUri = bytes;
-                                      onDone(pngUri);
-                                    } else {}
-                                  });
-                                }
-                              }
-                              setState(() {
-                                _createVideo = false;
-                              });
-                            },
-                            child: onDoneButtonStyle ??
-                                Container(
-                                  padding: const EdgeInsets.only(
-                                      left: 10, right: 5, top: 4, bottom: 4),
-                                  decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(8),
-                                      border: Border.all(
-                                          color: Colors.white, width: 1.5)),
-                                  child: Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: const [
-                                        Padding(
-                                          padding: EdgeInsets.all(6),
-                                          child: Text(
-                                            'Nimble',
-                                            style: TextStyle(
-                                                letterSpacing: 1.5,
-                                                fontSize: 20,
-                                                fontWeight: FontWeight.w600),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(
-                                              left: 0, right: 2),
-                                          child: Icon(
-                                            Icons.arrow_forward_ios,
-                                            size: 18,
-                                          ),
-                                        ),
-                                      ]),
-                                ));
-                      },
-                    ),
-                  ),
-                ),
-              ),
+              AnimatedOnTapButton(
+                  onTap: () async {
+                    String pngUri;
+                    if (paintingNotifier.lines.isNotEmpty ||
+                        itemNotifier.draggableWidget.isNotEmpty) {
+                      for (var element in itemNotifier.draggableWidget) {
+                        if (element.type == ItemType.gif ||
+                            element.animationType != TextAnimationType.none) {
+                          // setState(() {
+                          _createVideo = true;
+                          // });
+                        }
+                      }
+                      if (_createVideo) {
+                        debugPrint('creating video');
+                        await renderWidget!();
+                      } else {
+                        debugPrint('creating image');
+                        await takePicture(
+                                contentKey: contentKey,
+                                context: context,
+                                saveToGallery: false,
+                                fileName: controlNotifier.folderName)
+                            .then((bytes) {
+                          if (bytes != null) {
+                            pngUri = bytes;
+                            onDone(pngUri);
+                          } else {
+                            print("error");
+                          }
+                        });
+                      }
+                    } else {
+                      Fluttertoast.showToast(
+                          msg: 'Design something to save image');
+                    }
+                    // setState(() {
+                    _createVideo = false;
+                    // });
+                  },
+                  child: onDoneButtonStyle ??
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(8),
+                            border:
+                                Border.all(color: Colors.white, width: 1.5)),
+                        child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: const [
+                              Padding(
+                                padding: EdgeInsets.only(left: 0, right: 2),
+                                child: Icon(Icons.share_sharp, size: 28),
+                              ),
+                            ]),
+                      ))
+
+              // Padding(
+              //   padding: const EdgeInsets.only(right: 10),
+              //   child: Container(
+              //     width: _size.width / 4,
+              //     alignment: Alignment.centerRight,
+              //     padding: const EdgeInsets.only(right: 0),
+              //     child: Transform.scale(
+              //       scale: 0.9,
+              //       child: StatefulBuilder(
+              //         builder: (_, setState) {
+              //         },
+              //       ),
+              //     ),
+              //   ),
+              // ),
             ],
           ),
         );
@@ -245,7 +236,7 @@ class BottomTools extends StatelessWidget {
     );
   }
 
-  ///bagr      colors
+  // /bagr  colors
 
   // Widget _selectColor({onTap, controlProvider}) {
   //   return Padding(
@@ -285,4 +276,5 @@ class BottomTools extends StatelessWidget {
   //     ),
   //   );
   // }
+
 }

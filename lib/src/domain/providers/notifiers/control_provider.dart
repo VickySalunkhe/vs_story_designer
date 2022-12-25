@@ -14,6 +14,14 @@ class ControlNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
+  String get folderName => _folderName;
+  set folderName(String key) {
+    _folderName = key;
+    notifyListeners();
+  }
+
+  String _folderName = "";
+
   int _gradientIndex = 0;
 
   /// current gradient index
