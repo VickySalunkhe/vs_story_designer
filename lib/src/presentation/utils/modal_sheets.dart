@@ -13,6 +13,7 @@ import 'package:vs_story_designer/src/domain/providers/notifiers/text_editing_no
 import 'package:vs_story_designer/src/presentation/utils/Extensions/hexColor.dart';
 // import 'package:vs_story_designer/src/presentation/utils/constants/item_type.dart';
 import 'package:vs_story_designer/src/presentation/widgets/animated_onTap_button.dart';
+import 'package:vs_story_designer/vs_story_designer.dart';
 
 /// create item of type GIF
 // Future createGiphyItem(
@@ -40,7 +41,10 @@ import 'package:vs_story_designer/src/presentation/widgets/animated_onTap_button
 // }
 
 /// custom exit dialog
-Future<bool> exitDialog({required context, required contentKey}) async {
+Future<bool> exitDialog(
+    {required context,
+    required contentKey,
+    required ThemeType themeType}) async {
   return (await showDialog(
         context: context,
         barrierColor: Colors.black38,
@@ -59,39 +63,50 @@ Future<bool> exitDialog({required context, required contentKey}) async {
               height: 250,
               decoration: BoxDecoration(
                   shape: BoxShape.rectangle,
-                  color: HexColor.fromHex('#262626'),
+                  color: themeType == ThemeType.light
+                      ? Colors.white
+                      : HexColor.fromHex('#262626'),
                   borderRadius: BorderRadius.circular(20),
-                  boxShadow: const [
+                  boxShadow: [
                     BoxShadow(
-                        color: Colors.white10,
-                        offset: Offset(0, 1),
+                        color: themeType == ThemeType.light
+                            ? Colors.black
+                            : Colors.white10,
+                        offset: const Offset(0, 1),
                         blurRadius: 4),
                   ]),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  const Text(
+                  Text(
                     'Discard Edits?',
                     style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.w600,
-                        color: Colors.white,
+                        color: themeType == ThemeType.light
+                            ? Colors.black
+                            : Colors.white,
                         letterSpacing: 0.5),
                   ),
                   const SizedBox(
                     height: 20,
                   ),
-                  const Text(
+                  Text(
                     "If you go back now, you'll lose all the edits you've made.",
                     style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w400,
-                        color: Colors.white54,
+                        color: themeType == ThemeType.light
+                            ? Colors.grey
+                            : Colors.white54,
                         letterSpacing: 0.1),
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 20),
-                  const Divider(color: Colors.white10),
+                  Divider(
+                      color: themeType == ThemeType.light
+                          ? Colors.black26
+                          : Colors.white10),
                   const SizedBox(height: 10),
 
                   /// discard
@@ -153,7 +168,10 @@ Future<bool> exitDialog({required context, required contentKey}) async {
                   //   ),
                   // ),
                   const SizedBox(height: 10),
-                  const Divider(color: Colors.white10),
+                  Divider(
+                      color: themeType == ThemeType.light
+                          ? Colors.black26
+                          : Colors.white10),
                   const SizedBox(height: 10),
 
                   ///cancel
@@ -161,11 +179,13 @@ Future<bool> exitDialog({required context, required contentKey}) async {
                     onTap: () {
                       Navigator.of(context).pop(false);
                     },
-                    child: const Text(
+                    child: Text(
                       'Cancel',
                       style: TextStyle(
                           fontSize: 16,
-                          color: Colors.white,
+                          color: themeType == ThemeType.light
+                              ? Colors.black
+                              : Colors.white,
                           fontWeight: FontWeight.bold,
                           letterSpacing: 0.5),
                       textAlign: TextAlign.center,

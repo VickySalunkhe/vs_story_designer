@@ -15,6 +15,8 @@ import 'package:vs_story_designer/src/presentation/main_view/main_view.dart';
 
 export 'package:vs_story_designer/vs_story_designer.dart';
 
+enum ThemeType { dark, light }
+
 enum FontType {
   openSans,
   baskerville,
@@ -113,6 +115,9 @@ class VSStoryDesigner extends StatefulWidget {
   /// editor custom font families
   final List<FontType>? fontFamilyList;
 
+  // theme type
+  final ThemeType? themeType;
+
   /// editor custom font families package
   final bool? isCustomFontList;
 
@@ -150,6 +155,7 @@ class VSStoryDesigner extends StatefulWidget {
   const VSStoryDesigner(
       {Key? key,
       this.giphyKey,
+      this.themeType,
       required this.onDone,
       this.middleBottomWidget,
       this.colorList,
@@ -201,6 +207,7 @@ class _VSStoryDesignerState extends State<VSStoryDesigner> {
         // ChangeNotifierProvider(create: (_) => RenderingNotifier()),
       ],
       child: MainView(
+        themeType: widget.themeType ?? ThemeType.dark,
         giphyKey: widget.giphyKey ?? 'C4dMA7Q19nqEGdpfj82T8ssbOeZIylD4',
         onDone: widget.onDone,
         fontFamilyList: widget.fontFamilyList,

@@ -63,6 +63,8 @@ class _ExampleState extends State<Example> {
                               //   FontType.typewriter
                               // ],
                               // middleBottomWidget: const SizedBox(),
+                              themeType: ThemeType
+                                  .light, // OPTIONAL, Default ThemeType.dark
                               galleryThumbnailQuality: 250,
                               onDone: (uri) {
                                 debugPrint(uri);

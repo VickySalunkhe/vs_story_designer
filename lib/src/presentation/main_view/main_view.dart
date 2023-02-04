@@ -76,8 +76,12 @@ class MainView extends StatefulWidget {
   // Text appearing on center of design screen
   final String? centerText;
 
+// theme type
+  final ThemeType? themeType;
+
   MainView({
     Key? key,
+    this.themeType,
     required this.giphyKey,
     required this.onDone,
     this.middleBottomWidget,
@@ -131,6 +135,7 @@ class _MainViewState extends State<MainView> {
       _control.folderName = widget.fileName ?? "VS_Story_Designer";
       _control.middleBottomWidget = widget.middleBottomWidget;
       _control.isCustomFontList = widget.isCustomFontList ?? false;
+      _control.themeType = widget.themeType ?? ThemeType.dark;
       if (widget.gradientColors != null) {
         _control.gradientColors = widget.gradientColors;
       }
@@ -567,7 +572,10 @@ class _MainViewState extends State<MainView> {
     /// show close dialog
     else if (!controlNotifier.isTextEditing && !controlNotifier.isPainting) {
       return widget.onBackPress ??
-          exitDialog(context: context, contentKey: contentKey);
+          exitDialog(
+              context: context,
+              contentKey: contentKey,
+              themeType: widget.themeType!);
     }
     return false;
   }

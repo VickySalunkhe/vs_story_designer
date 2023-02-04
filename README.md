@@ -32,7 +32,7 @@ If you don't see the images go to the [github repository](https://github.com/Vic
 ## Installation
 *This package has been tested in Android and ios, some features works on flutter web*
 
-Add `vs_story_designer: 1.0.0` to your `pubspec.yaml` dependencies and then import it.
+Add `vs_story_designer: 1.2.2` to your `pubspec.yaml` dependencies and then import it.
 
 
 ```dart
@@ -50,6 +50,9 @@ import 'package:vs_story_designer/vs_story_designer.dart';
        <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
        <uses-permission android:name="android.permission.INTERNET" />
        <uses-permission android:name="android.permission.VIBRATE"/>
+       <!-- Permission is required if you are targeting android 33 and above -->
+       <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+       <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
       ```
 
    ### ios
@@ -71,6 +74,7 @@ VSStoryDesigner(
       /// uri is the local path of final render Uint8List
       /// here your code
     },
+    themeType: ThemeType.dark, // OPTIONAL, DEFAULT ThemeType.dark
     centerText : "Start Designing" //mandatory param, this text will appear in center of story designer
     colorList: [] /// (List<Color>[]) optional param 
     gradientColors: [] /// (List<List<Color>>[]) optional param 

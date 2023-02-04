@@ -20,6 +20,14 @@ class ControlNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
+  // theme type
+  ThemeType? _themeType;
+  ThemeType get themeType => _themeType!;
+  set themeType(ThemeType key) {
+    _themeType = key;
+    notifyListeners();
+  }
+
   String _folderName = "";
 
   int _gradientIndex = 0;
