@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../core/functions.dart';
+import 'package:vs_story_designer/src/packages/gallery_media_picker/src/core/functions.dart';
 
 typedef DropdownWidgetBuilder<T> = Widget Function(
     BuildContext context, ValueSetter<T> close);

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../presentation/widgets/select_album_path/dropdown.dart';
+import 'package:vs_story_designer/src/packages/gallery_media_picker/src/presentation/widgets/select_album_path/dropdown.dart';
 
 class OverlayDropDown<T> extends StatelessWidget {
   final double height;

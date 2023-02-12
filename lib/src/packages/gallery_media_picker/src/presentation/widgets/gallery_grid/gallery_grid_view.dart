@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../../presentation/pages/gallery_media_picker_controller.dart';
-import '../../../presentation/widgets/gallery_grid/thumbnail_widget.dart';
 import 'package:photo_manager/photo_manager.dart';
+import 'package:vs_story_designer/src/packages/gallery_media_picker/src/presentation/pages/gallery_media_picker_controller.dart';
+import 'package:vs_story_designer/src/packages/gallery_media_picker/src/presentation/widgets/gallery_grid/thumbnail_widget.dart';
 
 typedef OnAssetItemClick = void Function(AssetEntity entity, int index);
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../presentation/pages/gallery_media_picker_controller.dart';
 import 'package:photo_manager/photo_manager.dart';
+import 'package:vs_story_designer/src/packages/gallery_media_picker/src/presentation/pages/gallery_media_picker_controller.dart';
 
 class ChangePathWidget extends StatefulWidget {
   final GalleryMediaPickerController provider;

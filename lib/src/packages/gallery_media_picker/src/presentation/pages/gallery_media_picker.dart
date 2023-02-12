@@ -1,13 +1,13 @@
 // ignore_for_file: unnecessary_null_comparison
 
 import 'package:flutter/material.dart';
-import '../../core/functions.dart';
-import '../../data/models/picked_asset_model.dart';
-import '../../presentation/pages/gallery_media_picker_controller.dart';
-import '../../presentation/widgets/gallery_grid/gallery_grid_view.dart';
-import '../../presentation/widgets/select_album_path/current_path_selector.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:photo_manager/photo_manager.dart';
+import 'package:vs_story_designer/src/packages/gallery_media_picker/gallery_media_picker.dart';
+import 'package:vs_story_designer/src/packages/gallery_media_picker/src/core/functions.dart';
+import 'package:vs_story_designer/src/packages/gallery_media_picker/src/presentation/pages/gallery_media_picker_controller.dart';
+import 'package:vs_story_designer/src/packages/gallery_media_picker/src/presentation/widgets/gallery_grid/gallery_grid_view.dart';
+import 'package:vs_story_designer/src/packages/gallery_media_picker/src/presentation/widgets/select_album_path/current_path_selector.dart';
 
 class GalleryMediaPicker extends StatefulWidget {
   /// maximum images allowed (default 2)

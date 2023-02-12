@@ -1,7 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import '../../data/models/picked_asset_model.dart';
+
 import 'package:photo_manager/photo_manager.dart';
+import 'package:vs_story_designer/src/packages/gallery_media_picker/gallery_media_picker.dart';
 
 mixin PhotoDataController on ChangeNotifier {
   /// current gallery album

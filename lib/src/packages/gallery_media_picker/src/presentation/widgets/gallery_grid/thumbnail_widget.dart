@@ -1,8 +1,8 @@
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
-import '../../../core/decode_image.dart';
-import '../../../presentation/pages/gallery_media_picker_controller.dart';
 import 'package:photo_manager/photo_manager.dart';
+import 'package:vs_story_designer/src/packages/gallery_media_picker/src/core/decode_image.dart';
+import 'package:vs_story_designer/src/packages/gallery_media_picker/src/presentation/pages/gallery_media_picker_controller.dart';
 
 class ThumbnailWidget extends StatelessWidget {
   /// asset entity

@@ -5,8 +5,6 @@ import 'package:image/image.dart' as img;
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
 
-import 'package:palette_generator/palette_generator.dart';
-
 class ColorDetection {
   final GlobalKey? currentKey;
   final StreamController<Color>? stateController;
