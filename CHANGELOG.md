@@ -1,6 +1,7 @@
 ## 1.3.1
 - Libraries updated.
 - Image Picker issue in iOS Fixed.
+- Set Random Background Color while creating a story.
 - Minor Bug fixes.
 
 ## 1.2.2

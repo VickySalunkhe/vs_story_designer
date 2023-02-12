@@ -32,7 +32,7 @@ dependencies:
   # positioning
   align_positioned: ^3.0.0
   #message
-  fluttertoast: 8.1.2
+  fluttertoast: ^8.1.2
 
   # animated_text_kit: ^4.2.2
 
