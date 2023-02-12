@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:vs_story_designer/src/presentation/utils/constants/colors.dart';
 import 'package:vs_story_designer/src/presentation/utils/constants/font_family.dart';
@@ -30,7 +32,7 @@ class ControlNotifier extends ChangeNotifier {
 
   String _folderName = "";
 
-  int _gradientIndex = 0;
+  int _gradientIndex = Random().nextInt(5);
 
   /// current gradient index
   int get gradientIndex => _gradientIndex;

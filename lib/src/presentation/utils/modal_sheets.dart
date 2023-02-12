@@ -47,7 +47,8 @@ Future<bool> exitDialog(
     required ThemeType themeType}) async {
   return (await showDialog(
         context: context,
-        barrierColor: Colors.black38,
+        // barrierColor:
+        //     themeType == ThemeType.light ? Colors.black38 : Colors.white12,
         barrierDismissible: true,
         builder: (c) => Dialog(
           backgroundColor: Colors.transparent,
@@ -55,10 +56,9 @@ Future<bool> exitDialog(
           insetAnimationDuration: const Duration(milliseconds: 300),
           insetAnimationCurve: Curves.ease,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
+            padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Container(
-              padding:
-                  const EdgeInsets.only(top: 5, bottom: 5, right: 20, left: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
               alignment: Alignment.center,
               height: 250,
               decoration: BoxDecoration(
@@ -115,14 +115,19 @@ Future<bool> exitDialog(
                       _resetDefaults(context: context);
                       Navigator.of(context).pop(true);
                     },
-                    child: Text(
-                      'Discard',
-                      style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.redAccent.shade200,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 0.1),
-                      textAlign: TextAlign.center,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Discard',
+                          style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.redAccent.shade200,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 0.1),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
                     ),
                   ),
                   // const SizedBox(
@@ -179,16 +184,21 @@ Future<bool> exitDialog(
                     onTap: () {
                       Navigator.of(context).pop(false);
                     },
-                    child: Text(
-                      'Cancel',
-                      style: TextStyle(
-                          fontSize: 16,
-                          color: themeType == ThemeType.light
-                              ? Colors.black
-                              : Colors.white,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 0.5),
-                      textAlign: TextAlign.center,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Cancel',
+                          style: TextStyle(
+                              fontSize: 16,
+                              color: themeType == ThemeType.light
+                                  ? Colors.black
+                                  : Colors.white,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 0.5),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
                     ),
                   ),
                 ],

@@ -7,7 +7,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 // import 'package:fluttertoast/fluttertoast.dart';
-import 'package:gallery_media_picker/gallery_media_picker.dart';
 // import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:provider/provider.dart';
@@ -36,6 +35,8 @@ import 'package:vs_story_designer/src/presentation/utils/modal_sheets.dart';
 import 'package:vs_story_designer/src/presentation/widgets/animated_onTap_button.dart';
 import 'package:vs_story_designer/src/presentation/widgets/scrollable_pageView.dart';
 import 'package:vs_story_designer/vs_story_designer.dart';
+
+import '../../packages/gallery_media_picker/src/presentation/pages/gallery_media_picker.dart';
 
 class MainView extends StatefulWidget {
   /// editor custom font families

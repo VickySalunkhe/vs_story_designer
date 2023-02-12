@@ -1,3 +1,8 @@
+## 1.3.1
+- Libraries updated.
+- Image Picker issue in iOS Fixed.
+- Minor Bug fixes.
+
 ## 1.2.2
 - Added bit support for Theme, dark/light, change in Exit Popup
 - Fixed Minor Bugs.

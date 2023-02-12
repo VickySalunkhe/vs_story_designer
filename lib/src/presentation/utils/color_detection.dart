@@ -5,6 +5,8 @@ import 'package:image/image.dart' as img;
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
 
+import 'package:palette_generator/palette_generator.dart';
+
 class ColorDetection {
   final GlobalKey? currentKey;
   final StreamController<Color>? stateController;
@@ -32,11 +34,17 @@ class ColorDetection {
     double px = localPosition.dx;
     double py = localPosition.dy;
 
-    int pixel32 = photo!.getPixelSafe(px.toInt(), py.toInt());
-    int hex = abgrToArgb(pixel32);
+    // int pixel32 = photo!.getPixelSafe(px.toInt(), py.toInt());
+    // int hex = abgrToArgb(pixel32);
+    // stateController!.add(Color(hex));
+    // return Color(hex);
 
-    stateController!.add(Color(hex));
-    return Color(hex);
+    img.Pixel pixel32 = photo!.getPixelSafe(px.toInt(), py.toInt());
+    Color hex = Color.fromARGB(pixel32.a.toInt(), pixel32.r.toInt(),
+        pixel32.g.toInt(), pixel32.b.toInt());
+    stateController!.add(hex);
+
+    return hex;
   }
 
   Future<void> loadSnapshotBytes() async {
@@ -50,7 +58,7 @@ class ColorDetection {
   }
 
   void setImageBytes(ByteData imageBytes) {
-    List<int> values = imageBytes.buffer.asUint8List();
+    Uint8List values = imageBytes.buffer.asUint8List();
     photo = null;
     photo = img.decodeImage(values);
   }

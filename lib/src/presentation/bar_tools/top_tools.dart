@@ -147,6 +147,22 @@ class _TopToolsState extends State<TopTools> {
                     onTap: () async {
                       if (paintingNotifier.lines.isNotEmpty ||
                           itemNotifier.draggableWidget.isNotEmpty) {
+                        showDialog(
+                            context: context,
+                            barrierDismissible: false,
+                            builder: (BuildContext context) {
+                              return Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Card(
+                                      color: Colors.white,
+                                      child: Container(
+                                          margin: const EdgeInsets.all(50),
+                                          child:
+                                              const CircularProgressIndicator())),
+                                ],
+                              );
+                            });
                         for (var element in itemNotifier.draggableWidget) {
                           if (element.type == ItemType.gif ||
                               element.animationType != TextAnimationType.none) {
@@ -169,10 +185,13 @@ class _TopToolsState extends State<TopTools> {
                             Fluttertoast.showToast(msg: 'Successfully saved');
                           } else {}
                         }
+                        // ignore: use_build_context_synchronously
+                        Navigator.of(context, rootNavigator: true).pop();
                       } else {
                         Fluttertoast.showToast(
                             msg: 'Design something to save image');
                       }
+
                       setState(() {
                         _createVideo = false;
                       });
