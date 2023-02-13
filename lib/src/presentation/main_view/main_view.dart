@@ -10,6 +10,7 @@ import 'package:flutter/services.dart';
 // import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:provider/provider.dart';
+import 'package:vs_media_picker/vs_media_picker.dart';
 import 'package:vs_story_designer/src/domain/models/editable_items.dart';
 import 'package:vs_story_designer/src/domain/models/painting_model.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/control_provider.dart';
@@ -35,8 +36,6 @@ import 'package:vs_story_designer/src/presentation/utils/modal_sheets.dart';
 import 'package:vs_story_designer/src/presentation/widgets/animated_onTap_button.dart';
 import 'package:vs_story_designer/src/presentation/widgets/scrollable_pageView.dart';
 import 'package:vs_story_designer/vs_story_designer.dart';
-
-import '../../packages/gallery_media_picker/src/presentation/pages/gallery_media_picker.dart';
 
 class MainView extends StatefulWidget {
   /// editor custom font families
@@ -423,7 +422,7 @@ class _MainViewState extends State<MainView> {
                         )
                       ],
                     ),
-                    gallery: GalleryMediaPicker(
+                    gallery: VSMediaPicker(
                       gridViewController: scrollProvider.gridController,
                       thumbnailQuality: widget.galleryThumbnailQuality,
                       singlePick: true,

@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
+import 'package:vs_media_picker/vs_media_picker.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/control_provider.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/draggable_widget_notifier.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/painting_notifier.dart';
@@ -12,7 +13,6 @@ import 'package:vs_story_designer/src/presentation/utils/constants/item_type.dar
 import 'package:vs_story_designer/src/presentation/utils/constants/text_animation_type.dart';
 import 'package:vs_story_designer/src/presentation/widgets/animated_onTap_button.dart';
 
-import '../../packages/gallery_media_picker/src/presentation/widgets/cover_thumbnail/cover_thumbnail.dart';
 // import 'package:vs_story_designer/src/presentation/widgets/tool_button.dart';
 
 class BottomTools extends StatelessWidget {
