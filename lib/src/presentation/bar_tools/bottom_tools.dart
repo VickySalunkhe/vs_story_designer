@@ -151,6 +151,23 @@ class BottomTools extends StatelessWidget {
                     String pngUri;
                     if (paintingNotifier.lines.isNotEmpty ||
                         itemNotifier.draggableWidget.isNotEmpty) {
+                      showDialog(
+                          context: context,
+                          barrierDismissible: false,
+                          builder: (BuildContext context) {
+                            return Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Card(
+                                    color: Colors.white,
+                                    child: Container(
+                                        padding: const EdgeInsets.all(50),
+                                        child:
+                                            const CircularProgressIndicator())),
+                              ],
+                            );
+                          });
+
                       for (var element in itemNotifier.draggableWidget) {
                         if (element.type == ItemType.gif ||
                             element.animationType != TextAnimationType.none) {
@@ -170,6 +187,7 @@ class BottomTools extends StatelessWidget {
                                 saveToGallery: false,
                                 fileName: controlNotifier.folderName)
                             .then((bytes) {
+                          Navigator.of(context, rootNavigator: true).pop();
                           if (bytes != null) {
                             pngUri = bytes;
                             onDone(pngUri);

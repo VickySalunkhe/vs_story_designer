@@ -1,3 +1,6 @@
+## 1.3.5
+- Added popup when clicked on button for processing images.
+
 ## 1.3.4
 - Libraries updated.
 - Image Picker issue in iOS Fixed.
