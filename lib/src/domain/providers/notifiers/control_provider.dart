@@ -32,7 +32,7 @@ class ControlNotifier extends ChangeNotifier {
 
   String _folderName = "";
 
-  int _gradientIndex = Random().nextInt(5);
+  int _gradientIndex = Random().nextInt(50);
 
   /// current gradient index
   int get gradientIndex => _gradientIndex;

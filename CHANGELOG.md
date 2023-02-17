@@ -1,3 +1,6 @@
+## 1.3.6
+- Increased initial random color selection range
+
 ## 1.3.5
 - Added popup when clicked on button for processing images.
 
