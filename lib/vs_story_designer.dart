@@ -155,6 +155,9 @@ class VSStoryDesigner extends StatefulWidget {
   final int? galleryThumbnailQuality;
   final String centerText;
 
+  // share image file path
+  final String? mediaPath;
+
   const VSStoryDesigner(
       {Key? key,
       this.giphyKey,
@@ -170,6 +173,7 @@ class VSStoryDesigner extends StatefulWidget {
       this.onDoneButtonStyle,
       this.editorBackgroundColor,
       this.galleryThumbnailQuality,
+      this.mediaPath,
       required this.centerText})
       : super(key: key);
 
@@ -224,6 +228,7 @@ class _VSStoryDesignerState extends State<VSStoryDesigner> {
         editorBackgroundColor: widget.editorBackgroundColor,
         galleryThumbnailQuality: widget.galleryThumbnailQuality,
         centerText: widget.centerText,
+        mediaPath: widget.mediaPath,
       ),
     );
   }

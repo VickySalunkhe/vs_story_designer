@@ -79,23 +79,27 @@ class MainView extends StatefulWidget {
 // theme type
   final ThemeType? themeType;
 
-  MainView({
-    Key? key,
-    this.themeType,
-    required this.giphyKey,
-    required this.onDone,
-    this.middleBottomWidget,
-    this.colorList,
-    this.fileName,
-    this.isCustomFontList,
-    this.fontFamilyList,
-    this.gradientColors,
-    this.onBackPress,
-    this.onDoneButtonStyle,
-    this.editorBackgroundColor,
-    this.galleryThumbnailQuality,
-    this.centerText,
-  }) : super(key: key);
+// share image file path
+  final String? mediaPath;
+
+  MainView(
+      {Key? key,
+      this.themeType,
+      required this.giphyKey,
+      required this.onDone,
+      this.middleBottomWidget,
+      this.colorList,
+      this.fileName,
+      this.isCustomFontList,
+      this.fontFamilyList,
+      this.gradientColors,
+      this.onBackPress,
+      this.onDoneButtonStyle,
+      this.editorBackgroundColor,
+      this.galleryThumbnailQuality,
+      this.centerText,
+      this.mediaPath})
+      : super(key: key);
 
   @override
   _MainViewState createState() => _MainViewState();
@@ -129,6 +133,8 @@ class _MainViewState extends State<MainView> {
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       var _control = Provider.of<ControlNotifier>(context, listen: false);
+      var _tempItemProvider =
+          Provider.of<DraggableWidgetNotifier>(context, listen: false);
 
       /// initialize control variable provider
       _control.giphyKey = widget.giphyKey;
@@ -136,6 +142,14 @@ class _MainViewState extends State<MainView> {
       _control.middleBottomWidget = widget.middleBottomWidget;
       _control.isCustomFontList = widget.isCustomFontList ?? false;
       _control.themeType = widget.themeType ?? ThemeType.dark;
+      if (widget.mediaPath != null) {
+        _control.mediaPath = widget.mediaPath!;
+        _tempItemProvider.draggableWidget.insert(
+            0,
+            EditableItem()
+              ..type = ItemType.image
+              ..position = const Offset(0.0, 0));
+      }
       if (widget.gradientColors != null) {
         _control.gradientColors = widget.gradientColors;
       }

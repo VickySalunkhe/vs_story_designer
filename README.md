@@ -74,6 +74,7 @@ VSStoryDesigner(
       /// uri is the local path of final render Uint8List
       /// here your code
     },
+    mediaPath: mediaPath // OPTIONAL, pass path of media, image to use inside the package by default.
     themeType: ThemeType.dark, // OPTIONAL, DEFAULT ThemeType.dark
     centerText : "Start Designing" //mandatory param, this text will appear in center of story designer
     colorList: [] /// (List<Color>[]) optional param 
