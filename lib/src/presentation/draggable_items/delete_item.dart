@@ -24,7 +24,7 @@ class DeleteItem extends StatelessWidget {
     return Visibility(
       visible: _activeItem != null && _activeItem!.type != ItemType.image,
       child: Positioned(
-          bottom: 130,
+          bottom: 120,
           child: SizedBox(
             width: _mediaQuery.size.width,
             child: Center(

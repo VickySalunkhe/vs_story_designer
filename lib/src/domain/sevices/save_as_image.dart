@@ -1,45 +1,45 @@
 import 'dart:io';
 import 'dart:typed_data';
-import 'dart:ui' as ui;
-import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:screenshot/screenshot.dart';
 
-Future takePicture(
-    {required contentKey,
-    required BuildContext context,
-    required saveToGallery,
-    required fileName}) async {
-  try {
-    /// converter widget to image
-    RenderRepaintBoundary boundary =
-        contentKey.currentContext.findRenderObject();
+import '../../presentation/main_view/widgets/designer_view.dart';
 
-    ui.Image image = await boundary.toImage(pixelRatio: 3);
+Future takePicture({required saveToGallery, required fileName}) async {
+  // try {
+  /// converter widget to image
+  // RenderRepaintBoundary boundary =
+  //     contentKey.currentContext.findRenderObject();
 
-    ByteData? byteData = await image.toByteData(format: ui.ImageByteFormat.png);
-    Uint8List pngBytes = byteData!.buffer.asUint8List();
+  // ui.Image image = await boundary.toImage(pixelRatio: 3);
 
-    /// create file
-    final String dir = (await getApplicationDocumentsDirectory()).path;
-    String imagePath = '$dir/${fileName}_${DateTime.now()}.png';
-    File capturedFile = File(imagePath);
-    await capturedFile.writeAsBytes(pngBytes);
+  // ByteData? byteData = await image.toByteData(format: ui.ImageByteFormat.png);
+  // Uint8List pngBytes = byteData!.buffer.asUint8List();
 
-    if (saveToGallery) {
-      final result = await ImageGallerySaver.saveImage(pngBytes,
-          quality: 100, name: "${fileName}_${DateTime.now()}.png");
-      if (result != null) {
-        return true;
-      } else {
-        return false;
-      }
+  ScreenshotController screenshotController = ScreenshotController();
+  Uint8List pngBytes =
+      await screenshotController.captureFromWidget(designerViewWidget());
+
+  /// create file
+  final String dir = (await getApplicationDocumentsDirectory()).path;
+  String imagePath = '$dir/${fileName}_${DateTime.now()}.png';
+  File capturedFile = File(imagePath);
+  await capturedFile.writeAsBytes(pngBytes);
+
+  if (saveToGallery) {
+    final result = await ImageGallerySaver.saveImage(pngBytes,
+        quality: 100, name: "${fileName}_${DateTime.now()}.png");
+    if (result != null) {
+      return true;
     } else {
-      return imagePath;
+      return false;
     }
-  } catch (e) {
-    debugPrint('exception => $e');
-    return false;
+  } else {
+    return imagePath;
   }
+  // } catch (e) {
+  //   log('exception => $e');
+  //   return false;
+  // }
 }

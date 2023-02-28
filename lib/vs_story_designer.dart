@@ -1,8 +1,6 @@
 // ignore_for_file: must_be_immutable, library_private_types_in_public_api
 library vs_story_designer;
 
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -14,7 +12,6 @@ import 'package:vs_story_designer/src/domain/providers/notifiers/painting_notifi
 import 'package:vs_story_designer/src/domain/providers/notifiers/scroll_notifier.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/text_editing_notifier.dart';
 import 'package:vs_story_designer/src/presentation/main_view/main_view.dart';
-import 'package:vs_story_designer/src/presentation/utils/constants/gradients.dart';
 
 export 'package:vs_story_designer/vs_story_designer.dart';
 
@@ -158,12 +155,16 @@ class VSStoryDesigner extends StatefulWidget {
   // share image file path
   final String? mediaPath;
 
+  // pass this value code in background after you press submit
+  final bool exitOnSubmit;
+
   const VSStoryDesigner(
       {Key? key,
       this.giphyKey,
       this.themeType,
       required this.onDone,
       this.middleBottomWidget,
+      this.exitOnSubmit = false,
       this.colorList,
       this.gradientColors,
       this.fileName,
@@ -217,6 +218,7 @@ class _VSStoryDesignerState extends State<VSStoryDesigner> {
         themeType: widget.themeType ?? ThemeType.dark,
         giphyKey: widget.giphyKey ?? 'C4dMA7Q19nqEGdpfj82T8ssbOeZIylD4',
         onDone: widget.onDone,
+        exitOnSubmit: widget.exitOnSubmit,
         fontFamilyList: widget.fontFamilyList,
         isCustomFontList: widget.isCustomFontList,
         middleBottomWidget: widget.middleBottomWidget,

@@ -13,6 +13,8 @@ import 'package:vs_story_designer/src/presentation/utils/modal_sheets.dart';
 import 'package:vs_story_designer/src/presentation/widgets/animated_onTap_button.dart';
 import 'package:vs_story_designer/src/presentation/widgets/tool_button.dart';
 
+import '../utils/designer_variable_state.dart';
+
 class TopTools extends StatefulWidget {
   final GlobalKey contentKey;
   final BuildContext context;
@@ -176,14 +178,22 @@ class _TopToolsState extends State<TopTools> {
                           await widget.renderWidget!();
                         } else {
                           debugPrint('creating image');
-                          var response = await takePicture(
-                              contentKey: widget.contentKey,
-                              context: context,
-                              saveToGallery: true,
-                              fileName: controlNotifier.folderName);
-                          if (response) {
-                            Fluttertoast.showToast(msg: 'Successfully saved');
-                          } else {}
+                          setDesignerValues().then((value) {
+                            if (value) {
+                              takePicture(
+                                      // contentKey: widget.contentKey,
+                                      // controlNotifier: controlNotifier,
+                                      // context: widget.context,
+                                      saveToGallery: true,
+                                      fileName: controlNotifier.folderName)
+                                  .then((value) {
+                                if (value) {
+                                  Fluttertoast.showToast(
+                                      msg: 'Successfully saved');
+                                } else {}
+                              });
+                            }
+                          });
                         }
                         // ignore: use_build_context_synchronously
                         Navigator.of(context, rootNavigator: true).pop();

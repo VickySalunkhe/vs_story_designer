@@ -9,8 +9,12 @@ import 'package:vs_story_designer/src/presentation/utils/color_detection.dart';
 class FileImageBG extends StatefulWidget {
   final File? filePath;
   final void Function(Color color1, Color color2) generatedGradient;
+  final Size size;
   const FileImageBG(
-      {Key? key, required this.filePath, required this.generatedGradient})
+      {Key? key,
+      required this.filePath,
+      required this.size,
+      required this.generatedGradient})
       : super(key: key);
   @override
   _FileImageBGState createState() => _FileImageBGState();
@@ -30,26 +34,28 @@ class _FileImageBGState extends State<FileImageBG> {
   void initState() {
     currentKey = paintKey;
     Timer.periodic(const Duration(milliseconds: 500), (callback) async {
-      if (imageKey.currentState!.context.size!.height == 0.0) {
-      } else {
-        var cd1 = await ColorDetection(
-          currentKey: currentKey,
-          paintKey: paintKey,
-          stateController: stateController,
-        ).searchPixel(
-            Offset(imageKey.currentState!.context.size!.width / 2, 480));
-        var cd12 = await ColorDetection(
-          currentKey: currentKey,
-          paintKey: paintKey,
-          stateController: stateController,
-        ).searchPixel(
-            Offset(imageKey.currentState!.context.size!.width / 2.03, 530));
-        color1 = cd1;
-        color2 = cd12;
-        setState(() {});
-        widget.generatedGradient(color1, color2);
-        callback.cancel();
-        stateController.close();
+      if (imageKey.currentState != null) {
+        if (imageKey.currentState!.context.size!.height == 0.0) {
+        } else {
+          var cd1 = await ColorDetection(
+            currentKey: currentKey,
+            paintKey: paintKey,
+            stateController: stateController,
+          ).searchPixel(
+              Offset(imageKey.currentState!.context.size!.width / 2, 480));
+          var cd12 = await ColorDetection(
+            currentKey: currentKey,
+            paintKey: paintKey,
+            stateController: stateController,
+          ).searchPixel(
+              Offset(imageKey.currentState!.context.size!.width / 2.03, 530));
+          color1 = cd1;
+          color2 = cd12;
+          setState(() {});
+          widget.generatedGradient(color1, color2);
+          callback.cancel();
+          stateController.close();
+        }
       }
     });
     super.initState();
@@ -57,7 +63,8 @@ class _FileImageBGState extends State<FileImageBG> {
 
   @override
   Widget build(BuildContext context) {
-    var _size = MediaQuery.of(context).size;
+    dynamic _size = widget.size;
+
     return SizedBox(
         height: _size.height,
         width: _size.width,

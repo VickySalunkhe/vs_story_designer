@@ -14,6 +14,7 @@ import 'package:vs_story_designer/src/domain/providers/notifiers/gradient_notifi
 import 'package:vs_story_designer/src/domain/providers/notifiers/text_editing_notifier.dart';
 import 'package:vs_story_designer/src/presentation/utils/constants/font_family.dart';
 import 'package:vs_story_designer/src/presentation/utils/constants/item_type.dart';
+import 'package:vs_story_designer/src/presentation/utils/designer_variable_state.dart';
 // import 'package:vs_story_designer/src/presentation/utils/constants/text_animation_type.dart';
 import 'package:vs_story_designer/src/presentation/widgets/animated_onTap_button.dart';
 import 'package:vs_story_designer/src/presentation/widgets/file_image_bg.dart';
@@ -23,10 +24,10 @@ class DraggableWidget extends StatelessWidget {
   final Function(PointerDownEvent)? onPointerDown;
   final Function(PointerUpEvent)? onPointerUp;
   final Function(PointerMoveEvent)? onPointerMove;
-  final BuildContext context;
+  final BuildContext? passedContext;
   const DraggableWidget({
     Key? key,
-    required this.context,
+    this.passedContext,
     required this.draggableWidget,
     this.onPointerDown,
     this.onPointerUp,
@@ -35,11 +36,19 @@ class DraggableWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var _size = MediaQuery.of(context).size;
-    var _colorProvider =
-        Provider.of<GradientNotifier>(this.context, listen: false);
-    var _controlProvider =
-        Provider.of<ControlNotifier>(this.context, listen: false);
+    dynamic _size;
+    dynamic _controlProvider;
+    dynamic _colorProvider;
+    if (mainContext == null || passedContext == null) {
+      _size = screenSize;
+      _colorProvider = designerColorProvider;
+      _controlProvider = designerControlNotifier;
+    } else {
+      _size = MediaQuery.of(mainContext!).size;
+      _colorProvider = Provider.of<GradientNotifier>(context, listen: false);
+      _controlProvider = Provider.of<ControlNotifier>(context, listen: false);
+    }
+
     Widget overlayWidget;
 
     switch (draggableWidget.type) {
@@ -100,6 +109,7 @@ class DraggableWidget extends StatelessWidget {
           overlayWidget = SizedBox(
             width: _size.width - 72,
             child: FileImageBG(
+              size: _size,
               filePath: File(_controlProvider.mediaPath),
               generatedGradient: (color1, color2) {
                 _colorProvider.color1 = color1;
@@ -286,9 +296,9 @@ class DraggableWidget extends StatelessWidget {
   void _onTap(BuildContext context, EditableItem item,
       ControlNotifier controlNotifier) {
     var _editorProvider =
-        Provider.of<TextEditingNotifier>(this.context, listen: false);
+        Provider.of<TextEditingNotifier>(context, listen: false);
     var _itemProvider =
-        Provider.of<DraggableWidgetNotifier>(this.context, listen: false);
+        Provider.of<DraggableWidgetNotifier>(context, listen: false);
 
     /// load text attributes
     _editorProvider.textController.text = item.text.trim();

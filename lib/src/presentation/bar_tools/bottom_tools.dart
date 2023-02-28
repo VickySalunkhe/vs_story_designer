@@ -1,5 +1,7 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
@@ -8,16 +10,16 @@ import 'package:vs_story_designer/src/domain/providers/notifiers/control_provide
 import 'package:vs_story_designer/src/domain/providers/notifiers/draggable_widget_notifier.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/painting_notifier.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/scroll_notifier.dart';
-import 'package:vs_story_designer/src/domain/sevices/save_as_image.dart';
-import 'package:vs_story_designer/src/presentation/utils/constants/item_type.dart';
-import 'package:vs_story_designer/src/presentation/utils/constants/text_animation_type.dart';
 import 'package:vs_story_designer/src/presentation/widgets/animated_onTap_button.dart';
+import '../../domain/sevices/on_done_click.dart';
+import '../utils/designer_variable_state.dart';
 
 // import 'package:vs_story_designer/src/presentation/widgets/tool_button.dart';
 
 class BottomTools extends StatelessWidget {
   final GlobalKey contentKey;
   final Function(String imageUri) onDone;
+  final BuildContext mainContext;
   final Widget? onDoneButtonStyle;
   final Function? renderWidget;
 
@@ -27,6 +29,7 @@ class BottomTools extends StatelessWidget {
       {Key? key,
       required this.contentKey,
       required this.onDone,
+      required this.mainContext,
       this.renderWidget,
       this.onDoneButtonStyle,
       this.editorBackgroundColor})
@@ -35,7 +38,7 @@ class BottomTools extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var _size = MediaQuery.of(context).size;
-    bool _createVideo = false;
+
     return Consumer4<ControlNotifier, ScrollNotifier, DraggableWidgetNotifier,
         PaintingNotifier>(
       builder: (_, controlNotifier, scrollNotifier, itemNotifier,
@@ -148,60 +151,78 @@ class BottomTools extends StatelessWidget {
 
               AnimatedOnTapButton(
                   onTap: () async {
-                    String pngUri;
-                    if (paintingNotifier.lines.isNotEmpty ||
-                        itemNotifier.draggableWidget.isNotEmpty) {
-                      showDialog(
-                          context: context,
-                          barrierDismissible: false,
-                          builder: (BuildContext context) {
-                            return Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Card(
-                                    color: Colors.white,
-                                    child: Container(
-                                        padding: const EdgeInsets.all(50),
-                                        child:
-                                            const CircularProgressIndicator())),
-                              ],
-                            );
-                          });
+                    setDesignerValues().then((value) {
+                      log(value.toString());
+                      if (value) {
+                        if (paintingNotifier.lines.isNotEmpty ||
+                            itemNotifier.draggableWidget.isNotEmpty) {
+                          onSubmitClick(
+                              mainContext,
+                              // itemNotifier,
+                              renderWidget,
+                              // contentKey,
+                              // controlNotifier,
+                              controlNotifier.folderName,
+                              onDone,
+                              controlNotifier.exitOnSubmit);
+                          if (controlNotifier.exitOnSubmit) {
+                            Navigator.of(context).pop();
+                          }
+                          // String pngUri;
+                          // showDialog(
+                          //     context: context,
+                          //     barrierDismissible: false,
+                          //     builder: (BuildContext context) {
+                          //       return Column(
+                          //         mainAxisAlignment: MainAxisAlignment.center,
+                          //         children: [
+                          //           Card(
+                          //               color: Colors.white,
+                          //               child: Container(
+                          //                   padding: const EdgeInsets.all(50),
+                          //                   child:
+                          //                       const CircularProgressIndicator())),
+                          //         ],
+                          //       );
+                          //     });
 
-                      for (var element in itemNotifier.draggableWidget) {
-                        if (element.type == ItemType.gif ||
-                            element.animationType != TextAnimationType.none) {
-                          // setState(() {
-                          _createVideo = true;
-                          // });
+                          // for (var element in itemNotifier.draggableWidget) {
+                          //   if (element.type == ItemType.gif ||
+                          //       element.animationType != TextAnimationType.none) {
+                          //     // setState(() {
+                          //     _createVideo = true;
+                          //     // });
+                          //   }
+                          // }
+                          // if (_createVideo) {
+                          //   debugPrint('creating video');
+                          //   await renderWidget!();
+                          // } else {
+                          //   debugPrint('creating image');
+                          //   await takePicture(
+                          //           contentKey: contentKey,
+                          //           context: context,
+                          //           saveToGallery: false,
+                          //           fileName: controlNotifier.folderName)
+                          //       .then((bytes) {
+                          //     Navigator.of(context, rootNavigator: true).pop();
+                          //     if (bytes != null) {
+                          //       pngUri = bytes;
+                          //       onDone(pngUri);
+                          //     } else {
+                          //       print("error");
+                          //     }
+                          //   });
+                          // }
+                        } else {
+                          Fluttertoast.showToast(
+                              msg: 'Design something to save image');
                         }
                       }
-                      if (_createVideo) {
-                        debugPrint('creating video');
-                        await renderWidget!();
-                      } else {
-                        debugPrint('creating image');
-                        await takePicture(
-                                contentKey: contentKey,
-                                context: context,
-                                saveToGallery: false,
-                                fileName: controlNotifier.folderName)
-                            .then((bytes) {
-                          Navigator.of(context, rootNavigator: true).pop();
-                          if (bytes != null) {
-                            pngUri = bytes;
-                            onDone(pngUri);
-                          } else {
-                            print("error");
-                          }
-                        });
-                      }
-                    } else {
-                      Fluttertoast.showToast(
-                          msg: 'Design something to save image');
-                    }
+                    });
+
                     // setState(() {
-                    _createVideo = false;
+
                     // });
                   },
                   child: onDoneButtonStyle ??

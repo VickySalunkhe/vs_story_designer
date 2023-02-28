@@ -56,6 +56,19 @@ class ControlNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
+  // pass this value code in background after you press submit
+  bool _exitOnSubmit = false;
+
+  /// is text editor open
+  bool get exitOnSubmit => _exitOnSubmit;
+
+  /// get bool if is text editing
+  set exitOnSubmit(bool val) {
+    /// set bool if is text editing
+    _exitOnSubmit = val;
+    notifyListeners();
+  }
+
   bool _isPainting = false;
 
   /// is painter sketcher open

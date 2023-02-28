@@ -1,10 +1,10 @@
 import 'dart:io';
 import 'dart:math';
+import 'dart:developer' as dev;
 import 'package:path_provider/path_provider.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'package:share_plus/share_plus.dart';
 import 'package:vs_story_designer/vs_story_designer.dart';
 import 'dart:ui' as ui;
@@ -78,8 +78,10 @@ class _ExampleState extends State<Example> {
                                   themeType: ThemeType
                                       .light, // OPTIONAL, Default ThemeType.dark
                                   galleryThumbnailQuality: 250,
+                                  exitOnSubmit: true,
                                   onDone: (uri) {
-                                    debugPrint(uri);
+                                    // debugPrint(uri);
+                                    dev.log(uri);
                                     Share.shareFiles([uri]);
                                   },
                                   mediaPath: mediaPath,
@@ -101,7 +103,7 @@ class _ExampleState extends State<Example> {
         ));
   }
 
-  GlobalKey _globalKey = new GlobalKey();
+  final GlobalKey _globalKey = GlobalKey();
 
   Future<String?> _prepareImage() async {
     ByteData? byteData;
@@ -116,7 +118,7 @@ class _ExampleState extends State<Example> {
 
       final directory = (await getTemporaryDirectory()).path;
       String imgPath = '$directory/${Random().nextInt(999999)}.jpg';
-      File imgFile = new File(imgPath);
+      File imgFile = File(imgPath);
       await imgFile.writeAsBytes(bytes);
       // Uint8List pngBytes = byteData.buffer.asUint8List();
       return imgFile.path;

@@ -37,6 +37,8 @@ import 'package:vs_story_designer/src/presentation/widgets/animated_onTap_button
 import 'package:vs_story_designer/src/presentation/widgets/scrollable_pageView.dart';
 import 'package:vs_story_designer/vs_story_designer.dart';
 
+import '../utils/designer_variable_state.dart';
+
 class MainView extends StatefulWidget {
   /// editor custom font families
   final List<FontType>? fontFamilyList;
@@ -76,11 +78,14 @@ class MainView extends StatefulWidget {
   // Text appearing on center of design screen
   final String? centerText;
 
-// theme type
+  // theme type
   final ThemeType? themeType;
 
-// share image file path
+  // share image file path
   final String? mediaPath;
+
+  // pass this value code in background after you press submit
+  final bool? exitOnSubmit;
 
   MainView(
       {Key? key,
@@ -88,6 +93,7 @@ class MainView extends StatefulWidget {
       required this.giphyKey,
       required this.onDone,
       this.middleBottomWidget,
+      this.exitOnSubmit,
       this.colorList,
       this.fileName,
       this.isCustomFontList,
@@ -142,6 +148,7 @@ class _MainViewState extends State<MainView> {
       _control.middleBottomWidget = widget.middleBottomWidget;
       _control.isCustomFontList = widget.isCustomFontList ?? false;
       _control.themeType = widget.themeType ?? ThemeType.dark;
+      _control.exitOnSubmit = widget.exitOnSubmit ?? false;
       if (widget.mediaPath != null) {
         _control.mediaPath = widget.mediaPath!;
         _tempItemProvider.draggableWidget.insert(
@@ -170,6 +177,7 @@ class _MainViewState extends State<MainView> {
 
   @override
   Widget build(BuildContext context) {
+    mainContext = context;
     return WillPopScope(
       onWillPop: _popScope,
       child: Material(
@@ -265,7 +273,7 @@ class _MainViewState extends State<MainView> {
                                           ///list items
                                           ...itemProvider.draggableWidget.map(
                                               (editableItem) => DraggableWidget(
-                                                    context: context,
+                                                    passedContext: context,
                                                     draggableWidget:
                                                         editableItem,
                                                     onPointerDown: (details) {
@@ -292,7 +300,7 @@ class _MainViewState extends State<MainView> {
                                           IgnorePointer(
                                             ignoring: true,
                                             child: Align(
-                                              alignment: Alignment.topCenter,
+                                              alignment: Alignment.center,
                                               child: Container(
                                                 decoration: BoxDecoration(
                                                   borderRadius:
@@ -405,15 +413,17 @@ class _MainViewState extends State<MainView> {
                           Align(
                             alignment: Alignment.bottomCenter,
                             child: BottomTools(
+                              mainContext: context,
                               contentKey: contentKey,
                               // renderWidget: () => startRecording(
                               //     controlNotifier: controlNotifier,
                               //     renderingNotifier: renderingNotifier,
                               //     saveOnGallery: false),
-                              onDone: (bytes) {
-                                setState(() {
-                                  widget.onDone!(bytes);
-                                });
+                              onDone: (bytes) async {
+                                await widget.onDone!(bytes);
+                                if (!controlNotifier.exitOnSubmit) {
+                                  setState(() {});
+                                }
                               },
                               onDoneButtonStyle: widget.onDoneButtonStyle,
                               editorBackgroundColor:
@@ -625,7 +635,7 @@ class _MainViewState extends State<MainView> {
   /// active delete widget with offset position
   void _deletePosition(EditableItem item, PointerMoveEvent details) {
     if (item.type == ItemType.text &&
-        item.position.dy >= 0.265 &&
+        item.position.dy >= 0.32 && //0.265
         item.position.dx >= -0.122 &&
         item.position.dx <= 0.122) {
       setState(() {
@@ -656,7 +666,7 @@ class _MainViewState extends State<MainView> {
     _inAction = false;
     if (item.type == ItemType.image) {
     } else if (item.type == ItemType.text &&
-            item.position.dy >= 0.265 &&
+            item.position.dy >= 0.32 && //0.265
             item.position.dx >= -0.122 &&
             item.position.dx <= 0.122 ||
         item.type == ItemType.gif &&
