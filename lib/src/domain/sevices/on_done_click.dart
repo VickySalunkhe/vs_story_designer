@@ -37,24 +37,24 @@ onSubmitClick(context, Function? renderWidget, String fileName,
     }
   }
 
-  log("before timer");
-  Timer(const Duration(seconds: 2), () async {
+  // log("before timer");
+  Timer(const Duration(milliseconds: 2), () async {
     if (createVideo) {
-      debugPrint('creating video');
+      // debugPrint('creating video');
       await renderWidget!();
     } else {
-      debugPrint('creating image');
+      // debugPrint('creating image');
       takePicture(
               // contentKey: contentKey,
               // controlNotifier: controlNotifier,
               // context: context,
-              saveToGallery: false,
+              saveToGallery: true,
               fileName: fileName)
           .then((bytes) {
         if (!exitOnSubmit) {
           Navigator.of(context, rootNavigator: true).pop();
         }
-        log("here 1");
+        // log("here 1");
 
         if (bytes != null) {
           // pngUri = bytes;
@@ -62,9 +62,9 @@ onSubmitClick(context, Function? renderWidget, String fileName,
         } else {
           debugPrint("error");
         }
-        log("here 2");
+        // log("here 2");
       });
     }
   });
-  log("after timer");
+  // log("after timer");
 }
