@@ -152,7 +152,7 @@ class BottomTools extends StatelessWidget {
               AnimatedOnTapButton(
                   onTap: () async {
                     setDesignerValues().then((value) {
-                      log(value.toString());
+                      // log(value.toString());
                       if (value) {
                         if (paintingNotifier.lines.isNotEmpty ||
                             itemNotifier.draggableWidget.isNotEmpty) {
