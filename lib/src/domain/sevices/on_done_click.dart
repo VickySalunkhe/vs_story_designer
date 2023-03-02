@@ -10,23 +10,22 @@ import '../../presentation/utils/designer_variable_state.dart';
 
 onSubmitClick(context, Function? renderWidget, String fileName,
     Function(String imageUri) onDone, bool exitOnSubmit) async {
-  if (!exitOnSubmit) {
-    showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (BuildContext context) {
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Card(
-                  color: Colors.white,
-                  child: Container(
-                      padding: const EdgeInsets.all(50),
-                      child: const CircularProgressIndicator())),
-            ],
-          );
-        });
-  }
+  showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Card(
+                color: Colors.white,
+                child: Container(
+                    padding: const EdgeInsets.all(50),
+                    child: const CircularProgressIndicator())),
+          ],
+        );
+      });
+
   bool createVideo = false;
   for (var element in designerItemNotifier.draggableWidget) {
     if (element.type == ItemType.gif ||
@@ -38,7 +37,12 @@ onSubmitClick(context, Function? renderWidget, String fileName,
   }
 
   // log("before timer");
-  Timer(const Duration(milliseconds: 2), () async {
+  Timer(const Duration(milliseconds: 750), () async {
+    if (exitOnSubmit) {
+      Navigator.of(context, rootNavigator: true).pop();
+      Navigator.of(context).pop();
+    }
+
     if (createVideo) {
       // debugPrint('creating video');
       await renderWidget!();
@@ -48,13 +52,12 @@ onSubmitClick(context, Function? renderWidget, String fileName,
               // contentKey: contentKey,
               // controlNotifier: controlNotifier,
               // context: context,
-              saveToGallery: true,
+              saveToGallery: false,
               fileName: fileName)
           .then((bytes) {
         if (!exitOnSubmit) {
           Navigator.of(context, rootNavigator: true).pop();
         }
-        // log("here 1");
 
         if (bytes != null) {
           // pngUri = bytes;
@@ -62,7 +65,6 @@ onSubmitClick(context, Function? renderWidget, String fileName,
         } else {
           debugPrint("error");
         }
-        // log("here 2");
       });
     }
   });

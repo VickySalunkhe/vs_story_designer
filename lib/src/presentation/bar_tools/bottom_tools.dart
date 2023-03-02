@@ -165,9 +165,7 @@ class BottomTools extends StatelessWidget {
                               controlNotifier.folderName,
                               onDone,
                               controlNotifier.exitOnSubmit);
-                          if (controlNotifier.exitOnSubmit) {
-                            Navigator.of(context).pop();
-                          }
+
                           // String pngUri;
                           // showDialog(
                           //     context: context,
