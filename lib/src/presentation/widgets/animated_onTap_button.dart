@@ -79,7 +79,7 @@ class _AnimatedOnTapButtonState extends State<AnimatedOnTapButton>
       onTapCancel: () {
         _controllerA!.fling();
       },
-      onLongPress: widget.onLongPress ?? () {},
+      onLongPress: widget.onLongPress,
       child: Transform.scale(
         scale: squareScaleA,
         child: widget.child,

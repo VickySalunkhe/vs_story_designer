@@ -625,7 +625,7 @@ class _MainViewState extends State<MainView> {
   /// active delete widget with offset position
   void _deletePosition(EditableItem item, PointerMoveEvent details) {
     if (item.type == ItemType.text &&
-        item.position.dy >= 0.265 &&
+        item.position.dy >= 0.32 &&
         item.position.dx >= -0.122 &&
         item.position.dx <= 0.122) {
       setState(() {
@@ -656,7 +656,7 @@ class _MainViewState extends State<MainView> {
     _inAction = false;
     if (item.type == ItemType.image) {
     } else if (item.type == ItemType.text &&
-            item.position.dy >= 0.265 &&
+            item.position.dy >= 0.32 &&
             item.position.dx >= -0.122 &&
             item.position.dx <= 0.122 ||
         item.type == ItemType.gif &&

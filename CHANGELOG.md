@@ -1,3 +1,7 @@
+## 1.5.0
+- Fixed Issue https://github.com/VickySalunkhe/vs_story_designer/issues/2
+- Reduced the radius of area near Text Widget Deletion.
+
 ## 1.4.1
 - Added support for passing image from outside and use it directly into the package.
 
