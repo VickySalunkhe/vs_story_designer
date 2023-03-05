@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 
@@ -40,7 +39,7 @@ onSubmitClick(context, Function? renderWidget, String fileName,
   Timer(const Duration(milliseconds: 750), () async {
     if (exitOnSubmit) {
       Navigator.of(context, rootNavigator: true).pop();
-      Navigator.of(context).pop();
+      Navigator.pop(context, "exitOnSubmit");
     }
 
     if (createVideo) {
