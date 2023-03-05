@@ -1,5 +1,5 @@
 
-## vs_story_designer 1.3.4
+## vs_story_designer 1.5.1
 
 # flutter story designer
 This is a package created in the style of the instagram story creator, with which you can create images with images, texts, finger drawing. They can be exported as an image to the gallery or shared directly to social networks.
@@ -32,7 +32,7 @@ If you don't see the images go to the [github repository](https://github.com/Vic
 ## Installation
 *This package has been tested in Android and ios, some features works on flutter web*
 
-Add `vs_story_designer: 1.2.2` to your `pubspec.yaml` dependencies and then import it.
+Add `vs_story_designer: 1.5.1` to your `pubspec.yaml` dependencies and then import it.
 
 
 ```dart
@@ -47,12 +47,12 @@ import 'package:vs_story_designer/vs_story_designer.dart';
        <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
            android:maxSdkVersion="31" />
-       <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
        <uses-permission android:name="android.permission.INTERNET" />
        <uses-permission android:name="android.permission.VIBRATE"/>
        <!-- Permission is required if you are targeting android 33 and above -->
        <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
        <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
+       <uses-permission android:name="android.permission.READ_MEDIA_AUDIO"/>
       ```
 
    ### ios
