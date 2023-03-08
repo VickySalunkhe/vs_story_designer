@@ -2,6 +2,7 @@
 
 import 'dart:io';
 import 'dart:math';
+import 'dart:developer' as dev;
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -47,6 +48,7 @@ class _FileImageBGState extends State<FileImageBG> {
             color1 = imageGradientColorList[0];
             color2 = imageGradientColorList[1];
             cnt++;
+            // dev.log("$color1 | $color2");
           } while (imageGradientColorList[0] == imageGradientColorList[1] &&
               cnt < 5);
 
@@ -76,11 +78,12 @@ class _FileImageBGState extends State<FileImageBG> {
     double height = imageKey.currentState!.context.size!.height;
     double width = imageKey.currentState!.context.size!.width;
     Offset offset1 = Offset(
-        (width ~/ 4) + random.nextInt(width ~/ 4).toDouble(),
-        (height ~/ 4) + random.nextInt(height ~/ 4).toDouble());
+        (width ~/ 3) + random.nextInt(width ~/ 3).toDouble(),
+        (height ~/ 3) + random.nextInt(height ~/ 3).toDouble());
     Offset offset2 = Offset(
-        (width ~/ 4) + random.nextInt(width ~/ 4).toDouble(),
-        (height ~/ 4) + random.nextInt(height ~/ 4).toDouble());
+        (width ~/ 3) + random.nextInt(width ~/ 2).toDouble(),
+        (height ~/ 2) + random.nextInt(height ~/ 2).toDouble());
+    // dev.log("$offset1 | $offset2");
     Color cd1 = await ColorDetection(
       currentKey: currentKey,
       paintKey: paintKey,
