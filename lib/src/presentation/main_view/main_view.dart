@@ -240,7 +240,9 @@ class _MainViewState extends State<MainView> {
                                         //borderRadius: BorderRadius.circular(25),
                                         gradient:
                                             //controlNotifier.mediaPath.isEmpty
-                                            controlNotifier.switchBGColor
+                                            controlNotifier.switchBGColor ||
+                                                    controlNotifier
+                                                        .mediaPath.isEmpty
                                                 ? LinearGradient(
                                                     colors: controlNotifier
                                                             .gradientColors![

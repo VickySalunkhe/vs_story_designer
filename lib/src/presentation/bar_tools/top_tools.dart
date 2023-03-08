@@ -244,7 +244,8 @@ class _TopToolsState extends State<TopTools> {
               gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
-                  colors: !controlProvider.switchBGColor
+                  colors: !controlProvider.switchBGColor &&
+                          controlProvider.mediaPath.isNotEmpty
                       ? imageGradientColorList
                       : controlProvider
                           .gradientColors![controlProvider.gradientIndex]),
