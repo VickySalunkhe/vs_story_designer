@@ -239,7 +239,8 @@ class _MainViewState extends State<MainView> {
                                     decoration: BoxDecoration(
                                         //borderRadius: BorderRadius.circular(25),
                                         gradient:
-                                            controlNotifier.mediaPath.isEmpty
+                                            //controlNotifier.mediaPath.isEmpty
+                                            controlNotifier.switchBGColor
                                                 ? LinearGradient(
                                                     colors: controlNotifier
                                                             .gradientColors![

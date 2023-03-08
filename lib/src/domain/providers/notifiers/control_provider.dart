@@ -69,6 +69,17 @@ class ControlNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
+  // if this value is set, background color will be changed, when image is selected
+  bool _switchBGColor = false;
+
+  bool get switchBGColor => _switchBGColor;
+
+  /// get bool if to switch color
+  set switchBGColor(bool val) {
+    _switchBGColor = val;
+    notifyListeners();
+  }
+
   bool _isPainting = false;
 
   /// is painter sketcher open

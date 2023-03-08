@@ -11,6 +11,7 @@ import 'package:vs_story_designer/src/presentation/utils/constants/item_type.dar
 import 'package:vs_story_designer/src/presentation/utils/constants/text_animation_type.dart';
 import 'package:vs_story_designer/src/presentation/utils/modal_sheets.dart';
 import 'package:vs_story_designer/src/presentation/widgets/animated_onTap_button.dart';
+import 'package:vs_story_designer/src/presentation/widgets/file_image_bg.dart';
 import 'package:vs_story_designer/src/presentation/widgets/tool_button.dart';
 
 import '../utils/designer_variable_state.dart';
@@ -64,24 +65,28 @@ class _TopToolsState extends State<TopTools> {
 
                 Row(
                   children: [
-                    if (controlNotifier.mediaPath.isEmpty)
-                      Padding(
-                        padding: const EdgeInsets.only(left: 0),
-                        child: _selectColor(
-                            controlProvider: controlNotifier,
-                            onTap: () {
-                              if (controlNotifier.gradientIndex >=
-                                  controlNotifier.gradientColors!.length - 1) {
-                                setState(() {
-                                  controlNotifier.gradientIndex = 0;
-                                });
-                              } else {
-                                setState(() {
-                                  controlNotifier.gradientIndex += 1;
-                                });
-                              }
-                            }),
-                      ),
+                    // if (controlNotifier.mediaPath.isEmpty)
+                    Padding(
+                      padding: const EdgeInsets.only(left: 0),
+                      child: _selectColor(
+                          controlProvider: controlNotifier,
+                          onTap: () {
+                            if (controlNotifier.mediaPath.isNotEmpty) {
+                              controlNotifier.switchBGColor = true;
+                            }
+
+                            if (controlNotifier.gradientIndex >=
+                                controlNotifier.gradientColors!.length - 1) {
+                              setState(() {
+                                controlNotifier.gradientIndex = 0;
+                              });
+                            } else {
+                              setState(() {
+                                controlNotifier.gradientIndex += 1;
+                              });
+                            }
+                          }),
+                    ),
                     ToolButton(
                       backGroundColor: Colors.black12,
                       onTap: () => controlNotifier.isTextEditing =
@@ -239,8 +244,10 @@ class _TopToolsState extends State<TopTools> {
               gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
-                  colors: controlProvider
-                      .gradientColors![controlProvider.gradientIndex]),
+                  colors: !controlProvider.switchBGColor
+                      ? imageGradientColorList
+                      : controlProvider
+                          .gradientColors![controlProvider.gradientIndex]),
               shape: BoxShape.circle,
             ),
           ),

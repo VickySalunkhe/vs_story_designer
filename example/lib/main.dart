@@ -42,64 +42,67 @@ class _ExampleState extends State<Example> {
     return Scaffold(
         backgroundColor: Colors.white,
         resizeToAvoidBottomInset: false,
-        body: RepaintBoundary(
-          key: _globalKey,
-          child: Container(
-            color: Colors.white,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  'Welcome To Story Designer',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            RepaintBoundary(
+              key: _globalKey,
+              child: Container(
+                height: MediaQuery.of(context).size.width,
+                color: Colors.white,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text('Welcome To Story Designer',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 35, fontWeight: FontWeight.bold)),
+                    const SizedBox(height: 10),
+                    const Text('All New Way To Explore Story Designer',
+                        style: TextStyle(fontSize: 18)),
+                    const SizedBox(height: 50),
+                    ElevatedButton(
+                      onPressed: () async {
+                        String? mediaPath = await _prepareImage();
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => VSStoryDesigner(
+                                      centerText: "Start Creating Your Story",
+                                      // fontFamilyList: const [
+                                      //   FontType.abrilFatface,
+                                      //   FontType.alegreya,
+                                      //   FontType.typewriter
+                                      // ],
+                                      // middleBottomWidget: const SizedBox(),
+                                      themeType: ThemeType
+                                          .light, // OPTIONAL, Default ThemeType.dark
+                                      galleryThumbnailQuality: 250,
+                                      exitOnSubmit: true,
+                                      onDone: (uri) {
+                                        // debugPrint(uri);
+                                        dev.log(uri);
+                                        Share.shareFiles([uri]);
+                                      },
+                                      mediaPath: mediaPath,
+                                    )));
+                      },
+                      child: const Text('Create',
+                          style: TextStyle(
+                              fontSize: 30, fontWeight: FontWeight.w500)),
+                      style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 10),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          )),
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 10),
-                const Text(
-                  'All New Way To Explore Story Designer',
-                  style: TextStyle(fontSize: 18),
-                ),
-                const SizedBox(height: 50),
-                ElevatedButton(
-                  onPressed: () async {
-                    String? mediaPath = await _prepareImage();
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => VSStoryDesigner(
-                                  centerText: "Start Creating Your Story",
-                                  // fontFamilyList: const [
-                                  //   FontType.abrilFatface,
-                                  //   FontType.alegreya,
-                                  //   FontType.typewriter
-                                  // ],
-                                  // middleBottomWidget: const SizedBox(),
-                                  themeType: ThemeType
-                                      .light, // OPTIONAL, Default ThemeType.dark
-                                  galleryThumbnailQuality: 250,
-                                  exitOnSubmit: true,
-                                  onDone: (uri) {
-                                    // debugPrint(uri);
-                                    dev.log(uri);
-                                    Share.shareFiles([uri]);
-                                  },
-                                  mediaPath: mediaPath,
-                                )));
-                  },
-                  child: const Text('Create',
-                      style:
-                          TextStyle(fontSize: 30, fontWeight: FontWeight.w500)),
-                  style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 10),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      )),
-                ),
-              ],
+              ),
             ),
-          ),
+          ],
         ));
   }
 
