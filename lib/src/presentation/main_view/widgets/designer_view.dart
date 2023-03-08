@@ -11,21 +11,24 @@ designerViewWidget() {
     duration: const Duration(milliseconds: 200),
     decoration: BoxDecoration(
         //borderRadius: BorderRadius.circular(25),
-        gradient: designerControlNotifier.mediaPath.isEmpty
-            ? LinearGradient(
-                colors: designerControlNotifier
-                    .gradientColors![designerControlNotifier.gradientIndex],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              )
-            : LinearGradient(
-                colors: [
-                  designerColorProvider.color1,
-                  designerColorProvider.color2
-                ],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-              )),
+        gradient:
+            //controlNotifier.mediaPath.isEmpty
+            designerControlNotifier.switchBGColor ||
+                    designerControlNotifier.mediaPath.isEmpty
+                ? LinearGradient(
+                    colors: designerControlNotifier
+                        .gradientColors![designerControlNotifier.gradientIndex],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  )
+                : LinearGradient(
+                    colors: [
+                      designerColorProvider.color1,
+                      designerColorProvider.color2
+                    ],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                  )),
     child: Stack(
       alignment: Alignment.center,
       children: [
