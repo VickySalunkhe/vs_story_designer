@@ -41,14 +41,14 @@ class _FileImageBGState extends State<FileImageBG> {
       if (imageKey.currentState != null) {
         if (imageKey.currentState!.context.size!.height == 0.0) {
         } else {
-          int cnt = 0;
-          do {
-            imageGradientColorList = await setColor();
-            color1 = imageGradientColorList[0];
-            color2 = imageGradientColorList[1];
-            cnt++;
-          } while (imageGradientColorList[0] == imageGradientColorList[1] &&
-              cnt < 5);
+          // int cnt = 0;
+          // do {
+          imageGradientColorList = await setColor();
+          color1 = imageGradientColorList[0];
+          color2 = imageGradientColorList[1];
+          // cnt++;
+          // } while (imageGradientColorList[0] == imageGradientColorList[1] &&
+          //     cnt < 5);
 
           setState(() {});
           widget.generatedGradient(color1, color2);
@@ -61,24 +61,36 @@ class _FileImageBGState extends State<FileImageBG> {
   }
 
   Future<List<Color>> setColor() async {
-    double height = imageKey.currentState!.context.size!.height;
-    double width = imageKey.currentState!.context.size!.width;
-    Offset offset1 = Offset(
-        (width ~/ 3) + random.nextInt(width ~/ 3).toDouble(),
-        (height ~/ 8) + random.nextInt(height ~/ 3).toDouble());
-    Offset offset2 = Offset(
-        (width ~/ 3) + random.nextInt(width ~/ 3).toDouble(),
-        (height ~/ 2) + random.nextInt(height ~/ 3).toDouble());
     Color cd1 = await ColorDetection(
       currentKey: currentKey,
       paintKey: paintKey,
       stateController: stateController,
-    ).searchPixel(offset1);
+    ).searchPixel(Offset(imageKey.currentState!.context.size!.width / 2, 480));
     Color cd2 = await ColorDetection(
       currentKey: currentKey,
       paintKey: paintKey,
       stateController: stateController,
-    ).searchPixel(offset2);
+    ).searchPixel(
+        Offset(imageKey.currentState!.context.size!.width / 2.3, 530));
+
+    // double height = imageKey.currentState!.context.size!.height;
+    // double width = imageKey.currentState!.context.size!.width;
+    // Offset offset1 = Offset(
+    //     (width ~/ 3) + random.nextInt(width ~/ 3).toDouble(),
+    //     (height ~/ 8) + random.nextInt(height ~/ 3).toDouble());
+    // Offset offset2 = Offset(
+    //     (width ~/ 3) + random.nextInt(width ~/ 3).toDouble(),
+    //     (height ~/ 2) + random.nextInt(height ~/ 3).toDouble());
+    // Color cd1 = await ColorDetection(
+    //   currentKey: currentKey,
+    //   paintKey: paintKey,
+    //   stateController: stateController,
+    // ).searchPixel(offset1);
+    // Color cd2 = await ColorDetection(
+    //   currentKey: currentKey,
+    //   paintKey: paintKey,
+    //   stateController: stateController,
+    // ).searchPixel(offset2);
     return [cd1, cd2];
   }
 
