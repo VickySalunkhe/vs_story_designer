@@ -83,7 +83,8 @@ class _ExampleState extends State<Example> {
                                       onDone: (uri) {
                                         // debugPrint(uri);
                                         dev.log(uri);
-                                        Share.shareFiles([uri]);
+                                        Share.shareXFiles(
+                                            [XFile(File(uri).path)]);
                                       },
                                       mediaPath: mediaPath,
                                     )));

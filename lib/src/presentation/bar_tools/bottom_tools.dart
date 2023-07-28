@@ -1,7 +1,5 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
@@ -231,9 +229,9 @@ class BottomTools extends StatelessWidget {
                             borderRadius: BorderRadius.circular(8),
                             border:
                                 Border.all(color: Colors.white, width: 1.5)),
-                        child: Row(
+                        child: const Row(
                             mainAxisSize: MainAxisSize.min,
-                            children: const [
+                            children: [
                               Padding(
                                 padding: EdgeInsets.only(left: 0, right: 2),
                                 child: Icon(Icons.share_sharp, size: 28),
@@ -314,5 +312,4 @@ class BottomTools extends StatelessWidget {
   //     ),
   //   );
   // }
-
 }

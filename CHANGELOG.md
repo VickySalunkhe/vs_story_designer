@@ -1,3 +1,6 @@
+## 2.0.1
+- Flutter Version Upgrade v3.10.+
+
 ## 1.4.1
 - Added support for passing image from outside and use it directly into the package.
 

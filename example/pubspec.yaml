@@ -15,7 +15,7 @@ dependencies:
 
 
   cupertino_icons: ^1.0.2
-  share_plus: ^4.0.10+1
+  share_plus: ^7.0.2
   permission_handler: ^10.0.0
   dotted_border: ^2.0.0+3
   gap: ^2.0.1

@@ -97,7 +97,7 @@ class TextFieldWidget extends StatelessWidget {
       textAlign: editorNotifier.textAlign,
       style: AppFonts.getTextThemeENUM(
               controlNotifier.fontList![editorNotifier.fontFamilyIndex])
-          .bodyText1!
+          .bodyLarge!
           .merge(
             TextStyle(
               // fontFamily:

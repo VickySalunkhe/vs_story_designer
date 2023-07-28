@@ -52,7 +52,7 @@ class FontSelector extends StatelessWidget {
                       'Aa',
                       style: AppFonts.getTextThemeENUM(
                               controlNotifier.fontList![index])
-                          .bodyText1!
+                          .bodyLarge!
                           .merge(const TextStyle(
                               // fontFamily: controlNotifier.fontList![index],
                               // package: controlNotifier.isCustomFontList

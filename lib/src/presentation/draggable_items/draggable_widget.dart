@@ -237,7 +237,7 @@ class DraggableWidget extends StatelessWidget {
       bool background = false}) {
     return AppFonts.getTextThemeENUM(
             controlNotifier.fontList![draggableWidget.fontFamily])
-        .bodyText1!
+        .bodyLarge!
         .merge(
           TextStyle(
             // fontFamily: controlNotifier.fontList![draggableWidget.fontFamily],

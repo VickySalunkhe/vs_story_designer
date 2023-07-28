@@ -1,7 +1,6 @@
 // ignore_for_file: must_be_immutable, library_private_types_in_public_api, no_leading_underscores_for_local_identifiers
 
 import 'dart:async';
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
@@ -130,7 +129,7 @@ class _MainViewState extends State<MainView> {
   bool _inAction = false;
 
   /// screen size
-  final _screenSize = MediaQueryData.fromWindow(WidgetsBinding.instance.window);
+  dynamic _screenSize = 0;
 
   /// recorder controller
   // final WidgetRecorderController _recorderController =
@@ -179,6 +178,7 @@ class _MainViewState extends State<MainView> {
   @override
   Widget build(BuildContext context) {
     mainContext = context;
+    _screenSize = MediaQueryData.fromView(View.of(context));
     return WillPopScope(
       onWillPop: _popScope,
       child: Material(
@@ -365,7 +365,7 @@ class _MainViewState extends State<MainView> {
                                 widget.centerText!,
                                 style: AppFonts.getTextThemeENUM(
                                         FontType.garamond)
-                                    .bodyText1!
+                                    .bodyLarge!
                                     .merge(
                                       TextStyle(
                                         package: 'vs_story_designer',
