@@ -1,4 +1,4 @@
-## 1.5.1
+## 1.5.2
 -- Fixed Readme guidelines and removed not necessary imports from AndroidManifest.xml, for more check issue https://github.com/VickySalunkhe/vs_story_designer/issues/3
 
 ## 1.5.0
