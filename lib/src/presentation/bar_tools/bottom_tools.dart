@@ -127,11 +127,13 @@ class BottomTools extends StatelessWidget {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Image.asset(
-                            'assets/images/instagram_logo.png',
-                            package: 'vs_story_designer',
-                            color: Colors.white,
-                            height: 42,
+                          const Text(
+                            'FChat Messanger',
+                            style: TextStyle(
+                                color: Colors.white38,
+                                letterSpacing: 1.5,
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold),
                           ),
                           const Text(
                             'Story Designer',
