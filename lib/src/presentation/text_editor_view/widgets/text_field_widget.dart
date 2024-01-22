@@ -7,7 +7,7 @@ import 'package:vs_story_designer/src/domain/providers/notifiers/text_editing_no
 import 'package:vs_story_designer/src/presentation/utils/constants/font_family.dart';
 
 class TextFieldWidget extends StatelessWidget {
-  const TextFieldWidget({Key? key}) : super(key: key);
+  const TextFieldWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

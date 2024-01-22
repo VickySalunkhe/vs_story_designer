@@ -12,11 +12,10 @@ class FileImageBG extends StatefulWidget {
   final void Function(Color color1, Color color2) generatedGradient;
   final Size size;
   const FileImageBG(
-      {Key? key,
+      {super.key,
       required this.filePath,
       required this.size,
-      required this.generatedGradient})
-      : super(key: key);
+      required this.generatedGradient});
   @override
   _FileImageBGState createState() => _FileImageBGState();
 }

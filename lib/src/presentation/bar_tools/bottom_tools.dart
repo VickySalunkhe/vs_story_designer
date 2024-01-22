@@ -1,7 +1,10 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:oktoast/oktoast.dart';
+// import 'package:fluttertoast/fluttertoast.dart';
+// import 'package:gallery_picker/models/media_file.dart';
+// import 'package:gallery_picker/user_widgets/thumbnail_media.dart';
 import 'package:provider/provider.dart';
 import 'package:vs_media_picker/vs_media_picker.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/control_provider.dart';
@@ -24,14 +27,13 @@ class BottomTools extends StatelessWidget {
   /// editor background color
   final Color? editorBackgroundColor;
   const BottomTools(
-      {Key? key,
+      {super.key,
       required this.contentKey,
       required this.onDone,
       required this.mainContext,
       this.renderWidget,
       this.onDoneButtonStyle,
-      this.editorBackgroundColor})
-      : super(key: key);
+      this.editorBackgroundColor});
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +72,13 @@ class BottomTools extends StatelessWidget {
                                       curve: Curves.ease);
                                 }
                               },
-                              child: const CoverThumbnail(
+                              child:
+                                  // ThumbnailMedia(
+                                  //     media: MediaFile.file(
+                                  //         id: "id",
+                                  //         file: File(""),
+                                  //         type: MediaType.image))
+                                  const CoverThumbnail(
                                 thumbnailQuality: 150,
                               ),
                             ))
@@ -211,8 +219,7 @@ class BottomTools extends StatelessWidget {
                           //   });
                           // }
                         } else {
-                          Fluttertoast.showToast(
-                              msg: 'Design something to save image');
+                          showToast('Design something to save image');
                         }
                       }
                     });

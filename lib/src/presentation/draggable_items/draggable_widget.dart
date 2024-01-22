@@ -26,13 +26,13 @@ class DraggableWidget extends StatelessWidget {
   final Function(PointerMoveEvent)? onPointerMove;
   final BuildContext? passedContext;
   const DraggableWidget({
-    Key? key,
+    super.key,
     this.passedContext,
     required this.draggableWidget,
     this.onPointerDown,
     this.onPointerUp,
     this.onPointerMove,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

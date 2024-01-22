@@ -21,8 +21,8 @@ enum FontType {
   openSans,
   baskerville,
   cormorant,
-  sourceSerifPro,
-  sourceSansPro,
+  sourceSerif,
+  sourceSans,
   raleway,
   ptSans,
   pacifico,
@@ -159,7 +159,7 @@ class VSStoryDesigner extends StatefulWidget {
   final bool exitOnSubmit;
 
   const VSStoryDesigner(
-      {Key? key,
+      {super.key,
       this.giphyKey,
       this.themeType,
       required this.onDone,
@@ -175,8 +175,7 @@ class VSStoryDesigner extends StatefulWidget {
       this.editorBackgroundColor,
       this.galleryThumbnailQuality,
       this.mediaPath,
-      required this.centerText})
-      : super(key: key);
+      required this.centerText});
 
   @override
   _VSStoryDesignerState createState() => _VSStoryDesignerState();
@@ -185,7 +184,7 @@ class VSStoryDesigner extends StatefulWidget {
 class _VSStoryDesignerState extends State<VSStoryDesigner> {
   @override
   void initState() {
-    Paint.enableDithering = true;
+    // Paint.enableDithering = true;
     WidgetsFlutterBinding.ensureInitialized();
     SystemChrome.setPreferredOrientations(
         [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);

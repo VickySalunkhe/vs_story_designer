@@ -6,6 +6,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+// import 'package:gallery_picker/gallery_picker.dart';
 // import 'package:fluttertoast/fluttertoast.dart';
 // import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:photo_view/photo_view.dart';
@@ -88,7 +89,7 @@ class MainView extends StatefulWidget {
   final bool? exitOnSubmit;
 
   MainView(
-      {Key? key,
+      {super.key,
       this.themeType,
       required this.giphyKey,
       required this.onDone,
@@ -104,8 +105,7 @@ class MainView extends StatefulWidget {
       this.editorBackgroundColor,
       this.galleryThumbnailQuality,
       this.centerText,
-      this.mediaPath})
-      : super(key: key);
+      this.mediaPath});
 
   @override
   _MainViewState createState() => _MainViewState();
@@ -179,8 +179,8 @@ class _MainViewState extends State<MainView> {
   Widget build(BuildContext context) {
     mainContext = context;
     _screenSize = MediaQueryData.fromView(View.of(context));
-    return WillPopScope(
-      onWillPop: _popScope,
+    return PopScope(
+      onPopInvoked: (val) => _popScope,
       child: Material(
         color: widget.editorBackgroundColor == Colors.transparent
             ? Colors.black

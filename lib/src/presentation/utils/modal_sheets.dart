@@ -1,7 +1,8 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers, unused_element
 
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:oktoast/oktoast.dart';
+
 // import 'package:modal_gif_picker/modal_gif_picker.dart';
 import 'package:provider/provider.dart';
 // import 'package:vs_story_designer/src/domain/models/editable_items.dart';
@@ -228,6 +229,6 @@ _resetDefaults({required BuildContext context}) {
 
 _dispose({required context, required message}) {
   _resetDefaults(context: context);
-  Fluttertoast.showToast(msg: message);
+  showToast(message);
   Navigator.of(context).pop(true);
 }
