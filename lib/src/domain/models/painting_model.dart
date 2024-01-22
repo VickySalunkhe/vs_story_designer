@@ -4,7 +4,7 @@ import 'package:vs_story_designer/src/presentation/utils/constants/painting_type
 
 class PaintingModel {
   /// lines coordinates
-  List<Point> points;
+  List<PointVector> points;
 
   /// The base size (diameter) of the stroke.
   double size = 10;

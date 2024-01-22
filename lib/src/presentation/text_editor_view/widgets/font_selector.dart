@@ -9,7 +9,7 @@ import 'package:vs_story_designer/src/presentation/utils/constants/font_family.d
 import 'package:vs_story_designer/src/presentation/widgets/animated_onTap_button.dart';
 
 class FontSelector extends StatelessWidget {
-  const FontSelector({Key? key}) : super(key: key);
+  const FontSelector({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +52,7 @@ class FontSelector extends StatelessWidget {
                       'Aa',
                       style: AppFonts.getTextThemeENUM(
                               controlNotifier.fontList![index])
-                          .bodyText1!
+                          .bodyLarge!
                           .merge(const TextStyle(
                               // fontFamily: controlNotifier.fontList![index],
                               // package: controlNotifier.isCustomFontList

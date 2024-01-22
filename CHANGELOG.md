@@ -1,3 +1,8 @@
+## 2.2.0
+- Fixed Bugs
+- Upgraded SDK version support to 4.0.0
+- updated supporting packages
+
 ## 1.5.2
 -- Fixed Readme guidelines and removed not necessary imports from AndroidManifest.xml, for more check issue https://github.com/VickySalunkhe/vs_story_designer/issues/3
 

@@ -83,7 +83,7 @@ class MainView extends StatefulWidget {
   final String? mediaPath;
 
   MainView(
-      {Key? key,
+      {super.key,
       this.themeType,
       required this.giphyKey,
       required this.onDone,
@@ -98,8 +98,7 @@ class MainView extends StatefulWidget {
       this.editorBackgroundColor,
       this.galleryThumbnailQuality,
       this.centerText,
-      this.mediaPath})
-      : super(key: key);
+      this.mediaPath});
 
   @override
   _MainViewState createState() => _MainViewState();
@@ -123,7 +122,7 @@ class _MainViewState extends State<MainView> {
   bool _inAction = false;
 
   /// screen size
-  final _screenSize = MediaQueryData.fromWindow(WidgetsBinding.instance.window);
+  final _screenSize = MediaQueryData.fromView(WidgetsBinding.instance.window);
 
   /// recorder controller
   // final WidgetRecorderController _recorderController =
@@ -170,8 +169,8 @@ class _MainViewState extends State<MainView> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: _popScope,
+    return PopScope(
+      onPopInvoked: (val) => _popScope,
       child: Material(
         color: widget.editorBackgroundColor == Colors.transparent
             ? Colors.black
@@ -353,7 +352,7 @@ class _MainViewState extends State<MainView> {
                                 widget.centerText!,
                                 style: AppFonts.getTextThemeENUM(
                                         FontType.garamond)
-                                    .bodyText1!
+                                    .bodyLarge!
                                     .merge(
                                       TextStyle(
                                         package: 'vs_story_designer',

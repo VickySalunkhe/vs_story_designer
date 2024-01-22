@@ -1,8 +1,6 @@
 // ignore_for_file: must_be_immutable, library_private_types_in_public_api
 library vs_story_designer;
 
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -14,7 +12,6 @@ import 'package:vs_story_designer/src/domain/providers/notifiers/painting_notifi
 import 'package:vs_story_designer/src/domain/providers/notifiers/scroll_notifier.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/text_editing_notifier.dart';
 import 'package:vs_story_designer/src/presentation/main_view/main_view.dart';
-import 'package:vs_story_designer/src/presentation/utils/constants/gradients.dart';
 
 export 'package:vs_story_designer/vs_story_designer.dart';
 
@@ -24,8 +21,8 @@ enum FontType {
   openSans,
   baskerville,
   cormorant,
-  sourceSerifPro,
-  sourceSansPro,
+  sourceSerif,
+  sourceSans,
   raleway,
   ptSans,
   pacifico,
@@ -159,7 +156,7 @@ class VSStoryDesigner extends StatefulWidget {
   final String? mediaPath;
 
   const VSStoryDesigner(
-      {Key? key,
+      {super.key,
       this.giphyKey,
       this.themeType,
       required this.onDone,
@@ -174,8 +171,7 @@ class VSStoryDesigner extends StatefulWidget {
       this.editorBackgroundColor,
       this.galleryThumbnailQuality,
       this.mediaPath,
-      required this.centerText})
-      : super(key: key);
+      required this.centerText});
 
   @override
   _VSStoryDesignerState createState() => _VSStoryDesignerState();
@@ -184,7 +180,7 @@ class VSStoryDesigner extends StatefulWidget {
 class _VSStoryDesignerState extends State<VSStoryDesigner> {
   @override
   void initState() {
-    Paint.enableDithering = true;
+    // Paint.enableDithering = true;
     WidgetsFlutterBinding.ensureInitialized();
     SystemChrome.setPreferredOrientations(
         [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);

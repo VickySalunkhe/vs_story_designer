@@ -15,7 +15,7 @@ import 'package:vs_story_designer/src/presentation/widgets/color_selector.dart';
 import 'package:vs_story_designer/src/presentation/widgets/size_slider_selector.dart';
 
 class Painting extends StatefulWidget {
-  const Painting({Key? key}) : super(key: key);
+  const Painting({super.key});
 
   @override
   State<Painting> createState() => _PaintingState();
@@ -45,14 +45,14 @@ class _PaintingState extends State<Painting> {
     PaintingModel? line;
 
     /// screen size
-    var screenSize = MediaQueryData.fromWindow(WidgetsBinding.instance.window);
+    var screenSize = MediaQueryData.fromView(WidgetsBinding.instance.window);
 
     /// on gestures start
     void _onPanStart(DragStartDetails details,
         PaintingNotifier paintingNotifier, ControlNotifier controlProvider) {
       final box = context.findRenderObject() as RenderBox;
       final offset = box.globalToLocal(details.globalPosition);
-      final point = Point(offset.dx, offset.dy);
+      final point = PointVector(offset.dx, offset.dy);
       final points = [point];
 
       /// validate allow pan area
@@ -79,7 +79,7 @@ class _PaintingState extends State<Painting> {
         PaintingNotifier paintingNotifier, ControlNotifier controlNotifier) {
       final box = context.findRenderObject() as RenderBox;
       final offset = box.globalToLocal(details.globalPosition);
-      final point = Point(offset.dx, offset.dy);
+      final point = PointVector(offset.dx, offset.dy);
       final points = [...line!.points, point];
 
       /// validate allow pan area
@@ -154,13 +154,13 @@ class _PaintingState extends State<Painting> {
     /// return Painting board
     return Consumer2<ControlNotifier, PaintingNotifier>(
       builder: (context, controlNotifier, paintingNotifier, child) {
-        return WillPopScope(
-          onWillPop: () async {
+        return PopScope(
+          onPopInvoked: (val) async {
             controlNotifier.isPainting = false;
             WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
               paintingNotifier.closeConnection();
             });
-            return true;
+            // return true;
           },
           child: Scaffold(
             backgroundColor: Colors.transparent,

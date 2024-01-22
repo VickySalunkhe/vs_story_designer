@@ -25,13 +25,13 @@ class DraggableWidget extends StatelessWidget {
   final Function(PointerMoveEvent)? onPointerMove;
   final BuildContext context;
   const DraggableWidget({
-    Key? key,
+    super.key,
     required this.context,
     required this.draggableWidget,
     this.onPointerDown,
     this.onPointerUp,
     this.onPointerMove,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -228,7 +228,7 @@ class DraggableWidget extends StatelessWidget {
       bool background = false}) {
     return AppFonts.getTextThemeENUM(
             controlNotifier.fontList![draggableWidget.fontFamily])
-        .bodyText1!
+        .bodyLarge!
         .merge(
           TextStyle(
             // fontFamily: controlNotifier.fontList![draggableWidget.fontFamily],

@@ -51,8 +51,8 @@ class AppFonts {
     FontType.openSans,
     FontType.baskerville,
     FontType.cormorant,
-    FontType.sourceSerifPro,
-    FontType.sourceSansPro,
+    FontType.sourceSerif,
+    FontType.sourceSans,
     FontType.raleway,
     FontType.ptSans,
     FontType.pacifico,
@@ -183,8 +183,8 @@ class AppFonts {
         return GoogleFonts.greatVibesTextTheme();
       case FontType.zillaSlab:
         return GoogleFonts.zillaSlabTextTheme();
-      case FontType.sourceSansPro:
-        return GoogleFonts.sourceSansProTextTheme();
+      case FontType.sourceSans:
+        return GoogleFonts.sourceSans3TextTheme();
       case FontType.raleway:
         return GoogleFonts.ralewayTextTheme();
       case FontType.ptSans:
@@ -216,8 +216,8 @@ class AppFonts {
       case FontType.cormorant:
         return GoogleFonts.cormorantTextTheme();
 
-      case FontType.sourceSerifPro:
-        return GoogleFonts.sourceSerifProTextTheme();
+      case FontType.sourceSerif:
+        return GoogleFonts.sourceSerif4TextTheme();
 
       case FontType.kurale:
         return GoogleFonts.kuraleTextTheme();

@@ -6,12 +6,11 @@ import 'package:vs_story_designer/src/presentation/utils/constants/item_type.dar
 
 class DeleteItem extends StatelessWidget {
   const DeleteItem({
-    Key? key,
+    super.key,
     required EditableItem? activeItem,
     required this.isDeletePosition,
     required this.animationsDuration,
-  })  : _activeItem = activeItem,
-        super(key: key);
+  }) : _activeItem = activeItem;
 
   final EditableItem? _activeItem;
   final bool isDeletePosition;

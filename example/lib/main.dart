@@ -101,7 +101,7 @@ class _ExampleState extends State<Example> {
         ));
   }
 
-  GlobalKey _globalKey = new GlobalKey();
+  final GlobalKey _globalKey = GlobalKey();
 
   Future<String?> _prepareImage() async {
     ByteData? byteData;
@@ -116,7 +116,7 @@ class _ExampleState extends State<Example> {
 
       final directory = (await getTemporaryDirectory()).path;
       String imgPath = '$directory/${Random().nextInt(999999)}.jpg';
-      File imgFile = new File(imgPath);
+      File imgFile = File(imgPath);
       await imgFile.writeAsBytes(bytes);
       // Uint8List pngBytes = byteData.buffer.asUint8List();
       return imgFile.path;

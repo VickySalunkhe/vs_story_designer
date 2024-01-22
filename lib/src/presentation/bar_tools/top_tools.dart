@@ -1,7 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/control_provider.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/draggable_widget_notifier.dart';
@@ -18,11 +18,10 @@ class TopTools extends StatefulWidget {
   final BuildContext context;
   final Function? renderWidget;
   const TopTools(
-      {Key? key,
+      {super.key,
       required this.contentKey,
       required this.context,
-      this.renderWidget})
-      : super(key: key);
+      this.renderWidget});
 
   @override
   _TopToolsState createState() => _TopToolsState();
@@ -182,14 +181,13 @@ class _TopToolsState extends State<TopTools> {
                               saveToGallery: true,
                               fileName: controlNotifier.folderName);
                           if (response) {
-                            Fluttertoast.showToast(msg: 'Successfully saved');
+                            showToast('Successfully saved');
                           } else {}
                         }
                         // ignore: use_build_context_synchronously
                         Navigator.of(context, rootNavigator: true).pop();
                       } else {
-                        Fluttertoast.showToast(
-                            msg: 'Design something to save image');
+                        showToast('Design something to save image');
                       }
 
                       setState(() {
