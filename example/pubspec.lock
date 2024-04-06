@@ -203,10 +203,11 @@ packages:
   image_gallery_saver:
     dependency: transitive
     description:
-      name: image_gallery_saver
-      sha256: "0aba74216a4d9b0561510cb968015d56b701ba1bd94aace26aacdd8ae5761816"
-      url: "https://pub.dev"
-    source: hosted
+      path: "."
+      ref: HEAD
+      resolved-ref: f8393c60c5e6b0d8985b2a3359668b7351ce6abd
+      url: "https://github.com/knottx/image_gallery_saver.git"
+    source: git
     version: "2.0.3"
   js:
     dependency: transitive
@@ -643,7 +644,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "2.1.0"
+    version: "2.1.1"
   web:
     dependency: transitive
     description:
