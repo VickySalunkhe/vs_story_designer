@@ -18,11 +18,18 @@ dependencies:
   path_provider: ^2.1.2
   photo_view: ^0.14.0
   google_fonts: ^6.1.0
+  
   # image_gallery_saver: ^2.0.3
+  # image_gallery_saver:
+  #   git:
+  #     # url: 'https://github.com/knottx/image_gallery_saver/tree/knottx-latest'
+  #     url: 'https://github.com/knottx/image_gallery_saver.git'
+  
+  # dependency_overrides:
   image_gallery_saver:
     git:
-      # url: 'https://github.com/knottx/image_gallery_saver/tree/knottx-latest'
-      url: 'https://github.com/knottx/image_gallery_saver.git'
+      url: https://github.com/knottx/image_gallery_saver.git
+      ref: knottx-latest
   
   vs_media_picker: ^1.0.2
   # gallery_media_picker: 0.0.82
