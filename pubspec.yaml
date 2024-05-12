@@ -21,7 +21,8 @@ dependencies:
   # image_gallery_saver: ^2.0.3
   image_gallery_saver:
     git:
-      url: 'https://github.com/knottx/image_gallery_saver.git'
+      url: 'https://github.com/knottx/image_gallery_saver/tree/knottx-latest'
+      # url: 'https://github.com/knottx/image_gallery_saver.git'
   
   vs_media_picker: ^1.0.2
   # gallery_media_picker: 0.0.82
