@@ -1,7 +1,7 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
 import 'package:flutter/material.dart';
-import 'package:oktoast/oktoast.dart';
+// import 'package:oktoast/oktoast.dart';
 // import 'package:fluttertoast/fluttertoast.dart';
 // import 'package:gallery_picker/models/media_file.dart';
 // import 'package:gallery_picker/user_widgets/thumbnail_media.dart';
@@ -11,6 +11,7 @@ import 'package:vs_story_designer/src/domain/providers/notifiers/control_provide
 import 'package:vs_story_designer/src/domain/providers/notifiers/draggable_widget_notifier.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/painting_notifier.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/scroll_notifier.dart';
+import 'package:vs_story_designer/src/presentation/utils/app_methods.dart';
 import 'package:vs_story_designer/src/presentation/widgets/animated_onTap_button.dart';
 import '../../domain/sevices/on_done_click.dart';
 import '../utils/designer_variable_state.dart';

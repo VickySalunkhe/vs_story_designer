@@ -1,6 +1,6 @@
 name: vs_story_designer
 description: This is a package created in the style of the instagram story creator, with which you can create images with images, texts, finger drawing.
-version: 2.1.1
+version: 2.1.2
 homepage:  https://github.com/VickySalunkhe/vs_story_designer
 publish_to: none
 
@@ -41,13 +41,14 @@ dependencies:
   align_positioned: ^4.0.1
   #message
   # fluttertoast: ^8.2.4
-  oktoast: ^3.4.0
+  # oktoast: ^3.4.0
+  fluttertoast: ^8.2.6
 
   screenshot: ^3.0.0
 
   # animated_text_kit: ^4.2.2
 
-  flutter_screenutil: ^5.9.1
+  flutter_screenutil: ^5.9.3
 
 dev_dependencies:
   flutter_test:
