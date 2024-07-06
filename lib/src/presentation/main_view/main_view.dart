@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable, library_private_types_in_public_api, no_leading_underscores_for_local_identifiers
 
 import 'dart:async';
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
@@ -180,7 +181,12 @@ class _MainViewState extends State<MainView> {
     mainContext = context;
     _screenSize = MediaQueryData.fromView(View.of(context));
     return PopScope(
-      onPopInvoked: (val) => _popScope,
+      canPop: false,
+      onPopInvoked: (bool didPop) {
+        log("message $didPop");
+        if (didPop) return;
+        _popScope();
+      },
       child: Material(
         color: widget.editorBackgroundColor == Colors.transparent
             ? Colors.black
@@ -600,10 +606,20 @@ class _MainViewState extends State<MainView> {
     /// show close dialog
     else if (!controlNotifier.isTextEditing && !controlNotifier.isPainting) {
       return widget.onBackPress ??
+          // exitDialog(
+          //     context: context,
+          //     contentKey: contentKey,
+          //     themeType: widget.themeType!);
           exitDialog(
-              context: context,
-              contentKey: contentKey,
-              themeType: widget.themeType!);
+                  context: context,
+                  contentKey: contentKey,
+                  themeType: widget.themeType!)
+              .then((res) {
+            if (res && Navigator.canPop(context)) {
+              Navigator.pop(context);
+            }
+            return false;
+          });
     }
     return false;
   }

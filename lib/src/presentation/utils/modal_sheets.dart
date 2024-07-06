@@ -1,5 +1,7 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers, unused_element
 
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 // import 'package:oktoast/oktoast.dart';
 
@@ -113,9 +115,12 @@ Future<bool> exitDialog(
 
                   /// discard
                   AnimatedOnTapButton(
-                    onTap: () async {
+                    onTap: () {
                       _resetDefaults(context: context);
-                      Navigator.of(context).pop(true);
+                      if (Navigator.canPop(context)) {
+                        Navigator.of(context).pop(true);
+                      }
+                      // Navigator.of(context).pop(true);
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
