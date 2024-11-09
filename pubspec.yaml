@@ -31,7 +31,7 @@ dependencies:
       url: https://github.com/knottx/image_gallery_saver.git
       ref: knottx-latest
   
-  vs_media_picker: ^1.0.2
+  vs_media_picker: ^1.0.3
   # gallery_media_picker: 0.0.82
 
   # modal_gif_picker: ^0.0.2
@@ -42,7 +42,7 @@ dependencies:
   #message
   # fluttertoast: ^8.2.4
   # oktoast: ^3.4.0
-  fluttertoast: ^8.2.6
+  fluttertoast: ^8.2.8
 
   screenshot: ^3.0.0
 
