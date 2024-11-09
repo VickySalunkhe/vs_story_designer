@@ -181,7 +181,7 @@ class _MainViewState extends State<MainView> {
     _screenSize = MediaQueryData.fromView(View.of(context));
     return PopScope(
       canPop: false,
-      onPopInvoked: (bool didPop) {
+      onPopInvokedWithResult: (bool didPop, result) {
         // log("message $didPop");
         if (didPop) return;
         _popScope();
