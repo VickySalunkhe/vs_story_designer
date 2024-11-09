@@ -31,11 +31,11 @@ dependencies:
       url: https://github.com/knottx/image_gallery_saver.git
       ref: knottx-latest
   
-  # vs_media_picker: ^1.0.3
-  vs_media_picker:
-    git:
-      url: https://github.com/VickySalunkhe/vs_media_picker.git
-      ref: master
+  vs_media_picker: ^1.0.4
+  # vs_media_picker:
+  #   git:
+  #     url: https://github.com/VickySalunkhe/vs_media_picker.git
+  #     ref: master
   # gallery_media_picker: 0.0.82
 
   # modal_gif_picker: ^0.0.2
