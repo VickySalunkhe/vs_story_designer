@@ -170,7 +170,10 @@ class _MainViewState extends State<MainView> {
   @override
   Widget build(BuildContext context) {
     return PopScope(
-      onPopInvoked: (val) => _popScope,
+      onPopInvokedWithResult: (bool didPop, result) {
+        if (didPop) return;
+        _popScope();
+      },
       child: Material(
         color: widget.editorBackgroundColor == Colors.transparent
             ? Colors.black
@@ -358,7 +361,8 @@ class _MainViewState extends State<MainView> {
                                         package: 'vs_story_designer',
                                         fontWeight: FontWeight.w500,
                                         fontSize: 25,
-                                        color: Colors.white.withOpacity(0.5),
+                                        color:
+                                            Colors.white.withValues(alpha: 0.5),
                                         shadows: !controlNotifier
                                                 .enableTextShadow
                                             ? []
@@ -368,7 +372,7 @@ class _MainViewState extends State<MainView> {
                                                         const Offset(1.0, 1.0),
                                                     blurRadius: 3.0,
                                                     color: Colors.black45
-                                                        .withOpacity(0.3))
+                                                        .withValues(alpha: 0.3))
                                               ],
                                       ),
                                     ),

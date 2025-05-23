@@ -80,7 +80,8 @@ class _ExampleState extends State<Example> {
                                   galleryThumbnailQuality: 250,
                                   onDone: (uri) {
                                     debugPrint(uri);
-                                    Share.shareFiles([uri]);
+                                    SharePlus.instance.share(ShareParams(
+                                        files: [XFile(File(uri).path)]));
                                   },
                                   mediaPath: mediaPath,
                                 )));

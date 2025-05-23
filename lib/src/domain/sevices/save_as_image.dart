@@ -3,7 +3,7 @@ import 'dart:typed_data';
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:image_gallery_saver/image_gallery_saver.dart';
+import 'package:image_gallery_saver_plus/image_gallery_saver_plus.dart';
 import 'package:path_provider/path_provider.dart';
 
 Future takePicture(
@@ -28,7 +28,7 @@ Future takePicture(
     await capturedFile.writeAsBytes(pngBytes);
 
     if (saveToGallery) {
-      final result = await ImageGallerySaver.saveImage(pngBytes,
+      final result = await ImageGallerySaverPlus.saveImage(pngBytes,
           quality: 100, name: "${fileName}_${DateTime.now()}.png");
       if (result != null) {
         return true;

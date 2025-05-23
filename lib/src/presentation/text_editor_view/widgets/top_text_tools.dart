@@ -70,7 +70,7 @@ class TopTextTools extends StatelessWidget {
                     onTap: editorNotifier.onBackGroundChange,
                     backGroundColor:
                         editorNotifier.backGroundColor != Colors.transparent
-                            ? Colors.white.withOpacity(0.9)
+                            ? Colors.white.withValues(alpha: 0.9)
                             : Colors.black12,
                     child: Transform.scale(
                         scale: 0.7,

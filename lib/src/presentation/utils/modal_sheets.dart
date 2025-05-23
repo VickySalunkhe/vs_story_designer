@@ -28,7 +28,7 @@ import 'package:vs_story_designer/vs_story_designer.dart';
 //     backDropColor: Colors.black,
 //     crossAxisCount: 3,
 //     childAspectRatio: 1.2,
-//     topDragColor: Colors.white.withOpacity(0.2),
+//     topDragColor: Colors.white.withValues(alpha: 0.2),
 //   );
 
 //   /// create item of type GIF

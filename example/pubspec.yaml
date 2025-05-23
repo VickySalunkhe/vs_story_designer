@@ -14,11 +14,11 @@ dependencies:
     sdk: flutter
 
 
-  cupertino_icons: ^1.0.2
-  share_plus: ^4.0.10+1
-  permission_handler: ^10.0.0
-  dotted_border: ^2.0.0+3
-  gap: ^2.0.1
+  cupertino_icons: ^1.0.8
+  share_plus: ^11.0.0
+  permission_handler: ^12.0.0+1
+  dotted_border: ^3.0.1
+  gap: ^3.0.1
 
   vs_story_designer:
     path: ../
