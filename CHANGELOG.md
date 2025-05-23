@@ -1,3 +1,7 @@
+## 2.2.1
+- Packages updated and changed
+- Code changes as per flutter version v3.29.3
+
 ## 2.2.0
 - Fixed Bugs
 - Upgraded SDK version support to 4.0.0

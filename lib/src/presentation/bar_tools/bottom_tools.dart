@@ -1,7 +1,7 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
 import 'package:flutter/material.dart';
-import 'package:oktoast/oktoast.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 import 'package:vs_media_picker/vs_media_picker.dart';
 import 'package:vs_story_designer/src/domain/providers/notifiers/control_provider.dart';
@@ -197,7 +197,8 @@ class BottomTools extends StatelessWidget {
                         });
                       }
                     } else {
-                      showToast('Design something to save image');
+                      Fluttertoast.showToast(
+                          msg: 'Design something to save image');
                     }
                     // setState(() {
                     _createVideo = false;
