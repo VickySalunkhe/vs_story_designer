@@ -1,3 +1,8 @@
+## 2.1.3
+- Packages updated
+- Replaced image_gallery_saver with image_gallery_saver_plus
+- Changes in code as per new flutter version
+
 ## 2.1.0
 - Packages updated
 - Bugs Fixed

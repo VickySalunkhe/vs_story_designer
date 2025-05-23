@@ -47,7 +47,7 @@ import 'package:vs_story_designer/vs_story_designer.dart';
        <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
            android:maxSdkVersion="31" />
-       <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+       <!-- <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" /> -->
        <uses-permission android:name="android.permission.INTERNET" />
        <uses-permission android:name="android.permission.VIBRATE"/>
        <!-- Permission is required if you are targeting android 33 and above -->
